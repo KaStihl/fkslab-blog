@@ -19,10 +19,6 @@ defaultContentLanguageInSubdir = false
       [languages.sk.params.homeInfoParams]
         Title = "Z dát k rozhodnutiam"
         Content = """
-<div class="fk-hero" data-animate>
-  <img src="/logo/fk-lab-logo.png" width="1780" height="592" alt="FK's Lab" loading="eager">
-</div>
-
 Osobné dátové projekty popri plnom úväzku — **Power BI dashboardy**, **automatizácia** a **analytika**, ktoré ma jednoducho bavia. Aktuálny showcase: živé sledovanie leteckej dopravy medzi [Viedňou a Bratislavou](/projekty/vie-bts-tracker/).
 """
     [[languages.sk.menu.main]]
@@ -55,10 +51,6 @@ Osobné dátové projekty popri plnom úväzku — **Power BI dashboardy**, **au
       [languages.en.params.homeInfoParams]
         Title = "Turning data into decisions"
         Content = """
-<div class="fk-hero" data-animate>
-  <img src="/logo/fk-lab-logo.png" width="1780" height="592" alt="FK's Lab" loading="eager">
-</div>
-
 Personal data projects on the side of a full-time job — **Power BI dashboards**, **automation**, and **analytics** I genuinely enjoy. Current showcase: live tracking of air traffic between [Vienna and Bratislava](/projekty/vie-bts-tracker/).
 """
     [[languages.en.menu.main]]
@@ -91,10 +83,6 @@ Personal data projects on the side of a full-time job — **Power BI dashboards*
       [languages.de.params.homeInfoParams]
         Title = "Aus Daten werden Entscheidungen"
         Content = """
-<div class="fk-hero" data-animate>
-  <img src="/logo/fk-lab-logo.png" width="1780" height="592" alt="FK's Lab" loading="eager">
-</div>
-
 Persönliche Datenprojekte neben einer Vollzeitstelle — **Power BI Dashboards**, **Automatisierung** und **Analytik**, die mir wirklich Spaß machen. Aktuelles Projekt: Live-Tracking des Flugverkehrs zwischen [Wien und Bratislava](/projekty/vie-bts-tracker/).
 """
     [[languages.de.menu.main]]

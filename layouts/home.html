@@ -11,29 +11,31 @@
   </div>
 </section>
 
-<section aria-label="{{ i18n "home_featured_title" }}">
-  <div class="service-card" data-animate>
-    <span class="service-icon">✈️</span>
-    <h3>{{ i18n "home_featured_title" }}</h3>
-    <p>{{ i18n "home_featured_text" }}</p>
-    <div class="fk-cta-row">
-      <a class="btn btn-primary" href="{{ "projekty/vie-bts-tracker/" | absLangURL }}">
-        {{ i18n "home_featured_read" }}
-        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-      </a>
-      <a class="btn btn-secondary" href="{{ "dashboard/" | absLangURL }}">{{ i18n "home_featured_dashboard" }}</a>
+<div class="fk-home-grid">
+  <section class="fk-home-featured" aria-label="{{ i18n "home_featured_title" }}">
+    <div class="service-card" data-animate>
+      <span class="service-icon">✈️</span>
+      <h3>{{ i18n "home_featured_title" }}</h3>
+      <p>{{ i18n "home_featured_text" }}</p>
+      <div class="fk-cta-row">
+        <a class="btn btn-primary" href="{{ "projekty/vie-bts-tracker/" | absLangURL }}">
+          {{ i18n "home_featured_read" }}
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-secondary" href="{{ "dashboard/" | absLangURL }}">{{ i18n "home_featured_dashboard" }}</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section aria-label="{{ i18n "home_service1_title" }}">
-  <div class="services-grid">
-    {{ partial "service-card.html" (dict "icon" "📊" "title" (i18n "home_service1_title") "text" (i18n "home_service1_text")) }}
-    {{ partial "service-card.html" (dict "icon" "⚙️" "title" (i18n "home_service2_title") "text" (i18n "home_service2_text")) }}
-  </div>
-  <div class="fk-cta-row">
-    <a class="btn btn-primary" href="{{ "contact/" | absLangURL }}">{{ i18n "home_contact_cta" }}</a>
-  </div>
-</section>
+  <section class="fk-home-services" aria-label="{{ i18n "home_service1_title" }}">
+    <div class="services-grid">
+      {{ partial "service-card.html" (dict "icon" "📊" "title" (i18n "home_service1_title") "text" (i18n "home_service1_text")) }}
+      {{ partial "service-card.html" (dict "icon" "⚙️" "title" (i18n "home_service2_title") "text" (i18n "home_service2_text")) }}
+    </div>
+    <div class="fk-cta-row">
+      <a class="btn btn-primary" href="{{ "contact/" | absLangURL }}">{{ i18n "home_contact_cta" }}</a>
+    </div>
+  </section>
+</div>
 
 {{- end }}

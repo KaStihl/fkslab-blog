@@ -12,6 +12,8 @@ Tieto dva príbehy sú vlastne jeden. Susedné letisko naberá presne to, čo dr
 
 Pracujem ako BI konzultant a prišlo mi zvláštne, že to niekto nesleduje systematicky v číslach — len v novinových titulkoch. Tak som si na to postavil vlastný dátový pipeline.
 
+{{< route from="VIE" to="BTS" >}}
+
 {{< stats >}}
 {{< stat value="2" label="letiská porovnávané naživo" >}}
 {{< stat value="3" label="primárne zdroje dát" >}}

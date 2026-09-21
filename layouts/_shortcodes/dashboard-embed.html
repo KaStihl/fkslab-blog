@@ -2,8 +2,12 @@
 {{- $title := .Get "title" | default "VIE/BTS Dashboard" }}
 {{- $height := .Get "height" | default "600" }}
 {{- if $src }}
-<div class="dashboard-frame" data-animate>
-  <iframe src="{{ $src }}" title="{{ $title }}" loading="lazy" allowfullscreen frameborder="0" style="height: {{ $height }}px;"></iframe>
+<div class="dashboard-frame" data-animate style="--fk-dash-min: {{ $height }}px;">
+  <div class="dashboard-toolbar">
+    <a class="dashboard-tool" href="{{ $src }}" target="_blank" rel="noopener">{{ i18n "dash_open_new" }}</a>
+    <button type="button" class="dashboard-tool" data-fk-fullscreen>{{ i18n "dash_fullscreen" }}</button>
+  </div>
+  <iframe src="{{ $src }}" title="{{ $title }}" loading="lazy" allowfullscreen frameborder="0"></iframe>
 </div>
 {{- else }}
 <div class="dashboard-placeholder" data-animate>

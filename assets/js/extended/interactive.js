@@ -16,6 +16,18 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
+  /* Dashboard fullscreen button (hidden without JS + Fullscreen API) */
+  document.querySelectorAll("[data-fk-fullscreen]").forEach(function (btn) {
+    var frame = btn.closest(".dashboard-frame");
+    if (!frame || !frame.requestFullscreen) {
+      btn.hidden = true;
+      return;
+    }
+    btn.addEventListener("click", function () {
+      frame.requestFullscreen();
+    });
+  });
+
   /* Reveal-on-scroll + animated stat counters.
      Elements opt in via [data-animate]; the class that hides them
      (.reveal) is only added here, so without JS nothing is hidden. */

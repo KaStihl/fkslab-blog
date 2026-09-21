@@ -50,3 +50,7 @@ form_submit:
   other: "Odoslať správu"
 form_honeypot_label:
   other: "Nevypĺňajte:"
+dash_fullscreen:
+  other: "Celá obrazovka"
+dash_open_new:
+  other: "Otvoriť v Power BI ↗"

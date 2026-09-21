@@ -12,6 +12,8 @@ Diese beiden Geschichten sind eigentlich eine. Der Nachbarflughafen gewinnt gena
 
 Ich arbeite als BI-Berater, und es kam mir seltsam vor, dass das niemand systematisch in Zahlen verfolgt — nur in Schlagzeilen. Also habe ich mir dafür eine eigene Datenpipeline gebaut.
 
+{{< route from="VIE" to="BTS" >}}
+
 {{< stats >}}
 {{< stat value="2" label="live verglichene Flughäfen" >}}
 {{< stat value="3" label="primäre Datenquellen" >}}

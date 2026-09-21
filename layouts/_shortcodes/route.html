@@ -1,0 +1,17 @@
+{{- $from := .Get "from" | default "VIE" }}
+{{- $to := .Get "to" | default "BTS" }}
+{{- $id := printf "fk-route-%d" .Ordinal }}
+<div class="fk-route" data-animate aria-hidden="true">
+  <svg viewBox="0 0 400 130" xmlns="http://www.w3.org/2000/svg">
+    <path id="{{ $id }}" class="fk-route-line" d="M52 96 C 130 8, 270 8, 348 96" fill="none" />
+    <circle class="fk-route-dot" cx="52" cy="96" r="7" />
+    <circle class="fk-route-dot" cx="348" cy="96" r="7" />
+    <circle class="fk-route-plane" r="4.5">
+      <animateMotion dur="6s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="linear">
+        <mpath href="#{{ $id }}" />
+      </animateMotion>
+    </circle>
+    <text class="fk-route-label" x="52" y="122" text-anchor="middle">{{ $from }}</text>
+    <text class="fk-route-label" x="348" y="122" text-anchor="middle">{{ $to }}</text>
+  </svg>
+</div>

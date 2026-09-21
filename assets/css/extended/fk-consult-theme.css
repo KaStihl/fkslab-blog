@@ -11,8 +11,9 @@
 
 :root {
   /* --- layout: wider than PaperMod's blog-column default ------- */
-  --nav-width: 1180px;
-  --main-width: 900px;
+  --nav-width: 1600px;
+  --main-width: 1600px;
+  --fk-read-width: 78ch;
 
   /* --- brand tokens ------------------------------------------ */
   --fk-navy-900: #061322;
@@ -207,6 +208,47 @@ body {
   background: var(--entry);
 }
 
+/* Wide screens: real horizontal menu, hamburger hidden.
+   Only 4 short links, so 900px is comfortably enough room next to the
+   logo + theme/language switches. Below it, the dropdown above applies. */
+@media screen and (min-width: 900px) {
+  .fk-menu-toggle {
+    display: none;
+  }
+  .menu,
+  .fk-nav-toggle-input:checked ~ .menu {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    row-gap: 0;
+    column-gap: 6px;
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: 0;
+    box-shadow: none;
+  }
+  .menu li {
+    width: auto;
+  }
+  .menu a {
+    padding: 0 14px;
+    line-height: var(--header-height);
+    border-radius: 6px;
+  }
+  .menu a:hover {
+    background: none;
+  }
+  #menu li a span::after {
+    bottom: 14px;
+    left: 0;
+  }
+}
+
 /* ============================================================
    Homepage hero
    ============================================================ */
@@ -214,7 +256,7 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 20px;
-  padding: 56px 44px;
+  padding: clamp(36px, 5vw, 72px) clamp(24px, 4.5vw, 72px);
   margin-bottom: 40px;
   border: 1px solid var(--fk-card-border);
   background:
@@ -222,6 +264,10 @@ body {
     radial-gradient(90% 120% at 95% 15%, rgba(120, 169, 206, 0.28) 0%, transparent 50%),
     linear-gradient(150deg, var(--fk-navy-900) 0%, var(--fk-navy-800) 45%, var(--fk-navy-600) 100%);
   isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 48px;
 }
 .home-info::before,
 .home-info::after {
@@ -255,8 +301,8 @@ body {
 .home-info .entry-header h1,
 .home-info .page-header h1 {
   color: #F5F8FC !important;
-  font-size: 34px;
-  line-height: 1.2;
+  font-size: clamp(30px, 3.4vw, 52px);
+  line-height: 1.15;
   letter-spacing: -0.015em;
   margin-bottom: 18px;
   animation: fk-fade-up 0.7s ease both;
@@ -264,7 +310,7 @@ body {
 .home-info .entry-content,
 .home-info p {
   color: #C9D4E2 !important;
-  font-size: 17px;
+  font-size: clamp(17px, 1.25vw, 20px);
   line-height: 1.65;
   animation: fk-fade-up 0.7s ease 0.1s both;
 }
@@ -282,16 +328,35 @@ body {
   from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+.fk-hero-copy {
+  min-width: 0;
+}
+.fk-hero-cta {
+  margin: 26px 0 22px;
+  animation: fk-fade-up 0.7s ease 0.15s both;
+}
+.btn-on-dark {
+  color: #F5F8FC !important;
+  border-color: rgba(247, 247, 247, 0.28);
+}
+.btn-on-dark:hover {
+  color: var(--fk-blue-300) !important;
+  border-color: var(--fk-blue-300);
+}
+.fk-hero-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 18px;
+  min-width: 0;
+}
 .fk-hero {
-  display: inline-block;
-  border-radius: 14px;
+  border-radius: 16px;
   overflow: hidden;
   border: 1px solid rgba(247, 247, 247, 0.14);
   background: #F4F3F0;
-  padding: 16px 20px;
-  width: 300px;
-  max-width: 100%;
-  margin: 0 0 20px;
+  padding: clamp(18px, 2vw, 30px) clamp(22px, 2.6vw, 40px);
+  width: 100%;
   box-shadow: var(--fk-shadow);
   animation: fk-fade-up 0.7s ease both;
 }
@@ -300,11 +365,52 @@ body {
   width: 100%;
   height: auto;
 }
+/* Route animation (route shortcode) — themed, works in light + dark */
+.fk-route {
+  border-radius: var(--radius);
+  border: 1px solid var(--fk-card-border);
+  background: var(--fk-card-bg);
+  padding: 10px 18px 6px;
+  margin: 28px 0;
+  max-width: 560px;
+}
+.fk-route svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.fk-route-line {
+  stroke: var(--fk-accent);
+  stroke-width: 2;
+  stroke-dasharray: 3 7;
+  stroke-linecap: round;
+  opacity: 0.8;
+}
+.fk-route-dot {
+  fill: var(--fk-accent);
+}
+.fk-route-plane {
+  fill: var(--primary);
+  filter: drop-shadow(0 0 5px var(--fk-accent));
+}
+.fk-route-label {
+  fill: var(--secondary);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+@media screen and (max-width: 900px) {
+  .home-info {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+  .fk-hero-visual {
+    max-width: 460px;
+  }
+}
 @media screen and (max-width: 600px) {
-  .home-info { padding: 36px 24px; }
-  .home-info .entry-header h1 { font-size: 26px; }
+  .home-info .entry-header h1 { font-size: 28px; }
   .home-info .entry-content { font-size: 16px; }
-  .fk-hero { width: 240px; padding: 12px 16px; }
 }
 
 /* ============================================================
@@ -368,6 +474,7 @@ body {
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
   .home-info::before,
   .home-info::after { animation: none !important; }
+  .fk-route-plane { display: none; }
   * { scroll-behavior: auto !important; }
 }
 
@@ -376,7 +483,7 @@ body {
    ============================================================ */
 .fk-stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   gap: 16px;
   margin: 28px 0;
 }
@@ -403,7 +510,7 @@ body {
 }
 .stat-label {
   margin-top: 6px;
-  font-size: 13.5px;
+  font-size: 14.5px;
   color: var(--secondary);
   line-height: 1.4;
 }
@@ -447,6 +554,46 @@ body {
   line-height: 1.55;
 }
 
+/* Home: featured project + services side by side on wide screens */
+.fk-home-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+.fk-home-featured .service-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(28px, 3vw, 48px);
+}
+.fk-home-featured .service-icon {
+  font-size: 36px;
+}
+.fk-home-featured .service-card h3 {
+  font-size: clamp(20px, 1.8vw, 26px);
+}
+.fk-home-featured .service-card p {
+  font-size: clamp(15px, 1.1vw, 17px);
+  max-width: 60ch;
+}
+.fk-home-services .services-grid {
+  margin-top: 0;
+  grid-template-columns: minmax(0, 1fr);
+}
+.fk-home-services .fk-cta-row {
+  margin-bottom: 0;
+}
+@media screen and (max-width: 900px) {
+  .fk-home-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .fk-home-services .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  }
+}
+
 /* ============================================================
    Dashboard embed
    ============================================================ */
@@ -458,10 +605,56 @@ body {
   margin: 24px 0;
   background: var(--fk-navy-800);
 }
+.dashboard-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 8px 10px;
+  background: var(--fk-navy-700);
+  border-bottom: 1px solid var(--fk-card-border);
+}
+.dashboard-tool {
+  font: inherit;
+  font-size: 13px;
+  line-height: 1;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(247, 247, 247, 0.2);
+  background: transparent;
+  color: #E6ECF3;
+  cursor: pointer;
+  text-decoration: none;
+}
+.dashboard-tool:hover {
+  border-color: var(--fk-blue-300);
+  color: var(--fk-blue-300);
+}
 .dashboard-frame iframe {
   display: block;
   width: 100%;
   border: 0;
+  /* fill the viewport instead of a fixed 620px box */
+  height: max(var(--fk-dash-min, 600px), calc(100vh - 230px));
+}
+.dashboard-frame:fullscreen {
+  border-radius: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.dashboard-frame:fullscreen iframe {
+  flex: 1;
+  height: auto;
+}
+/* Dashboard pages use (almost) the whole window */
+.main:has(.dashboard-frame) {
+  max-width: min(100%, 1920px);
+}
+
+/* Reading pages: text keeps a comfortable line length, wide blocks
+   (stats, dashboard, cards, forms) use the full container. */
+.post-content > :where(p, h1, h2, h3, h4, ul, ol, blockquote, pre, table, hr) {
+  max-width: var(--fk-read-width);
 }
 .dashboard-placeholder {
   border-radius: var(--radius);
@@ -637,4 +830,17 @@ input:focus-visible,
 textarea:focus-visible {
   outline: 2px solid var(--fk-accent);
   outline-offset: 2px;
+}
+
+/* keep the header aligned with the wider dashboard page */
+body:has(.dashboard-frame) .header-nav,
+body:has(.dashboard-frame) .footer {
+  max-width: calc(min(100%, 1920px));
+}
+
+/* PaperMod centres h1/h2 with `margin: auto`; with a max-width that would
+   indent them relative to the paragraphs, so pin them to the left edge. */
+.post-content.md-content > h1,
+.post-content.md-content > h2 {
+  margin-inline: 0;
 }

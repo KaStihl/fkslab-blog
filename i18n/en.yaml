@@ -50,3 +50,7 @@ form_submit:
   other: "Send message"
 form_honeypot_label:
   other: "Leave this empty:"
+dash_fullscreen:
+  other: "Fullscreen"
+dash_open_new:
+  other: "Open in Power BI ↗"

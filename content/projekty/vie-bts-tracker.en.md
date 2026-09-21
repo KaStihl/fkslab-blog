@@ -12,6 +12,8 @@ These two stories are really one. The neighboring airport is picking up exactly 
 
 I work as a BI consultant, and it struck me as odd that nobody was tracking this systematically in numbers — only in headlines. So I built my own data pipeline for it.
 
+{{< route from="VIE" to="BTS" >}}
+
 {{< stats >}}
 {{< stat value="2" label="airports compared live" >}}
 {{< stat value="3" label="primary data sources" >}}
