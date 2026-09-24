@@ -32,6 +32,11 @@ Osobné dátové projekty popri plnom úväzku — **Power BI dashboardy**, **au
       url = "/projekty/"
       weight = 30
     [[languages.sk.menu.main]]
+      identifier = "posts"
+      name = "Články"
+      url = "/posts/"
+      weight = 35
+    [[languages.sk.menu.main]]
       identifier = "dashboard"
       name = "Dashboard"
       url = "/dashboard/"
