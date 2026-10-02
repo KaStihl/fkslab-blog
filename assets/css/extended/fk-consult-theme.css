@@ -11,8 +11,8 @@
 
 :root {
   /* --- layout: wider than PaperMod's blog-column default ------- */
-  --nav-width: 1600px;
-  --main-width: 1600px;
+  --nav-width: min(1840px, 94vw);
+  --main-width: min(1840px, 94vw);
   --fk-read-width: 78ch;
 
   /* --- brand tokens ------------------------------------------ */
@@ -557,7 +557,7 @@ body {
 /* Home: featured project + services side by side on wide screens */
 .fk-home-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
   gap: 20px;
   align-items: stretch;
 }
@@ -843,4 +843,153 @@ body:has(.dashboard-frame) .footer {
 .post-content.md-content > h1,
 .post-content.md-content > h2 {
   margin-inline: 0;
+}
+
+/* ============================================================
+   Landing page sections
+   ============================================================ */
+.fk-section {
+  margin: 36px 0;
+}
+.fk-section-title {
+  font-size: clamp(22px, 2vw, 30px);
+  letter-spacing: -0.015em;
+  margin: 0 0 18px;
+}
+.fk-section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 4px;
+}
+.fk-link-more {
+  color: var(--fk-accent);
+  font-weight: 600;
+  font-size: 15px;
+  white-space: nowrap;
+}
+.fk-link-more:hover {
+  color: var(--primary);
+}
+.fk-pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.fk-home-latest .fk-section-title {
+  margin-bottom: 18px;
+}
+.fk-post-list {
+  display: grid;
+  gap: 16px;
+}
+.fk-post-card {
+  display: block;
+  text-decoration: none !important;
+  padding: 22px 26px;
+}
+.fk-post-card time {
+  font-size: 13px;
+  color: var(--secondary);
+}
+.fk-post-card h3 {
+  margin: 6px 0 8px;
+  font-size: clamp(18px, 1.4vw, 21px);
+  color: var(--primary);
+}
+.fk-post-card p {
+  margin: 0 0 10px;
+}
+.fk-post-more {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fk-accent);
+}
+.fk-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fk-accent);
+  background: var(--fk-accent-soft);
+  border-radius: 999px;
+  padding: 5px 12px;
+  margin-bottom: 14px;
+}
+.fk-about-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  margin: 40px 0 20px;
+  padding: clamp(24px, 3vw, 44px);
+  border-radius: 20px;
+  border: 1px solid var(--fk-card-border);
+  background: var(--fk-card-bg);
+}
+.fk-about-strip p {
+  margin: 0;
+  max-width: 70ch;
+  color: var(--secondary);
+  font-size: clamp(16px, 1.1vw, 18px);
+  line-height: 1.65;
+}
+.fk-about-strip .fk-section-title {
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 700px) {
+  .fk-about-strip {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Hero rotating keyword */
+.fk-rotator {
+  margin: 22px 0 0 !important;
+  font-size: 16px !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: baseline;
+}
+.fk-rotator-prefix {
+  color: #9FB0C6;
+}
+.fk-rotator-word {
+  color: var(--fk-blue-300);
+  font-weight: 700;
+  border-bottom: 2px solid var(--fk-blue-300);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.fk-rotator-word.fk-out {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+/* Cursor spotlight on cards (set by interactive.js) */
+.service-card,
+.stat-card {
+  position: relative;
+  overflow: hidden;
+}
+.service-card::after,
+.stat-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), var(--fk-accent-soft), transparent 70%);
+}
+.service-card:hover::after,
+.stat-card:hover::after {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fk-rotator-word { transition: none; }
 }

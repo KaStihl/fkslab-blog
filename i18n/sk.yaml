@@ -54,3 +54,39 @@ dash_fullscreen:
   other: "Celá obrazovka"
 dash_open_new:
   other: "Otvoriť v Power BI ↗"
+home_rotator_prefix:
+  other: "Dnes ma baví"
+home_rotator_words:
+  other: "Power BI|automatizácia dát|analytika|letecké dáta"
+home_pillars_title:
+  other: "Čo tu nájdeš"
+home_pillar1_title:
+  other: "Side projekty"
+home_pillar1_text:
+  other: "Veci, ktoré stavam po práci — od dátového pipeline až po hotový dashboard. Všetko s verejným kódom."
+home_pillar2_title:
+  other: "Blog zo sledovania dát"
+home_pillar2_text:
+  other: "Krátke články o tom, čo vidím v číslach. Z oficiálnych zdrojov, bez odhadov."
+home_pillar3_title:
+  other: "Experimenty a poznámky"
+home_pillar3_text:
+  other: "Nápady, chyby a veci, ktoré sa mi pri stavaní naučili viac než akýkoľvek kurz."
+home_stat_projects:
+  other: "projekty zdokumentované"
+home_stat_posts:
+  other: "články z dát"
+home_latest_title:
+  other: "Najnovšie články"
+home_latest_all:
+  other: "Všetky články"
+home_latest_read:
+  other: "Čítať"
+home_featured_label:
+  other: "Aktuálny projekt"
+home_about_title:
+  other: "Kto za tým stojí"
+home_about_text:
+  other: "Som Fero. Cez deň pracujem s dátami na plný úväzok, vo voľnom čase si z nich robím hračky — dashboardy, pipeline a automatizácie, ktoré sa starajú samy o seba. Táto stránka je môj denník z toho."
+home_about_cta:
+  other: "Viac o mne"

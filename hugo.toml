@@ -19,7 +19,7 @@ defaultContentLanguageInSubdir = false
       [languages.sk.params.homeInfoParams]
         Title = "Z dát k rozhodnutiam"
         Content = """
-Osobné dátové projekty popri plnom úväzku — **Power BI dashboardy**, **automatizácia** a **analytika**, ktoré ma jednoducho bavia. Aktuálny showcase: živé sledovanie leteckej dopravy medzi [Viedňou a Bratislavou](/projekty/vie-bts-tracker/).
+Osobné dátové projekty popri plnom úväzku — **Power BI dashboardy**, **automatizácia** a **analytika**, ktoré ma jednoducho bavia. Tu ich dokumentujem ako blog: čo staviam, čo v dátach sledujem a čo som sa pri tom naučil.
 """
     [[languages.sk.menu.main]]
       identifier = "about"
@@ -56,7 +56,7 @@ Osobné dátové projekty popri plnom úväzku — **Power BI dashboardy**, **au
       [languages.en.params.homeInfoParams]
         Title = "Turning data into decisions"
         Content = """
-Personal data projects on the side of a full-time job — **Power BI dashboards**, **automation**, and **analytics** I genuinely enjoy. Current showcase: live tracking of air traffic between [Vienna and Bratislava](/projekty/vie-bts-tracker/).
+Personal data projects on the side of a full-time job — **Power BI dashboards**, **automation**, and **analytics** I genuinely enjoy. I document them here like a blog: what I build, what I watch in the data, and what I learn along the way.
 """
     [[languages.en.menu.main]]
       identifier = "about"
@@ -68,6 +68,11 @@ Personal data projects on the side of a full-time job — **Power BI dashboards*
       name = "Projects"
       url = "/projekty/"
       weight = 30
+    [[languages.en.menu.main]]
+      identifier = "posts"
+      name = "Articles"
+      url = "/posts/"
+      weight = 35
     [[languages.en.menu.main]]
       identifier = "dashboard"
       name = "Dashboard"
@@ -88,7 +93,7 @@ Personal data projects on the side of a full-time job — **Power BI dashboards*
       [languages.de.params.homeInfoParams]
         Title = "Aus Daten werden Entscheidungen"
         Content = """
-Persönliche Datenprojekte neben einer Vollzeitstelle — **Power BI Dashboards**, **Automatisierung** und **Analytik**, die mir wirklich Spaß machen. Aktuelles Projekt: Live-Tracking des Flugverkehrs zwischen [Wien und Bratislava](/projekty/vie-bts-tracker/).
+Persönliche Datenprojekte neben einer Vollzeitstelle — **Power BI Dashboards**, **Automatisierung** und **Analytik**, die mir wirklich Spaß machen. Ich dokumentiere sie hier wie einen Blog: was ich baue, was ich in den Daten beobachte und was ich dabei lerne.
 """
     [[languages.de.menu.main]]
       identifier = "about"
@@ -100,6 +105,11 @@ Persönliche Datenprojekte neben einer Vollzeitstelle — **Power BI Dashboards*
       name = "Projekte"
       url = "/projekty/"
       weight = 30
+    [[languages.de.menu.main]]
+      identifier = "posts"
+      name = "Beiträge"
+      url = "/posts/"
+      weight = 35
     [[languages.de.menu.main]]
       identifier = "dashboard"
       name = "Dashboard"

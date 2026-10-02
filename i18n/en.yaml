@@ -54,3 +54,39 @@ dash_fullscreen:
   other: "Fullscreen"
 dash_open_new:
   other: "Open in Power BI ↗"
+home_rotator_prefix:
+  other: "Currently into"
+home_rotator_words:
+  other: "Power BI|data automation|analytics|aviation data"
+home_pillars_title:
+  other: "What you'll find here"
+home_pillar1_title:
+  other: "Side projects"
+home_pillar1_text:
+  other: "Things I build after work — from a data pipeline to a finished dashboard. All with public code."
+home_pillar2_title:
+  other: "A blog from tracking data"
+home_pillar2_text:
+  other: "Short articles about what I see in the numbers. Official sources, no estimates."
+home_pillar3_title:
+  other: "Experiments and notes"
+home_pillar3_text:
+  other: "Ideas, mistakes, and things building taught me more than any course."
+home_stat_projects:
+  other: "projects documented"
+home_stat_posts:
+  other: "articles from data"
+home_latest_title:
+  other: "Latest articles"
+home_latest_all:
+  other: "All articles"
+home_latest_read:
+  other: "Read"
+home_featured_label:
+  other: "Current project"
+home_about_title:
+  other: "Who's behind it"
+home_about_text:
+  other: "I'm Fero. By day I work with data full-time; in my free time I turn it into toys — dashboards, pipelines and automations that look after themselves. This site is my diary of it."
+home_about_cta:
+  other: "More about me"

@@ -8,6 +8,11 @@
             {{ $opts := dict "display" "block" }}
             {{ .Content | $.Page.RenderString $opts }}
         </div>
+        <p class="fk-rotator">
+            <span class="fk-rotator-prefix">{{ i18n "home_rotator_prefix" }}</span>
+            {{- $words := split (i18n "home_rotator_words") "|" }}
+            <span class="fk-rotator-word" data-words='{{ $words | jsonify }}'>{{ index $words 0 }}</span>
+        </p>
         <div class="fk-cta-row fk-hero-cta">
             <a class="btn btn-primary" href="{{ "dashboard/" | absLangURL }}">{{ i18n "home_featured_dashboard" }}</a>
             <a class="btn btn-secondary btn-on-dark" href="{{ "projekty/vie-bts-tracker/" | absLangURL }}">{{ i18n "home_featured_read" }}</a>

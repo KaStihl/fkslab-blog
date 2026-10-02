@@ -16,6 +16,33 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
+  /* Hero: rotating keyword (first word is already in the HTML) */
+  var rot = document.querySelector(".fk-rotator-word");
+  if (rot && !reduceMotion) {
+    var words = [];
+    try { words = JSON.parse(rot.getAttribute("data-words")); } catch (e) {}
+    if (words.length > 1) {
+      var idx = 0;
+      setInterval(function () {
+        rot.classList.add("fk-out");
+        setTimeout(function () {
+          idx = (idx + 1) % words.length;
+          rot.textContent = words[idx];
+          rot.classList.remove("fk-out");
+        }, 350);
+      }, 2600);
+    }
+  }
+
+  /* Cursor spotlight on cards */
+  document.addEventListener("pointermove", function (e) {
+    var card = e.target.closest && e.target.closest(".service-card, .stat-card");
+    if (!card) return;
+    var r = card.getBoundingClientRect();
+    card.style.setProperty("--mx", e.clientX - r.left + "px");
+    card.style.setProperty("--my", e.clientY - r.top + "px");
+  }, { passive: true });
+
   /* Dashboard fullscreen button (hidden without JS + Fullscreen API) */
   document.querySelectorAll("[data-fk-fullscreen]").forEach(function (btn) {
     var frame = btn.closest(".dashboard-frame");

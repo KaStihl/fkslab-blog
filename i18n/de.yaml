@@ -54,3 +54,39 @@ dash_fullscreen:
   other: "Vollbild"
 dash_open_new:
   other: "In Power BI öffnen ↗"
+home_rotator_prefix:
+  other: "Gerade begeistert von"
+home_rotator_words:
+  other: "Power BI|Datenautomatisierung|Analytik|Luftfahrtdaten"
+home_pillars_title:
+  other: "Was du hier findest"
+home_pillar1_title:
+  other: "Side-Projekte"
+home_pillar1_text:
+  other: "Dinge, die ich nach der Arbeit baue — von der Datenpipeline bis zum fertigen Dashboard. Alles mit öffentlichem Code."
+home_pillar2_title:
+  other: "Ein Blog aus der Datenbeobachtung"
+home_pillar2_text:
+  other: "Kurze Beiträge darüber, was ich in den Zahlen sehe. Offizielle Quellen, keine Schätzungen."
+home_pillar3_title:
+  other: "Experimente und Notizen"
+home_pillar3_text:
+  other: "Ideen, Fehler und Dinge, die mir das Bauen mehr beigebracht hat als jeder Kurs."
+home_stat_projects:
+  other: "dokumentierte Projekte"
+home_stat_posts:
+  other: "Beiträge aus Daten"
+home_latest_title:
+  other: "Neueste Beiträge"
+home_latest_all:
+  other: "Alle Beiträge"
+home_latest_read:
+  other: "Lesen"
+home_featured_label:
+  other: "Aktuelles Projekt"
+home_about_title:
+  other: "Wer dahintersteckt"
+home_about_text:
+  other: "Ich bin Fero. Tagsüber arbeite ich in Vollzeit mit Daten, in meiner Freizeit mache ich daraus Spielzeug — Dashboards, Pipelines und Automatisierungen, die für sich selbst sorgen. Diese Seite ist mein Tagebuch dazu."
+home_about_cta:
+  other: "Mehr über mich"
