@@ -134,6 +134,9 @@ Persönliche Datenprojekte neben einer Vollzeitstelle — **Power BI Dashboards*
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
   ShowToc = true
+  disableAnchoredHeadings = true
+  # GoatCounter site code (https://CODE.goatcounter.com) — leave empty to disable the visit counter
+  goatcounter = ""
   # SEO: social sharing fallback image
   images = ["/logo/fk-monogram-tile-512.png"]
   comments = false

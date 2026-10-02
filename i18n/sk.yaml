@@ -90,3 +90,17 @@ home_about_text:
   other: "Som Fero. Cez deň pracujem s dátami na plný úväzok, vo voľnom čase si z nich robím hračky — dashboardy, pipeline a automatizácie, ktoré sa starajú samy o seba. Táto stránka je môj denník z toho."
 home_about_cta:
   other: "Viac o mne"
+tip_projects:
+  other: "Otvoriť: Projekty"
+tip_posts:
+  other: "Otvoriť: Články"
+tip_method:
+  other: "Otvoriť: Metodológia a zdroje"
+tip_github:
+  other: "Otvoriť na GitHube"
+tip_article:
+  other: "Prečítať článok"
+visits_views:
+  other: "Zobrazenia"
+visits_unique:
+  other: "Unikátni návštevníci"

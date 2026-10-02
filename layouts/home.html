@@ -7,19 +7,19 @@
 
 <section aria-label="{{ i18n "home_stat_projects" }}">
   <div class="fk-stats-grid">
-    {{ partial "stat-card.html" (dict "value" (string (len $projects)) "suffix" "" "label" (i18n "home_stat_projects")) }}
-    {{ partial "stat-card.html" (dict "value" (string (len $posts)) "suffix" "" "label" (i18n "home_stat_posts")) }}
-    {{ partial "stat-card.html" (dict "value" "0" "suffix" "" "label" (i18n "home_stat_noestimates")) }}
-    {{ partial "stat-card.html" (dict "value" "100" "suffix" "%" "label" (i18n "home_stat_opensource")) }}
+    {{ partial "stat-card.html" (dict "value" (string (len $projects)) "suffix" "" "label" (i18n "home_stat_projects") "url" "projekty/" "tip" (i18n "tip_projects")) }}
+    {{ partial "stat-card.html" (dict "value" (string (len $posts)) "suffix" "" "label" (i18n "home_stat_posts") "url" "posts/" "tip" (i18n "tip_posts")) }}
+    {{ partial "stat-card.html" (dict "value" "0" "suffix" "" "label" (i18n "home_stat_noestimates") "url" "projekty/vie-bts-tracker/" "tip" (i18n "tip_method")) }}
+    {{ partial "stat-card.html" (dict "value" "100" "suffix" "%" "label" (i18n "home_stat_opensource") "url" "https://github.com/KaStihl/vie-bts-tracker" "tip" (i18n "tip_github")) }}
   </div>
 </section>
 
 <section class="fk-section" aria-label="{{ i18n "home_pillars_title" }}">
   <h2 class="fk-section-title">{{ i18n "home_pillars_title" }}</h2>
   <div class="fk-pillars">
-    {{ partial "service-card.html" (dict "icon" "🛠️" "title" (i18n "home_pillar1_title") "text" (i18n "home_pillar1_text")) }}
-    {{ partial "service-card.html" (dict "icon" "📰" "title" (i18n "home_pillar2_title") "text" (i18n "home_pillar2_text")) }}
-    {{ partial "service-card.html" (dict "icon" "🧪" "title" (i18n "home_pillar3_title") "text" (i18n "home_pillar3_text")) }}
+    {{ partial "service-card.html" (dict "icon" "🛠️" "title" (i18n "home_pillar1_title") "text" (i18n "home_pillar1_text") "url" "projekty/" "tip" (i18n "tip_projects")) }}
+    {{ partial "service-card.html" (dict "icon" "📰" "title" (i18n "home_pillar2_title") "text" (i18n "home_pillar2_text") "url" "posts/" "tip" (i18n "tip_posts")) }}
+    {{ partial "service-card.html" (dict "icon" "🧪" "title" (i18n "home_pillar3_title") "text" (i18n "home_pillar3_text") "url" "posts/" "tip" (i18n "tip_posts")) }}
   </div>
 </section>
 
@@ -31,7 +31,7 @@
     </div>
     <div class="fk-post-list">
       {{- range first 3 $posts.ByDate.Reverse }}
-      <a class="fk-post-card service-card" data-animate href="{{ .RelPermalink }}">
+      <a class="fk-post-card service-card fk-card-link" data-animate href="{{ .RelPermalink }}" data-tip="{{ i18n "tip_article" }}">
         <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
         <h3>{{ .Title }}</h3>
         {{- with .Description }}<p>{{ . }}</p>{{ end }}

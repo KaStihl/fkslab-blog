@@ -1,6 +1,6 @@
 {{- $url := .Get "url" }}
 {{- $external := hasPrefix $url "http" }}
-<a class="fk-post-card service-card" data-animate href="{{ cond $external $url ($url | relLangURL) }}"{{ if $external }} target="_blank" rel="noopener"{{ end }}>
+<a class="fk-post-card service-card fk-card-link" data-animate data-tip="{{ .Get "tip" | default (.Get "title") }}" href="{{ cond $external $url ($url | relLangURL) }}"{{ if $external }} target="_blank" rel="noopener"{{ end }}>
   {{- with .Get "icon" }}<span class="service-icon">{{ . }}</span>{{ end }}
   <h3>{{ .Get "title" }}</h3>
   {{- with .Get "text" }}<p>{{ . }}</p>{{ end }}

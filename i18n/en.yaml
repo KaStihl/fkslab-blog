@@ -90,3 +90,17 @@ home_about_text:
   other: "I'm Fero. By day I work with data full-time; in my free time I turn it into toys — dashboards, pipelines and automations that look after themselves. This site is my diary of it."
 home_about_cta:
   other: "More about me"
+tip_projects:
+  other: "Open: Projects"
+tip_posts:
+  other: "Open: Articles"
+tip_method:
+  other: "Open: Methodology and sources"
+tip_github:
+  other: "Open on GitHub"
+tip_article:
+  other: "Read the article"
+visits_views:
+  other: "Page views"
+visits_unique:
+  other: "Unique visitors"

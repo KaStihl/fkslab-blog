@@ -1087,3 +1087,72 @@ body:has(.dashboard-frame) .footer {
 @media (prefers-reduced-motion: reduce) {
   .fk-bar { transition: none; transform: none !important; }
 }
+
+/* ============================================================
+   Clickable cards with a visible "where does this go" tooltip
+   ============================================================ */
+.service-card,
+.stat-card {
+  overflow: visible;
+}
+.service-card::after,
+.stat-card::after {
+  border-radius: inherit;
+}
+a.fk-card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+a.stat-card.fk-card-link {
+  display: block;
+}
+a.fk-card-link::before {
+  content: attr(data-tip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translate(-50%, 6px);
+  z-index: 30;
+  padding: 7px 12px;
+  border-radius: 8px;
+  background: var(--fk-navy-900);
+  color: #F5F8FC;
+  border: 1px solid rgba(120, 169, 206, 0.35);
+  box-shadow: var(--fk-shadow);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  max-width: 90vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+a.fk-card-link:hover::before,
+a.fk-card-link:focus-visible::before {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+@media (hover: none) {
+  a.fk-card-link::before { display: none; }
+}
+a.fk-card-link:hover h3,
+a.fk-card-link:hover .stat-number {
+  color: var(--fk-accent);
+}
+
+/* Visit counter (footer) */
+.fk-visits {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--secondary);
+}
+.fk-visits b {
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}

@@ -90,3 +90,17 @@ home_about_text:
   other: "Ich bin Fero. Tagsüber arbeite ich in Vollzeit mit Daten, in meiner Freizeit mache ich daraus Spielzeug — Dashboards, Pipelines und Automatisierungen, die für sich selbst sorgen. Diese Seite ist mein Tagebuch dazu."
 home_about_cta:
   other: "Mehr über mich"
+tip_projects:
+  other: "Öffnen: Projekte"
+tip_posts:
+  other: "Öffnen: Beiträge"
+tip_method:
+  other: "Öffnen: Methodik und Quellen"
+tip_github:
+  other: "Auf GitHub öffnen"
+tip_article:
+  other: "Beitrag lesen"
+visits_views:
+  other: "Seitenaufrufe"
+visits_unique:
+  other: "Eindeutige Besucher"

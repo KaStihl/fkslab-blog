@@ -43,6 +43,26 @@
     card.style.setProperty("--my", e.clientY - r.top + "px");
   }, { passive: true });
 
+  /* Visit counter in the footer (GoatCounter public counter; silently skipped on failure) */
+  if (window.fkCounter) {
+    fetch(window.fkCounter.url)
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function (d) {
+        var footer = document.querySelector(".footer");
+        if (!footer || !d || d.count == null) return;
+        var el = document.createElement("span");
+        el.className = "fk-visits";
+        var html = window.fkCounter.views + ": <b></b>";
+        if (d.count_unique != null) html += " · " + window.fkCounter.uniq + ": <b></b>";
+        el.innerHTML = html;
+        var nums = el.querySelectorAll("b");
+        nums[0].textContent = d.count;
+        if (nums[1]) nums[1].textContent = d.count_unique;
+        footer.appendChild(el);
+      })
+      .catch(function () {});
+  }
+
   /* Dashboard fullscreen button (hidden without JS + Fullscreen API) */
   document.querySelectorAll("[data-fk-fullscreen]").forEach(function (btn) {
     var frame = btn.closest(".dashboard-frame");

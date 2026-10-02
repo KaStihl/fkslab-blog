@@ -1,6 +1,15 @@
 {{- $value := .value }}
 {{- $suffix := .suffix | default "" }}
+{{- $url := .url | default "" }}
+{{- $ext := hasPrefix $url "http" }}
+{{- if $url }}
+<a class="stat-card fk-card-link" data-animate href="{{ cond $ext $url ($url | absLangURL) }}" data-tip="{{ .tip }}"{{ if $ext }} target="_blank" rel="noopener"{{ end }}>
+  <div class="stat-number" data-counter-target="{{ $value }}" data-counter-suffix="{{ $suffix }}">{{ $value }}{{ $suffix }}</div>
+  <div class="stat-label">{{ .label }}</div>
+</a>
+{{- else }}
 <div class="stat-card" data-animate>
   <div class="stat-number" data-counter-target="{{ $value }}" data-counter-suffix="{{ $suffix }}">{{ $value }}{{ $suffix }}</div>
   <div class="stat-label">{{ .label }}</div>
 </div>
+{{- end }}

@@ -1,5 +1,15 @@
+{{- $url := .url | default "" }}
+{{- $ext := hasPrefix $url "http" }}
+{{- if $url }}
+<a class="service-card fk-card-link" data-animate href="{{ cond $ext $url ($url | absLangURL) }}" data-tip="{{ .tip }}"{{ if $ext }} target="_blank" rel="noopener"{{ end }}>
+  {{- with .icon }}<span class="service-icon">{{ . }}</span>{{ end }}
+  <h3>{{ .title }}</h3>
+  <p>{{ .text }}</p>
+</a>
+{{- else }}
 <div class="service-card" data-animate>
   {{- with .icon }}<span class="service-icon">{{ . }}</span>{{ end }}
   <h3>{{ .title }}</h3>
   <p>{{ .text }}</p>
 </div>
+{{- end }}
