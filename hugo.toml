@@ -1,6 +1,7 @@
-baseURL = "https://fkslab.netlify.app/"
+baseURL = "https://fkslab.com/"
 title = "FK's LAB"
 theme = "PaperMod"
+enableRobotsTXT = true
 paginate = 10
 defaultContentLanguage = "sk"
 defaultContentLanguageInSubdir = false
@@ -133,6 +134,8 @@ Persönliche Datenprojekte neben einer Vollzeitstelle — **Power BI Dashboards*
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
   ShowToc = true
+  # SEO: social sharing fallback image
+  images = ["/logo/fk-monogram-tile-512.png"]
   comments = false
 
   [params.label]

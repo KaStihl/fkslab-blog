@@ -1,8 +1,8 @@
 # FK's Lab
 
-Source for [fkslab.netlify.app](https://fkslab.netlify.app/) — a personal site for data projects built on the side of a full-time job: Power BI dashboards, automation, and analytics.
+Source for [fkslab.com](https://fkslab.com/) — a personal site for data projects built on the side of a full-time job: Power BI dashboards, automation, and analytics.
 
-The current showcase is the **[VIE/BTS Aviation Tracker](https://fkslab.netlify.app/projekty/vie-bts-tracker/)**, which tracks how Vienna and Bratislava airports are trading passengers after Austria introduced an aviation tax in 2026. Every number comes straight from official airport press releases and [OpenSky Network](https://opensky-network.org) flight data — no estimates. The data pipeline behind it lives in a separate repo: [KaStihl/vie-bts-tracker](https://github.com/KaStihl/vie-bts-tracker).
+The current showcase is the **[VIE/BTS Aviation Tracker](https://fkslab.com/projekty/vie-bts-tracker/)**, which tracks how Vienna and Bratislava airports are trading passengers after Austria introduced an aviation tax in 2026. Every number comes straight from official airport press releases and [OpenSky Network](https://opensky-network.org) flight data — no estimates. The data pipeline behind it lives in a separate repo: [KaStihl/vie-bts-tracker](https://github.com/KaStihl/vie-bts-tracker).
 
 ## Built with
 
@@ -50,4 +50,4 @@ hugo.toml      Site configuration, languages, and menus
 
 ## Contact
 
-Questions, feedback, or spotted an error in the dashboard data? Reach out via the [contact page](https://fkslab.netlify.app/contact/) or [ferdinand.fojtlin@gmail.com](mailto:ferdinand.fojtlin@gmail.com).
+Questions, feedback, or spotted an error in the dashboard data? Reach out via the [contact page](https://fkslab.com/contact/) or [ferdinand.fojtlin@gmail.com](mailto:ferdinand.fojtlin@gmail.com).
