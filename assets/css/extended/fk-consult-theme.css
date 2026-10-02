@@ -993,3 +993,97 @@ body:has(.dashboard-frame) .footer {
 @media (prefers-reduced-motion: reduce) {
   .fk-rotator-word { transition: none; }
 }
+
+/* ============================================================
+   Link cards + bar chart shortcodes
+   ============================================================ */
+.fk-link-cards {
+  margin: 28px 0;
+}
+.fk-link-cards .service-icon {
+  display: block;
+  margin-bottom: 8px;
+}
+.fk-chart {
+  margin: 32px 0;
+  padding: clamp(18px, 2.4vw, 32px);
+  border-radius: var(--radius);
+  border: 1px solid var(--fk-card-border);
+  background: var(--fk-card-bg);
+}
+.fk-chart-title {
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--primary);
+  margin-bottom: 18px;
+}
+.fk-chart-rows {
+  display: grid;
+  gap: 12px;
+}
+.fk-chart-row {
+  display: grid;
+  grid-template-columns: minmax(92px, 150px) 1fr 76px;
+  align-items: center;
+  gap: 14px;
+  font-size: 14px;
+}
+.fk-chart-label {
+  color: var(--secondary);
+}
+.fk-chart-value {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--primary);
+  text-align: right;
+}
+.fk-chart-track {
+  position: relative;
+  height: 22px;
+}
+.fk-chart-zero {
+  position: absolute;
+  top: -3px;
+  bottom: -3px;
+  width: 1px;
+  background: var(--border);
+}
+.fk-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 4px;
+  background: var(--fk-accent);
+  transform-origin: left center;
+  transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.fk-bar-vie {
+  background: #E07A5F;
+}
+.fk-bar-neg {
+  transform-origin: right center;
+}
+.reveal .fk-bar {
+  transform: scaleX(0);
+}
+.reveal.fk-in-view .fk-bar {
+  transform: scaleX(1);
+}
+.fk-chart-note {
+  margin: 16px 0 0;
+  font-size: 13px;
+  color: var(--secondary);
+  max-width: none !important;
+}
+@media screen and (max-width: 560px) {
+  .fk-chart-row {
+    grid-template-columns: 1fr 70px;
+  }
+  .fk-chart-track {
+    grid-column: 1 / -1;
+    order: 3;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fk-bar { transition: none; transform: none !important; }
+}

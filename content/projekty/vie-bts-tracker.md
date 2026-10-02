@@ -32,3 +32,10 @@ Celý kód je otvorený a verejný na GitHube: [github.com/KaStihl/vie-bts-track
 Dáta z Viedne sa parsujú plne automaticky. Dáta z Bratislavy prechádzajú krátkou manuálnou kontrolou, keďže tamojšie tlačové správy nemajú taký jednotný formát — presnosť je pre mňa dôležitejšia než rýchlosť.
 
 Otázky, postrehy alebo si všimol chybu v dátach? Napíš mi.
+
+## Pozri ďalej
+
+{{< link-cards >}}
+{{< link-card icon="📊" title="Živý dashboard" text="Interaktívny Power BI report s mesačnými číslami." url="/dashboard/" cta="Otvoriť" >}}
+{{< link-card icon="✍️" title="Najnovší článok" text="August potvrdil trend: Bratislava rastie, Viedeň stráca" url="/posts/bts-august-2026-rekord/" cta="Čítať" >}}
+{{< /link-cards >}}

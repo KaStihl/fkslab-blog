@@ -8,6 +8,13 @@ ShowToc: false
 ShowReadingTime: true
 ---
 
+{{< stats >}}
+{{< stat value="626" suffix=" tis." label="pasažierov v auguste 2026 (BTS)" >}}
+{{< stat value="76" suffix=" %" label="medziročný rast v auguste" >}}
+{{< stat value="3.2" suffix=" mil." label="pasažierov od začiatku roka" >}}
+{{< stat value="101" suffix=" %" label="rast oproti rovnakému obdobiu 2025" >}}
+{{< /stats >}}
+
 Bratislavské letisko (BTS) práve oznámilo najrušnejší mesiac vo svojej histórii: **625 742 pasažierov** v auguste 2026, medziročne o **76 %** viac. Od začiatku roka je to spolu **3 194 274 pasažierov** — o **101 %** viac než za rovnaké obdobie 2025, a prvýkrát v 75-ročnej histórii letiska nad hranicou 3 miliónov pasažierov v jednom kalendárnom roku.
 
 Sleduje to aj môj [VIE/BTS Aviation Tracker](/projekty/vie-bts-tracker/) a číslo do neho pribudlo automaticky, hneď ako BTS správu zverejnil — nie z novinových titulkov, priamo z oficiálnej tlačovej správy letiska.
@@ -21,6 +28,8 @@ Rast Bratislavy nie je izolovaný jav. Vo Viedni (VIE) sa odohráva presne opač
 - **jún 2026:** -5,9 %
 
 Viedeň klesá od jari 2026 — presne v čase, keď Rakúsko zaviedlo leteckú daň a Wizz Air výrazne obmedzil svoju prítomnosť na tamojšom letisku. Wizz Air pritom už **14. novembra 2025** otvoril základňu v Bratislave. Na dashboarde to vidno aj graficky — zvislá čiara "Start of Move" presne rozdeľuje obdobie pred a po presune, a odvtedy sa oba trendy roztvárajú opačnými smermi.
+
+{{< bar-chart title="Medziročná zmena počtu pasažierov, 2026" rows="BTS · august|76|bts;VIE · apríl|-8.2|vie;VIE · máj|-5.4|vie;VIE · jún|-5.9|vie" min="-10" max="80" note="Zdroj: oficiálne tlačové správy letísk BTS a VIE." >}}
 
 Nie je to len príbeh o dvoch letiskách. Je to ukážka toho, ako rýchlo sa dokáže presunúť low-cost kapacita, keď sa zmenia podmienky — a ako dobre je to vidieť v dátach, keď ich niekto systematicky zbiera namiesto spoliehania sa na jednorazové titulky.
 

@@ -32,3 +32,10 @@ The full code is open and public on GitHub: [github.com/KaStihl/vie-bts-tracker]
 Vienna's data is parsed fully automatically. Bratislava's data goes through a short manual check, since its press releases aren't as consistently formatted — accuracy matters more to me than speed.
 
 Questions, observations, or spotted an error in the data? Write to me.
+
+## See also
+
+{{< link-cards >}}
+{{< link-card icon="📊" title="Live dashboard" text="Interactive Power BI report with the monthly numbers." url="/dashboard/" cta="Open" >}}
+{{< link-card icon="✍️" title="Latest article" text="August confirmed the trend: Bratislava grows, Vienna loses" url="/posts/bts-august-2026-rekord/" cta="Read" >}}
+{{< /link-cards >}}

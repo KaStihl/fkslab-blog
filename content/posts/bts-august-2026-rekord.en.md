@@ -8,6 +8,13 @@ ShowToc: false
 ShowReadingTime: true
 ---
 
+{{< stats >}}
+{{< stat value="626" suffix="k" label="passengers in August 2026 (BTS)" >}}
+{{< stat value="76" suffix=" %" label="year-over-year growth in August" >}}
+{{< stat value="3.2" suffix="M" label="passengers year to date" >}}
+{{< stat value="101" suffix=" %" label="vs the same period of 2025" >}}
+{{< /stats >}}
+
 Bratislava Airport (BTS) has just announced the busiest month in its history: **625,742 passengers** in August 2026, **76 %** more than a year earlier. Year to date that adds up to **3,194,274 passengers** — **101 %** more than the same period of 2025, and the first time in the airport's 75-year history that it has crossed 3 million passengers in a single calendar year.
 
 My [VIE/BTS Aviation Tracker](/projekty/vie-bts-tracker/) picked it up too, and the number landed in it automatically as soon as BTS published its release — straight from the airport's official press release, not from news headlines.
@@ -21,6 +28,8 @@ Bratislava's growth isn't an isolated event. Vienna (VIE) is living the exact op
 - **June 2026:** -5.9 %
 
 Vienna has been declining since spring 2026 — exactly when Austria introduced its aviation tax and Wizz Air significantly cut its presence at the airport. Wizz Air had already opened its Bratislava base on **14 November 2025**. On the dashboard you can see it graphically: the vertical "Start of Move" line splits the period before and after the shift, and since then the two trends have been moving apart in opposite directions.
+
+{{< bar-chart title="Year-over-year change in passengers, 2026" rows="BTS · August|76|bts;VIE · April|-8.2|vie;VIE · May|-5.4|vie;VIE · June|-5.9|vie" min="-10" max="80" note="Source: official press releases of BTS and VIE airports." >}}
 
 It isn't only a story about two airports. It shows how quickly low-cost capacity can move when conditions change — and how clearly it shows up in the data when someone collects it systematically instead of relying on one-off headlines.
 

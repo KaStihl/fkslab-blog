@@ -1,0 +1,28 @@
+{{- /* rows="Label|value|class;Label|value|class" — diverging bars around zero */ -}}
+{{- $min := float (.Get "min" | default "-10") }}
+{{- $max := float (.Get "max" | default "80") }}
+{{- $unit := .Get "unit" | default "%" }}
+{{- $span := sub $max $min }}
+{{- $zero := div (mul (sub 0.0 $min) 100.0) $span }}
+<figure class="fk-chart" data-animate>
+  {{- with .Get "title" }}<figcaption class="fk-chart-title">{{ . }}</figcaption>{{ end }}
+  <div class="fk-chart-rows">
+  {{- range split (.Get "rows") ";" }}
+    {{- $p := split (trim . " ") "|" }}
+    {{- $raw := index $p 1 }}
+    {{- $v := float $raw }}
+    {{- $abs := cond (lt $v 0.0) (sub 0.0 $v) $v }}
+    {{- $w := div (mul $abs 100.0) $span }}
+    {{- $left := cond (ge $v 0.0) $zero (sub $zero $w) }}
+    <div class="fk-chart-row">
+      <span class="fk-chart-label">{{ index $p 0 }}</span>
+      <span class="fk-chart-track">
+        <span class="fk-chart-zero" style="left: {{ printf "%.2f" $zero }}%"></span>
+        <span class="fk-bar fk-bar-{{ index $p 2 }}{{ if lt $v 0.0 }} fk-bar-neg{{ end }}" style="left: {{ printf "%.2f" $left }}%; width: {{ printf "%.2f" $w }}%"></span>
+      </span>
+      <span class="fk-chart-value">{{ if gt $v 0.0 }}+{{ end }}{{ if ne site.Language.Lang "en" }}{{ replace $raw "." "," }}{{ else }}{{ $raw }}{{ end }} {{ $unit }}</span>
+    </div>
+  {{- end }}
+  </div>
+  {{- with .Get "note" }}<p class="fk-chart-note">{{ . }}</p>{{ end }}
+</figure>

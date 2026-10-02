@@ -32,3 +32,10 @@ Der gesamte Code ist offen und öffentlich auf GitHub: [github.com/KaStihl/vie-b
 Die Wiener Daten werden vollautomatisch geparst. Die Bratislavaer Daten durchlaufen eine kurze manuelle Kontrolle, da die dortigen Pressemitteilungen weniger einheitlich formatiert sind — Genauigkeit ist mir wichtiger als Geschwindigkeit.
 
 Fragen, Anmerkungen oder einen Fehler in den Daten entdeckt? Schreiben Sie mir.
+
+## Weiterlesen
+
+{{< link-cards >}}
+{{< link-card icon="📊" title="Live-Dashboard" text="Interaktiver Power-BI-Report mit den monatlichen Zahlen." url="/dashboard/" cta="Öffnen" >}}
+{{< link-card icon="✍️" title="Neuester Beitrag" text="Der August bestätigt den Trend: Bratislava wächst, Wien verliert" url="/posts/bts-august-2026-rekord/" cta="Lesen" >}}
+{{< /link-cards >}}

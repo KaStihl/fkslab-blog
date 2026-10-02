@@ -8,6 +8,13 @@ ShowToc: false
 ShowReadingTime: true
 ---
 
+{{< stats >}}
+{{< stat value="626" suffix=" Tsd." label="Passagiere im August 2026 (BTS)" >}}
+{{< stat value="76" suffix=" %" label="Wachstum gegenüber Vorjahr im August" >}}
+{{< stat value="3.2" suffix=" Mio." label="Passagiere seit Jahresbeginn" >}}
+{{< stat value="101" suffix=" %" label="gegenüber dem Vorjahreszeitraum" >}}
+{{< /stats >}}
+
 Der Flughafen Bratislava (BTS) hat soeben den verkehrsreichsten Monat seiner Geschichte gemeldet: **625.742 Passagiere** im August 2026, **76 %** mehr als im Vorjahr. Seit Jahresbeginn sind es insgesamt **3.194.274 Passagiere** — **101 %** mehr als im Vorjahreszeitraum und zum ersten Mal in der 75-jährigen Geschichte des Flughafens mehr als 3 Millionen Passagiere in einem Kalenderjahr.
 
 Auch mein [VIE/BTS Aviation Tracker](/projekty/vie-bts-tracker/) hat die Zahl erfasst — automatisch, sobald BTS die Mitteilung veröffentlicht hat, direkt aus der offiziellen Pressemitteilung des Flughafens und nicht aus Schlagzeilen.
@@ -21,6 +28,8 @@ Bratislavas Wachstum ist kein isoliertes Phänomen. In Wien (VIE) läuft genau d
 - **Juni 2026:** -5,9 %
 
 Wien sinkt seit dem Frühjahr 2026 — genau dann, als Österreich die Flugabgabe einführte und Wizz Air seine Präsenz dort deutlich reduzierte. Wizz Air hatte seine Basis in Bratislava bereits am **14. November 2025** eröffnet. Im Dashboard ist das auch grafisch zu sehen: Die vertikale Linie „Start of Move" trennt die Zeit vor und nach der Verlagerung, und seitdem laufen beide Trends in entgegengesetzte Richtungen auseinander.
+
+{{< bar-chart title="Veränderung der Passagierzahlen gegenüber dem Vorjahr, 2026" rows="BTS · August|76|bts;VIE · April|-8.2|vie;VIE · Mai|-5.4|vie;VIE · Juni|-5.9|vie" min="-10" max="80" note="Quelle: offizielle Pressemitteilungen der Flughäfen BTS und VIE." >}}
 
 Es ist nicht nur eine Geschichte über zwei Flughäfen. Sie zeigt, wie schnell sich Low-Cost-Kapazität verschiebt, wenn sich die Bedingungen ändern — und wie deutlich das in den Daten sichtbar wird, wenn man sie systematisch sammelt, statt sich auf einzelne Schlagzeilen zu verlassen.
 
