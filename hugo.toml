@@ -1,10 +1,12 @@
 baseURL = "https://fkslab.com/"
-title = "FK's LAB"
+title = "FK's Lab"
 theme = "PaperMod"
 enableRobotsTXT = true
-paginate = 10
 defaultContentLanguage = "sk"
 defaultContentLanguageInSubdir = false
+
+[pagination]
+  pagerSize = 10
 
 [markup]
   [markup.goldmark.renderer]

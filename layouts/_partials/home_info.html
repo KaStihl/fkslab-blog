@@ -24,7 +24,16 @@
 
     <div class="fk-hero-visual" aria-hidden="true">
         <div class="fk-hero">
-            <img src="/logo/fk-lab-logo.png" width="1780" height="592" alt="" loading="eager">
+            {{- /* 1.4 MB PNG -> responsive WebP (a few tens of KB); the hero card is never wider than ~900px */ -}}
+            {{- with resources.Get "logo/fk-lab-logo.png" }}
+            {{- $s := .Resize "640x webp q85" }}
+            {{- $m := .Resize "960x webp q85" }}
+            {{- $l := .Resize "1400x webp q85" }}
+            <img src="{{ $m.RelPermalink }}"
+                 srcset="{{ $s.RelPermalink }} 640w, {{ $m.RelPermalink }} 960w, {{ $l.RelPermalink }} 1400w"
+                 sizes="(min-width: 1000px) 50vw, 100vw"
+                 width="{{ $m.Width }}" height="{{ $m.Height }}" alt="" loading="eager" fetchpriority="high">
+            {{- end }}
         </div>
     </div>
 </article>
