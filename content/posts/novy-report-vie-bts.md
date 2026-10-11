@@ -11,7 +11,7 @@ ShowReadingTime: true
 {{< stats >}}
 {{< stat value="3" suffix=" strany" label="Home, Trend a Source namiesto jednej stránky" >}}
 {{< stat value="5.1" suffix="×" label="o koľko je Viedeň väčšia ako Bratislava (júl 2026)" >}}
-{{< stat value="97" suffix=" → 184" label="mesačných údajov po doplnení z Eurostatu" >}}
+{{< stat value="184" suffix=" mesiacov" label="v dátach, z toho 55 doplnených z Eurostatu" >}}
 {{< /stats >}}
 
 Keď som report po prvý raz ukázal ľuďom, dostal som úprimnú odpoveď: čísla tam sú, ale nie je z toho jasné, čo z nich mám vyčítať. Mali pravdu. Report bol zbierkou kariet a grafov a o príbehu medzi Viedňou a Bratislavou musel čitateľ hádať sám. Tak som ho prerobil.
@@ -39,7 +39,7 @@ Každý zdroj má vlastnú kartu s odkazom a poznámky vysvetľujú, čo sa stan
 
 ## Chýbajúci júl a čo s ním
 
-Pri kontrole som zistil, že v dátach chýba júl 2026. Nie je to chyba scrapera: Viedeň tlačové správy o výsledkoch za niektoré mesiace (najčastejšie júl, október a december) nezverejňuje a Bratislava ich zverejňuje nepravidelne: za rok 2025 mám v databáze len jediný mesiac.
+Pri kontrole som zistil, že v dátach chýba júl 2026. Nie je to chyba scrapera: Viedeň tlačové správy o výsledkoch za niektoré mesiace (najčastejšie júl, október a december) nezverejňuje a Bratislava ich zverejňuje nepravidelne: za rok 2025 sú v databáze len 7 z 12 mesiacov.
 
 Našiel som to, čo oba problémy rieši: **Eurostat** zverejňuje mesačné počty pasažierov pre každé letisko v EÚ. Porovnal som ich s tlačovými správami:
 

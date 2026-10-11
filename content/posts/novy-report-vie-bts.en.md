@@ -11,7 +11,7 @@ ShowReadingTime: true
 {{< stats >}}
 {{< stat value="3" suffix=" pages" label="Home, Trend and Source instead of a single page" >}}
 {{< stat value="5.1" suffix="×" label="how much larger Vienna is than Bratislava (July 2026)" >}}
-{{< stat value="97" suffix=" → 184" label="monthly data points after filling gaps from Eurostat" >}}
+{{< stat value="184" suffix=" months" label="in the data, 55 of them filled in from Eurostat" >}}
 {{< /stats >}}
 
 When I first showed the report to people, I got an honest answer: the numbers are there, but it isn't clear what to take from them. They were right. The report was a collection of cards and charts, and the story between Vienna and Bratislava was left for the reader to guess. So I rebuilt it.
@@ -39,7 +39,7 @@ Every source has its own card with a link, and the notes explain what happens wh
 
 ## The missing July, and what to do about it
 
-While checking, I found that July 2026 was missing from the data. That's not a scraper bug: Vienna doesn't publish press releases for some months (most often July, October and December), and Bratislava publishes irregularly: for 2025, I have only a single month in the database.
+While checking, I found that July 2026 was missing from the data. That's not a scraper bug: Vienna doesn't publish press releases for some months (most often July, October and December), and Bratislava publishes irregularly: for 2025 the database has only 7 of 12 months.
 
 I found something that fixes both problems: **Eurostat** publishes monthly passenger counts for every airport in the EU. I compared them with the press releases:
 
