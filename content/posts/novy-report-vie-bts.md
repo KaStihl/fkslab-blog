@@ -1,6 +1,6 @@
 ---
 title: "Prerobil som VIE/BTS report: z tabuľky na príbeh"
-date: 2026-10-13
+date: 2026-10-11
 draft: false
 description: "Prvá verzia môjho Power BI reportu ukazovala čísla, ale nič nevysvetľovala. Nová verzia má úvod, mesačné porovnanie, červené poklesy a doplnené chýbajúce mesiace."
 tags: ["Power BI", "dátová vizualizácia", "VIE", "BTS", "Eurostat"]

@@ -1,6 +1,6 @@
 ---
 title: "I rebuilt the VIE/BTS report: from a table to a story"
-date: 2026-10-13
+date: 2026-10-11
 draft: false
 description: "The first version of my Power BI report showed numbers but explained nothing. The new one has an introduction, previous-month comparison, red declines and the missing months filled in."
 tags: ["Power BI", "data visualization", "VIE", "BTS", "Eurostat"]

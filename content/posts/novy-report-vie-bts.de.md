@@ -1,6 +1,6 @@
 ---
 title: "Ich habe den VIE/BTS-Report neu gebaut: von der Tabelle zur Geschichte"
-date: 2026-10-13
+date: 2026-10-11
 draft: false
 description: "Die erste Version meines Power-BI-Reports zeigte Zahlen, erklärte aber nichts. Die neue Version hat eine Einleitung, den Vormonatsvergleich, rote Rückgänge und ergänzte fehlende Monate."
 tags: ["Power BI", "Datenvisualisierung", "VIE", "BTS", "Eurostat"]
