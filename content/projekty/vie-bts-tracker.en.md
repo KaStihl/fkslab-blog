@@ -37,5 +37,5 @@ Questions, observations, or spotted an error in the data? Write to me.
 
 {{< link-cards >}}
 {{< link-card icon="📊" title="Live dashboard" text="Interactive Power BI report with the monthly numbers." url="/dashboard/" cta="Open" >}}
-{{< link-card icon="✍️" title="Latest article" text="August confirmed the trend: Bratislava grows, Vienna loses" url="/posts/bts-august-2026-rekord/" cta="Read" >}}
+{{< link-card icon="✍️" title="Latest article" text="I rebuilt the VIE/BTS report: from a table to a story" url="/posts/novy-report-vie-bts/" cta="Read" >}}
 {{< /link-cards >}}

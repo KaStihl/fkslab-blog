@@ -11,7 +11,7 @@ ShowReadingTime: true
 {{< stats >}}
 {{< stat value="3" suffix=" Seiten" label="Home, Trend und Source statt einer einzigen Seite" >}}
 {{< stat value="5.1" suffix="×" label="so viel größer ist Wien als Bratislava (Juli 2026)" >}}
-{{< stat value="97" suffix=" → 184" label="Monatswerte nach der Ergänzung durch Eurostat" >}}
+{{< stat value="184" suffix=" Monate" label="in den Daten, davon 55 durch Eurostat ergänzt" >}}
 {{< /stats >}}
 
 Als ich den Report zum ersten Mal Leuten gezeigt habe, bekam ich eine ehrliche Antwort: Die Zahlen sind da, aber es wird nicht klar, was man daraus ablesen soll. Sie hatten recht. Der Report war eine Sammlung aus Karten und Diagrammen, und die Geschichte zwischen Wien und Bratislava musste der Leser selbst erraten. Also habe ich ihn neu gebaut.
@@ -39,7 +39,7 @@ Jede Quelle hat eine eigene Karte mit Link, und die Hinweise erklären, was pass
 
 ## Der fehlende Juli und was man damit macht
 
-Bei der Prüfung habe ich festgestellt, dass der Juli 2026 in den Daten fehlt. Das ist kein Scraper-Fehler: Wien veröffentlicht für manche Monate keine Pressemitteilung (am häufigsten Juli, Oktober und Dezember), und Bratislava veröffentlicht unregelmäßig: Für 2025 habe ich in der Datenbank nur einen einzigen Monat.
+Bei der Prüfung habe ich festgestellt, dass der Juli 2026 in den Daten fehlt. Das ist kein Scraper-Fehler: Wien veröffentlicht für manche Monate keine Pressemitteilung (am häufigsten Juli, Oktober und Dezember), und Bratislava veröffentlicht unregelmäßig: Für 2025 hat die Datenbank nur 7 von 12 Monaten.
 
 Ich habe etwas gefunden, das beide Probleme löst: **Eurostat** veröffentlicht monatliche Passagierzahlen für jeden Flughafen in der EU. Ich habe sie mit den Pressemitteilungen verglichen:
 

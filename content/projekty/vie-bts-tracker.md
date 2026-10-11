@@ -37,5 +37,5 @@ Otázky, postrehy alebo si všimol chybu v dátach? Napíš mi.
 
 {{< link-cards >}}
 {{< link-card icon="📊" title="Živý dashboard" text="Interaktívny Power BI report s mesačnými číslami." url="/dashboard/" cta="Otvoriť" >}}
-{{< link-card icon="✍️" title="Najnovší článok" text="August potvrdil trend: Bratislava rastie, Viedeň stráca" url="/posts/bts-august-2026-rekord/" cta="Čítať" >}}
+{{< link-card icon="✍️" title="Najnovší článok" text="Prerobil som VIE/BTS report: z tabuľky na príbeh" url="/posts/novy-report-vie-bts/" cta="Čítať" >}}
 {{< /link-cards >}}

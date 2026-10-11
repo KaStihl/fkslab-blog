@@ -37,5 +37,5 @@ Fragen, Anmerkungen oder einen Fehler in den Daten entdeckt? Schreiben Sie mir.
 
 {{< link-cards >}}
 {{< link-card icon="📊" title="Live-Dashboard" text="Interaktiver Power-BI-Report mit den monatlichen Zahlen." url="/dashboard/" cta="Öffnen" >}}
-{{< link-card icon="✍️" title="Neuester Beitrag" text="Der August bestätigt den Trend: Bratislava wächst, Wien verliert" url="/posts/bts-august-2026-rekord/" cta="Lesen" >}}
+{{< link-card icon="✍️" title="Neuester Beitrag" text="Ich habe den VIE/BTS-Report neu gebaut: von der Tabelle zur Geschichte" url="/posts/novy-report-vie-bts/" cta="Lesen" >}}
 {{< /link-cards >}}
