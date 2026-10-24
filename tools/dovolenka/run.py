@@ -133,7 +133,7 @@ def main(only=None):
             for o in clean:
                 if o["id"] not in offers or o["price_total"] < offers[o["id"]]["price_total"]:
                     offers[o["id"]] = o
-            info["count"] = len(clean)
+            info["count"] = len({o["id"] for o in clean})
             info["status"] = "ok" if clean else "empty"
             print(f"[{name}] {len(raw)} raw, {len(clean)} kept")
         except Exception as e:
