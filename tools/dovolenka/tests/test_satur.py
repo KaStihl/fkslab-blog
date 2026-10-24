@@ -36,3 +36,15 @@ def test_parse_cards_flight():
 
 def test_year_crossing_dates():
     assert satur._dates("28.12. - 4.1.2027")[0].isoformat() == "2026-12-28"
+
+
+def test_pets_from_perks():
+    cards = satur.parse_cards((FX / "satur_so_psom.html").read_text())
+    assert all(c["pets"] for c in cards)
+    o = satur.to_offer(cards[0], "car", None, 3)  # e.g. a /vlastna page: perks still say "so psom"
+    assert o["pets_allowed"] is True
+
+
+def test_deeplinks_and_pages():
+    assert all(d["url"].startswith("https://www.satur.sk/") for d in satur.deeplinks(CONFIG))
+    assert all(p[1] in ("car", "flight") for p in satur.PAGES)

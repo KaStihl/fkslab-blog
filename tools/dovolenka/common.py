@@ -5,7 +5,6 @@ import os
 import re
 import time
 import unicodedata
-import urllib.robotparser
 from pathlib import Path
 from urllib.parse import urlsplit
 
@@ -66,21 +65,62 @@ class RobotsDisallowed(Exception):
     pass
 
 
+class Robots:
+    """robots.txt with Google-style matching: '*' wildcards, '$' anchor, longest rule wins, Allow wins ties.
+    (urllib.robotparser ignores wildcards and on Python 3.12 even let /direct/tour_hotel/ through.)"""
+
+    def __init__(self, text, agent):
+        token = agent.split("/")[0].lower()
+        groups, cur, in_rules = [], None, False
+        for line in text.splitlines():
+            line = line.split("#", 1)[0].strip()
+            if ":" not in line:
+                continue
+            k, v = (x.strip() for x in line.split(":", 1))
+            k = k.lower()
+            if k == "user-agent":
+                if cur is None or in_rules:
+                    cur, in_rules = {"agents": [], "rules": []}, False
+                    groups.append(cur)
+                cur["agents"].append(v.lower())
+            elif k in ("allow", "disallow") and cur is not None:
+                in_rules = True
+                if v:
+                    cur["rules"].append((k == "allow", v))
+        mine = [g for g in groups if any(a != "*" and a in token for a in g["agents"])]
+        mine = mine or [g for g in groups if "*" in g["agents"]]
+        self.rules = [r for g in mine for r in g["rules"]]
+
+    @staticmethod
+    def _rx(pattern):
+        rx = re.escape(pattern).replace(r"\*", ".*")
+        return re.compile(rx[:-2] + "$" if rx.endswith(r"\$") else rx)
+
+    def can_fetch(self, url):
+        parts = urlsplit(url)
+        path = (parts.path or "/") + ("?" + parts.query if parts.query else "")
+        best = None
+        for allow, pat in self.rules:
+            if self._rx(pat).match(path) and (best is None or len(pat) > len(best[1])
+                                              or (len(pat) == len(best[1]) and allow)):
+                best = (allow, pat)
+        return best is None or best[0]
+
+
 def allowed(url):
     """robots.txt check, cached per host. Unreachable robots.txt counts as allowed."""
     parts = urlsplit(url)
     base = f"{parts.scheme}://{parts.netloc}"
     rp = _robots.get(base)
     if rp is None:
-        rp = urllib.robotparser.RobotFileParser()
         try:
             r = session().get(base + "/robots.txt", headers={"User-Agent": _ua(url)}, timeout=15)
             dump(r.url, r.status_code, r.text)
-            rp.parse(r.text.splitlines() if r.ok else [])
+            rp = Robots(r.text if r.ok else "", _ua(url))
         except requests.RequestException:
-            rp.parse([])
+            rp = Robots("", _ua(url))
         _robots[base] = rp
-    return rp.can_fetch(_ua(url), url)
+    return rp.can_fetch(url)
 
 
 def get(url, *, params=None, headers=None, retries=2, delay=1.5, as_json=False, method="GET", json_body=None,
