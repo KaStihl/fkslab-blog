@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-24T10:35:27Z",
+ "generated_at": "2026-10-24T10:40:25Z",
  "criteria": {
   "adults": 1,
   "children_ages": [
@@ -62,7 +62,7 @@
    "status": "ok",
    "count": 134,
    "error": null,
-   "duration_s": 98.3
+   "duration_s": 91.6
   },
   {
    "id": "kartago",
