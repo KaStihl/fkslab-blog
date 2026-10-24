@@ -1,0 +1,60 @@
+# Refreshes the Dovolenka tracker (https://fkslab.com/dovolenka/) twice a day.
+#
+# Why twice a day: first-minute prices of Slovak/Czech travel agencies move at most a few times a day,
+# so more frequent runs only add load on their sites (and Netlify builds) without catching anything new.
+# 04:17 and 16:17 UTC = ~06:17 / 18:17 Bratislava in summer, 05:17 / 17:17 in winter.
+#
+# The run commits static/dovolenka/data/*.json back to the branch; the push makes Netlify rebuild the site.
+name: Dovolenka refresh
+
+on:
+  schedule:
+    - cron: "17 4,16 * * *"
+  workflow_dispatch:
+  push:
+    branches: ["claude/vacation-flight-tracker-clone-*"]
+    paths: ["tools/dovolenka/**", ".github/workflows/dovolenka-refresh.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dovolenka-refresh-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: tools/dovolenka/requirements.txt
+
+      - run: pip install -r tools/dovolenka/requirements.txt
+
+      - name: Unit tests
+        run: python -m pytest -q tools/dovolenka/tests
+
+      - name: Scrape travel agencies
+        run: python tools/dovolenka/run.py
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name "dovolenka-bot"
+          git config user.email "dovolenka-bot@users.noreply.github.com"
+          git add static/dovolenka/data/offers.json static/dovolenka/data/history.json
+          if git diff --cached --quiet; then
+            echo "no changes"
+            exit 0
+          fi
+          git commit -m "Dovolenka: refresh offers $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
