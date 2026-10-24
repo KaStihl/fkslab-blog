@@ -1,7 +1,52 @@
 {
-  "generated_at": null,
-  "criteria": {},
-  "sources": [],
-  "deeplinks": [],
-  "offers": []
+ "generated_at": "2026-10-24T08:26:14Z",
+ "criteria": {
+  "adults": 1,
+  "children_ages": [
+   10,
+   12
+  ],
+  "children_birthdates": [
+   "2017-01-15",
+   "2015-01-15"
+  ],
+  "date_from": "2027-07-01",
+  "date_to": "2027-08-31",
+  "nights_min": 7,
+  "nights_max": 14,
+  "budget": 3000,
+  "price_cap": 4500,
+  "boards_preferred": [
+   "UAI",
+   "AI"
+  ],
+  "departures": [
+   "BTS",
+   "VIE"
+  ],
+  "departures_secondary": [
+   "BUD",
+   "KSC"
+  ],
+  "car_start": "Bratislava",
+  "dogs": 2,
+  "countries": {
+   "HR": 1.0,
+   "TR": 1.0,
+   "CY": 1.0,
+   "IT": 1.0,
+   "GR": 0.95,
+   "ES": 0.95,
+   "MT": 0.9,
+   "PT": 0.8,
+   "ME": 0.8,
+   "AL": 0.75,
+   "BG": 0.7,
+   "EG": 0.7,
+   "TN": 0.65
+  }
+ },
+ "sources": [],
+ "deeplinks": [],
+ "offers": []
 }
