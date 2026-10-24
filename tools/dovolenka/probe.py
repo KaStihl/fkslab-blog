@@ -48,54 +48,65 @@ def snippets(soup):
         yield txt[max(0, m.start() - 160): m.end() + 160]
 
 
-DUMP = [  # sites whose terms carry no TDM reservation (checked in run 1)
-    "https://www.cedok.sk/",
-    "https://www.cedok.sk/vysledky-vyhladavania/dovolenky/turecko/z-bratislavy/?departuresByPlane=BTS",
-    "https://www.cedok.sk/vysledky-vyhladavania/dovolenky/turecko/?departuresByPlane=BTS%2CVIE&dateFrom=01.07.2027&dateTo=31.08.2027&order=priceAsc",
-    "https://www.kartago.sk/turecko",
-    "https://www.kartago.sk/first-minute/bratislava",
-    "https://www.kartago.sk/vlastnou-dopravou",
-    "https://www.kartago.sk/vysledky-vyhladavania?DS=0&TT=1&TO=483&DD=2027-07-01&RD=2027-08-31&NN=7&AC1=1&KC1=2",
-    "https://tiptravel.sk/",
-    "https://tiptravel.sk/dovolenka/cyprus/",
-    "https://tiptravel.sk/zajazdy/?TransportationTypeID=201&AirportID=199",
-    "https://seneca.sk/dovolenka/turecko/",
+def txt(el):
+    return re.sub(r"\s+", " ", el.get_text(" | ", strip=True)) if el else ""
+
+
+CED = ("https://www.cedok.sk/vysledky-vyhladavania/dovolenky/turecko/?departuresByPlane=BTS%2CVIE"
+       "&dateFrom=01.07.2027&dateTo=31.08.2027&order=priceAsc")
+CED_VARIANTS = [
+    "", "&participants%5B0%5D%5Badults%5D=1&participants%5B0%5D%5BchildAges%5D%5B%5D=10&participants%5B0%5D%5BchildAges%5D%5B%5D=12",
+    "&participants%5B0%5D%5Badults%5D=1&participants%5B0%5D%5Bchildren%5D%5B0%5D=10&participants%5B0%5D%5Bchildren%5D%5B1%5D=12",
+    "&participants%5B0%5D%5Badults%5D=1&participants%5B0%5D%5BchildrenAges%5D%5B0%5D=10&participants%5B0%5D%5BchildrenAges%5D%5B1%5D=12",
+    "&participants%5B0%5D%5Badults%5D=1&participants%5B0%5D%5Bchildren%5D=10%2C12",
+    "&nights=7-14", "&duration=8-15", "&lengthOfStay=7-14", "&tripLength=8%2C9%2C10%2C11%2C12%2C13%2C14%2C15",
 ]
-NEW_HOSTS = ["https://exotika.tiptravel.sk", "https://firotour.sk", "https://www.firotour.sk", "https://ckkoala.sk",
-             "https://www.koala.sk", "https://seneca.sk"]
+KAR = "https://www.kartago.sk/turecko"
+KAR_VARIANTS = ["", "?TO=483%7C3789&DD=2027-07-01&RD=2027-08-31&MNN=7%7C8%7C9%7C10%7C11%7C12%7C13%7C14&NNM=7%7C8%7C9%7C10%7C11%7C12%7C13%7C14&AC1=1&KC1=2&KA1=10%7C12&TT=1",
+                "?to=483%7C3789&dd=2027-07-01&rd=2027-08-31&nn=7%7C8%7C9%7C10%7C11%7C12%7C13%7C14&ac1=1&kc1=2&ka1=10%7C12&tt=1"]
+TIP_Q = "&ProductTypeIDs=401&DateFrom=01.07.2027&DateTo=31.08.2027&TransportationTypeID=201&AirportID=2&Sort=n&Page=1&PageSize=15"
+TIP_VARIANTS = ["https://tiptravel.sk/search.json?DestinationID=62&AdultsCount=1&ChildrenAges=11%2C13" + TIP_Q,
+                "https://tiptravel.sk/search.json?DestinationID=62&AdultsCount=1&ChildrenAges=10%2C12" + TIP_Q,
+                "https://tiptravel.sk/search.json?AdultsCount=2" + TIP_Q,
+                "https://tiptravel.sk/search.json?DestinationID=62&AdultsCount=1&ChildrenAges=11%2C13&callback=cb" + TIP_Q,
+                "https://seneca.sk/search.json?DestinationID=72&AdultsCount=1&ChildrenAges=11%2C13" + TIP_Q]
+
+
+def cedok_summary(soup):
+    who = soup.select_one("[data-testid=participants-filter-input]")
+    cards = soup.select("[data-testid=offer-list-item]")
+    days = re.findall(r"\((\d+) dní\)", " ".join(txt(c) for c in cards))
+    print("    who:", txt(who), "cards:", len(cards), "days:", days[:40])
+    for c in cards[:3]:
+        print("    card:", txt(c)[:300])
 
 
 def main():
-    for u in DUMP:
-        fetch(u, dump=True)
-    r, soup = fetch("https://www.sorea.sk/katalog/")  # no dump: sorea reserves its content (pravne-informacie)
-    if soup is not None:
-        print("  sorea katalog links:", sorted({a["href"] for a in soup.select("a[href]")})[:120])
-    for base in NEW_HOSTS:
-        print(f"\n===== {base}")
-        try:
-            common.allowed(base + "/")
-        except Exception as e:
-            print("  robots err", e)
-        rp = common._robots.get(base)
-        print("  robots rules:", [("A" if a else "D") + ":" + p for a, p in (rp.rules if rp else [])][:40])
-        r, soup = fetch(base + "/")
+    for v in CED_VARIANTS:
+        r, soup = fetch(CED + v)
+        if soup is not None:
+            cedok_summary(soup)
+            if not v:
+                (common.DUMP_DIR / "cedok_full.html").write_text(r.text, encoding="utf-8")
+    for v in KAR_VARIANTS:
+        r, soup = fetch(KAR + v)
         if soup is None:
             continue
-        print("  title:", soup.title.get_text(strip=True)[:100] if soup.title else None)
-        links = {}
-        for a in soup.select("a[href]"):
-            href = urljoin(r.url, a["href"])
-            if urlsplit(href).netloc != urlsplit(r.url).netloc:
-                continue
-            links.setdefault(href.split("#")[0], re.sub(r"\s+", " ", a.get_text(" ", strip=True))[:50])
-        print("  links:", json.dumps(sorted(links.items())[:250], ensure_ascii=False))
-        hits = [u for u, t in links.items() if TERMS_RE.search(u) or TERMS_RE.search(t)]
-        for u in hits[:5]:
-            rr, s2 = fetch(u, dump=True)
-            if s2 is not None and rr.ok:
-                for sn in list(snippets(s2))[:8]:
-                    print("    TDM?", sn)
+        arts = soup.select("article")
+        hrefs = [a["href"] for a in soup.select("article h3 a[href]")]
+        q = lambda k: sorted({m for h in hrefs for m in re.findall(rf"[?&]{k}=([^&]*)", h)})[:15]
+        print("    articles:", len(arts), "TO:", q("TO"), "DD:", q("DD"), "NN:", q("NN"), "AC1:", q("AC1"), "KC1:", q("KC1"))
+        for a in arts[:3]:
+            print("    art:", txt(a)[:300])
+        if v and hrefs:
+            fetch(urljoin(KAR, hrefs[0]), dump=True)
+    for u in TIP_VARIANTS:
+        r, soup = fetch(u)
+        if r is not None:
+            print("    body:", r.text[:2500])
+    r, soup = fetch("https://koala.sk/")
+    if r is not None:
+        print("    koala:", r.text[:3000])
 
 
 if __name__ == "__main__":
