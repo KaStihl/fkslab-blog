@@ -56,22 +56,20 @@ CED = ("https://www.cedok.sk/vysledky-vyhladavania/dovolenky/turecko/?departures
        "&dateFrom=01.07.2027&dateTo=31.08.2027&order=priceAsc&participants%5B0%5D%5Badults%5D=1")
 P = "&participants%5B0%5D%5B"
 CED_VARIANTS = [
-    P + "childrenAges%5D%5B0%5D=10" + P + "childrenAges%5D%5B1%5D=12",
-    P + "childrenBirthdates%5D%5B0%5D=2017-01-15" + P + "childrenBirthdates%5D%5B1%5D=2015-01-15",
-    P + "childrenBirthDates%5D%5B0%5D=15.01.2017" + P + "childrenBirthDates%5D%5B1%5D=15.01.2015",
-    P + "children%5D%5B0%5D%5Bage%5D=10" + P + "children%5D%5B1%5D%5Bage%5D=12",
-    P + "children%5D%5B0%5D%5BbirthDate%5D=2017-01-15" + P + "children%5D%5B1%5D%5BbirthDate%5D=2015-01-15",
-    P + "childrenBirthdays%5D%5B0%5D=2017-01-15" + P + "childrenBirthdays%5D%5B1%5D=2015-01-15",
-    P + "birthDates%5D%5B0%5D=15.01.2017" + P + "birthDates%5D%5B1%5D=15.01.2015",
-    P + "kids%5D%5B0%5D=10" + P + "kids%5D%5B1%5D=12",
-    "&duration=8%2C15", "&durationFrom=8&durationTo=15", "&duration%5Bmin%5D=8&duration%5Bmax%5D=15",
-    "&days=8-15", "&length=8-15", "&tripDuration=8-15", "&durations=8-15", "&nights=7%2C14",
+    P + "children%5D=2",
+    P + "children%5D=2" + P + "childrenAges%5D%5B0%5D=10" + P + "childrenAges%5D%5B1%5D=12",
+    P + "children%5D=2" + P + "ages%5D%5B0%5D=10" + P + "ages%5D%5B1%5D=12",
+    P + "children%5D=2" + P + "childAges%5D%5B0%5D=10" + P + "childAges%5D%5B1%5D=12",
+    P + "children%5D=2" + P + "childrenAge%5D%5B0%5D=10" + P + "childrenAge%5D%5B1%5D=12",
+    P + "children%5D=2" + P + "birthdates%5D%5B0%5D=15.01.2017" + P + "birthdates%5D%5B1%5D=15.01.2015",
+    P + "childrenBirthdate%5D%5B0%5D=15.01.2017" + P + "childrenBirthdate%5D%5B1%5D=15.01.2015",
+    "&daysFrom=8&daysTo=15", "&lengthFrom=8&lengthTo=15", "&durationMin=8&durationMax=15", "&duration=8",
 ]
 TIP_VARIANTS = [
-    "https://tiptravel.sk/search.json?ProductTypeIDs=401&TransportationTypeID=201&AirportID=2&Sort=n&Page=1&PageSize=5",
-    "https://tiptravel.sk/search.json?ProductTypeIDs=401&DateFrom=2027-07-01&DateTo=2027-08-31&Sort=n&Page=1&PageSize=5",
-    "https://tiptravel.sk/search.json?ProductTypeIDs=401&DateFrom=1.7.2027&DateTo=31.8.2027&Sort=n&Page=1&PageSize=5",
-    "https://tiptravel.sk/search.json?DestinationID=62&Sort=n&Page=1&PageSize=5",
+    "https://tiptravel.sk/search.json?ProductTypeIDs=401&DateFrom=01.11.2026&DateTo=30.11.2026&Sort=n&Page=1&PageSize=3",
+    "https://tiptravel.sk/search.json?ProductTypeIDs=401&DateFrom=01.11.2026&DateTo=30.11.2026&AdultsCount=1&ChildrenAges=11%2C13&Sort=n&Page=1&PageSize=3",
+    "https://tiptravel.sk/search.json?ProductTypeIDs=401&DateFrom=01.06.2027&DateTo=30.09.2027&Sort=n&Page=1&PageSize=3",
+    "https://seneca.sk/search.json?ProductTypeIDs=401&Sort=n&Page=1&PageSize=3",
 ]
 
 
