@@ -1,0 +1,1323 @@
+
+
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    
+
+    
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no,maximum-scale=1">
+<meta name="msapplication-TileColor" content="#C20063)">
+<meta name="theme-color" content="#C20063">
+<meta name="facebook-domain-verification" content="pvlcdl1a8jqr9e88h8b4rjbxsh1wyh" />
+<meta name="seznam-wmt" content="GV7rULkxBzxe3rYGNNmjsR78pBHhF2nl" />
+
+<title>V&#253;sledky vyhľad&#225;vania - dovolenky, z&#225;jazdy, last minute, eurov&#237;kendy | KARTAGOtours</title>
+
+
+
+
+            <meta property="og:site_name" content="Kartago Tours"/>
+            <meta property="og:type" content="website"/>
+            <meta property="og:title" content=""/>
+            <meta property="og:description" content=""/>
+            <meta property="og:image" content=""/>
+            <meta name="description" content="Výsledky vyhľadávania spoločnosti KARTAGOtours. Nájdite svoju vytúženú dovolenkovú destináciu a poznávací zájazd do celého sveta za zvýhodnené ceny."/>
+            <meta name="keywords" content=""/>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+            <meta name="robots" content="index,follow"/>
+            <meta name="base:title" content="Výsledky vyhľadávania - dovolenky, zájazdy, last minute, eurovíkendy | KARTAGOtours"/>
+
+
+    <script>
+        /*1) INIT Cookie Consent in TOP HEAD */
+        window.dataLayer = window.dataLayer || [];
+    </script>
+
+    <script type="text/javascript" data-type="gtm">
+        window.dataLayer.push({
+  "event": "customVars",
+  "pageType": "search",
+  "userLoggedin": "no"
+});
+    </script>
+    <script type="text/javascript">
+       var googleSiteKey='6LcJFI4oAAAAALEm_Lgqv0ichUH2TLzW8GQQIbcO'
+    </script>
+
+    
+    <script type="text/javascript">
+        window.dataLayer.push({"event":"customVars2","eventData":{"user":{"type":"anonymous"},"user_id":null}})
+    </script>
+
+
+    
+
+
+
+<script>
+    /*
+     * GTM & Consent load
+     */
+    //create datalayer
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+
+    //get consents from local storage
+    function getConsents() {
+        const consents = JSON.parse(localStorage.getItem('consents'));
+        if (consents) {
+            adStorage = consents.marketing == true ? 'granted' : 'denied';
+            analyticsStorage = consents.tracking == true ? 'granted' : 'denied';
+            consent_marketing = consents.marketing == true ? true : false;
+            consent_analytics = consents.tracking == true ? true : false;
+        }
+    }
+
+    //Consent default
+    let consent_marketing = false;
+    let consent_analytics = false;
+    //Google Consent Mode
+    let adStorage = 'denied';
+    let analyticsStorage = 'denied';
+
+    getConsents();//get consents from local storage
+
+    //1. DEFAULT CONSENT, google consent mode all based on adStorage
+    gtag('consent', 'default', {
+        'ad_storage': adStorage,
+        'ad_user_data': adStorage,
+        'ad_personalization': adStorage,
+        'analytics_storage': adStorage,
+        'personalization_storage': adStorage,
+        'functionality_storage': adStorage,
+        'security_storage': adStorage
+    });
+
+    console.log("DERTOURISTIK Consent Init mkt: " + adStorage + ", analytics: " + analyticsStorage);
+    //2. Consent Initialized, run GA in GTM
+    window.dataLayer.push({
+        event: 'consent_init',
+        consent_marketing: adStorage,
+        consent_analytics: analyticsStorage,
+        _clear: true
+    });
+
+
+    //3. Function to update consent in local storage
+    window.addEventListener('ucEvent', function (e) {
+        console.log("ucEvent Run Consent Update:");
+
+        if (e.detail && e.detail.event === 'consent_status') {
+            // New consent staus is from the event
+            const newConsents = {
+                marketing: e.detail.ucCategory.marketing || false,
+                tracking: e.detail.ucCategory.functional || false
+            };
+            //old consent is in local storage
+            var consents = JSON.parse(localStorage.getItem('consents'));
+
+            //set only if the consents are different than saved
+            if (!consents || newConsents.marketing !== consents.marketing || newConsents.tracking !== consents.tracking){
+
+                localStorage.setItem('consents', JSON.stringify(newConsents));
+                const event = new CustomEvent('ucEventLocalStorageChanged');
+                document.dispatchEvent(event);
+
+                console.log('SET Updated consents to local storage:', newConsents);
+                window.dataLayer.push({
+                    event: 'consent_updated',
+                    consent_marketing: newConsents.marketing,
+                    consent_analytics: newConsents.tracking,
+                    _clear: true /*clear previous state*/
+                });
+            }
+        }
+    });
+</script>
+
+<script>
+    function addUsercentricsScriptForApp() {
+        var settingsId = "46asO-mnl";
+        var script = document.createElement('script');
+        script.id = 'usercentrics-cmp';
+        script.setAttribute('data-settings-id', settingsId);
+        script.setAttribute('src', 'https://app.usercentrics.eu/browser-ui/latest/bundle_legacy.js');
+        script.async = true;
+        document.head.appendChild(script);
+    }
+
+    function addWebUsercentricsScript() {
+        var settingsId = "46asO-mnl";
+        var script = document.createElement('script');
+        script.id = 'usercentrics-cmp';
+        script.setAttribute('data-settings-id', settingsId);
+        script.setAttribute('src', 'https://web.cmp.usercentrics.eu/ui/loader.js'); //v3
+        script.async = true;
+        document.head.appendChild(script);
+    }
+
+    if (window.navigator.userAgent.includes('sunrise')) {
+        window.addEventListener('Usercentrics_userSessionData_injected', function () {
+            console.log('Usercentrics Init Sunrise');
+            addUsercentricsScriptForApp();
+        });
+    } else {
+        console.log('Usercentrics Init WEB');
+        addWebUsercentricsScript();
+    }
+</script>
+
+<script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PMDRWH3');
+</script>
+
+
+      <script>
+        window.addEventListener('ucEvent', function (e) {
+            if (e.detail && e.detail.event == 'consent_status') {
+                if (e.detail['Meiro'] === true) {
+                    console.log('Meiro running');
+      
+                    var domain = 'me.kartago.sk';
+      
+                    var script = document.createElement('script');
+                    script.onload = function () {
+                        MeiroEvents.init({ 
+                          domain: domain,
+                          sync: {
+                            ga_cid: true,
+                            fb_cid: true
+                          },
+                          outbound_link_tracking: {
+                            enabled: true
+                          },
+      
+                          cross_domain_whitelist: ['eximtours.cz', 'exim.pl', 'kartagotours.hu', 'fischer.cz', 'fischer.sk', 'nev-dama.cz', 'nevdama.sk', 'nev-dama.pl', 'etravel.cz', 'dertour.ro'] 
+      
+                        });
+                        MeiroEvents.track('pageView', {
+                            custom_payload: {
+                                'consent': e.detail,
+                            }
+                        });
+
+                        window.dataLayer.push({
+                          'event': 'meiro_init'
+                        });
+
+                        //added custom event for eventListener
+                        document.dispatchEvent(new CustomEvent('meiro: initialised'));
+                    };
+                    script.src = '//' + domain + '/sdk/';
+                    script.async = true;
+                    document.head.appendChild(script);
+                }
+            }
+        });
+      </script>
+      
+
+
+
+<script>
+    window.pageCustomSetting = {
+        mobileSearchFilterOpened: false,
+    };
+</script>
+
+<link rel='dns-prefetch' href='//web.cmp.usercentrics.eu'>
+<link rel='dns-prefetch' href='//www.googletagmanager.com'>
+<link crossorigin='use-credentials' href='https://www.googletagmanager.com' rel='preconnect'>
+
+<link rel="icon" href="/KartagoSK/media/KartagoSK/logo/KartagoSK_favicon.svg" type="image/x-icon">
+<link rel="shortcut icon" href="/KartagoSK/media/KartagoSK/logo/KartagoSK_favicon.svg" type="image/x-icon">
+
+<!-- start preload JS-->
+<link rel="preload" href="/Scripts/web/assets/obsolete/fonts/fischer-font.woff" as="font" crossorigin/>
+<link rel="preload" href="/Scripts/web/assets/font/openSans/regular.woff" as="font" crossorigin/>
+<link rel="preload" href="/Scripts/web/assets/font/openSans/bold.woff" as="font" crossorigin/>
+<link rel="preload" href="/Scripts/web/assets/font/openSans/semiBold.woff" as="font" crossorigin/>
+<link rel="preload" href="/Scripts/web/assets/font/icons.woff" as="font" crossorigin/>
+<link rel='modulepreload' href='/Scripts/web/index.BUniwKnw.js' as='script' crossorigin />
+<link rel='modulepreload' href='/Scripts/web/index.CD3GWOsj.js' as='script' crossorigin />
+
+<link rel="preconnect" href="https://img.fischer.cz"/>
+<!-- end preload JS-->
+
+<link href="/Scripts/web/assets/index-oJcvuoyE.css" rel="stylesheet"/>
+
+<link href="/Scripts/web/themes/theme.exim.2089ce76.css" rel="stylesheet"/>
+
+
+<script type="text/javascript" src="/Scripts/Exim/vendor/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/Scripts/Exim/vendor/jquery/jquery-ui.min.js"></script>
+    
+    
+
+            <link rel="canonical" href="https://www.kartago.sk/vysledky-vyhladavania" />
+
+
+    
+    
+
+    
+<script>
+
+    if (!("derTouristik" in window)) {
+        window.derTouristik = {};
+    }
+
+    window.derTouristik.clientSection = {
+        "userAccountData": {"user":{"isAuthenticated":false,"name":"","surname":"","address":{"street":"","streetNumber":"","streetWithNumber":"","zip":"","city":"","district":"","regionCode":""},"phoneCountryCode":"","phoneNumber":"","birthDay":null,"sex":0,"nationality":"","email":null,"links":[{"name":"ResetPassword","url":"/zmena-hesla","description":""},{"name":"SignIn","url":"/prihlasenie","description":""},{"name":"Register","url":"/registracia","description":""},{"name":"SignOut","url":"/odhlasenie","description":""},{"name":"CustomerSection","url":"/zakaznicka-sekcia","description":""},{"name":"MyFischerPage","url":"/muj-fischer","description":""}]},"favorites":{"count":0,"categories":[],"tours":[]},"pages":[{"path":"/","name":"dashboard","meta":{"title":{"html":"Prehľad","anchor":"Prehľad"},"type":"TEXT","image":null}},{"path":"/nastaveni-uctu","name":"settings","meta":{"title":{"html":"Nastavenie účtu","anchor":"Nastavenie účtu"},"type":"TEXT","image":null}},{"path":"/oblibene-hotely","name":"favorite","meta":{"title":{"html":"Obľúbené hotely","anchor":"Obľúbené hotely"},"type":"TEXT","image":null}},{"path":"/skupiny","name":"groups","meta":{"title":{"html":"Skupiny","anchor":"Skupiny"},"type":"TEXT","image":null}},{"path":"/moje-objednavky","name":"orders","meta":{"title":{"html":"Objednávky","anchor":"Objednávky"},"type":"TEXT","image":null}},{"path":"/moje-reklamacie","name":"complaints","meta":{"title":{"html":"Reklamácie","anchor":"Reklamácie"},"type":"TEXT","image":null}}],"appSettings":{"actionAddOrRemoveFavoriteCategory":true,"useTravellersRooms":false,"pageOrders":{"showFutureOrders":true,"showReservations":true,"showGoneOrders":true,"actionAddTrip":true,"showBookedOrders":true},"userSettings":{"preferedCountriesForPhonePrefix":["CZ","SK","HU","PL","RO"],"avatarImage":{"maxLongestSideLengthInPx":500,"allowedFileSizeInBytes":2000000,"allowedFileFormatsMask":".jpg,.jpeg,.png"}},"adultAge":18,"activateCustomerSection":true,"showAccountIcon":true,"useLocalAuthentication":false,"showTravellerNationality":true,"associatedStreetAndStreetNumber":false,"showDistrictAndRegionInAddress":false,"showFavouriteCompareTable":true,"showSearchMoreButtonInFavouriteSection":true,"showUpsellOrderAction":true,"showBookingDocumentAction":true,"showLoyaltyCheckbox":false,"showClientCoupons":true,"showExternalCouponsWithoutConditionsAndCodes":false,"derClub":null,"externalPartnerDiscount":null,"contestFavouriteHotels":null,"showContestFavouriteHotels":false,"claim":{"allowClaim":true,"maxFilesToUpload":20,"maxTotalAttachmentsSizeBytes":52428800,"allowedFileExtensions":["jpg","jpeg","png","heic","heif","webp","mp4","mov","m4v","pdf","doc","docx"]}},"usefulLinks":null,"availableRegions":[],"optionMaps":{"salutationMap":{"1":"Pán","2":"Pani"}}}
+    }
+</script>
+    
+
+</head>
+
+<body id="searchResultList" class="with-bg-img" style=background-image:none>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMDRWH3"
+                height="0" width="0" style="display: none; visibility: hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <script>
+        WebFontConfig = { google: { families: ['Open Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800:cyrillic-ext,latin,latin-ext'] } };
+        (function (d) {
+            var w = d.createElement('script'), s = d.scripts[0];
+            w.src = '/Scripts/Exim/vendor/webfont.min.js';
+            w.async = true;
+            s.parentNode.insertBefore(w, s);
+        }
+        )(document);
+    </script>
+
+<div id="meiroTop"></div>
+<header class="f_pageHeader js_header" id="pageHeader">
+        <ul class="f_menu f_menu--main" style="height: 0;overflow: hidden;margin: 0;">
+                <li class="f_menu-item">
+                    <div class="f_menu-item-content
+               f_menu-item-content--sub js_mainMenu-showBubble">
+                        <a href="/last-minute" class="f_menu-anchor">
+                            <span class="f_menu-anchor-content">Last minute</span>
+                        </a>
+                            <span class="f_menu-mobileHandler js_slideDownUp"></span>
+                            <div class="f_menu-sub js_slideDownUp-content" style="display: none;">
+                                <div class="f_bubble">
+                                    <div class="f_bubble-arrow"></div>
+                                    <div class="f_bubble-content js_bubbleContent">
+                                        <div class="f_group">
+                                                <div class="f_group-item">
+                                                    <!-- HTML pro sloupec -->
+
+
+                                                                                                                            <p class="f_title">
+                                                                            <a href="/last-minute" class="f_anchor">Všetky Last minute</a>
+                                                                        </p>
+                                                                        <ul class="f_list f_list--unordered">
+                                                                                <li class="f_list-item">
+                                                                                    <a href="/last-minute/exotika" class="f_anchor ">Last minute exotika</a>
+                                                                                </li>
+                                                                        </ul>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </li>
+                <li class="f_menu-item">
+                    <div class="f_menu-item-content
+               f_menu-item-content--sub js_mainMenu-showBubble">
+                        <a href="/dovolenkove-kluby" class="f_menu-anchor">
+                            <span class="f_menu-anchor-content">Dovolenkov&#233; kluby</span>
+                        </a>
+                            <span class="f_menu-mobileHandler js_slideDownUp"></span>
+                            <div class="f_menu-sub js_slideDownUp-content" style="display: none;">
+                                <div class="f_bubble">
+                                    <div class="f_bubble-arrow"></div>
+                                    <div class="f_bubble-content js_bubbleContent">
+                                        <div class="f_group">
+                                                <div class="f_group-item">
+                                                    <!-- HTML pro sloupec -->
+
+
+                                                                                                                    <ul class="f_list ">
+                                                                        <li class="f_list-item">
+                                                                            <a href="/dovolenkove-kluby/mango-klub" class="f_anchor f_flag f_flag--">Detsk&#253; klub Mango</a>
+                                                                        </li>
+                                                                </ul>
+                                                </div>
+                                                <div class="f_group-item">
+                                                    <!-- HTML pro sloupec -->
+
+
+                                                                                                                    <ul class="f_list ">
+                                                                        <li class="f_list-item">
+                                                                            <a href="/dovolenkove-kluby/motion-dovolenka-v-pohybe/motion-zima" class="f_anchor f_flag f_flag--">Akt&#237;vna dovolenka Motion</a>
+                                                                        </li>
+                                                                </ul>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </li>
+                <li class="f_menu-item">
+                    <div class="f_menu-item-content
+               f_menu-item-content--sub js_mainMenu-showBubble">
+                        <a href="/first-minute" class="f_menu-anchor">
+                            <span class="f_menu-anchor-content">First minute - Leto 2027</span>
+                        </a>
+                            <span class="f_menu-mobileHandler js_slideDownUp"></span>
+                            <div class="f_menu-sub js_slideDownUp-content" style="display: none;">
+                                <div class="f_bubble">
+                                    <div class="f_bubble-arrow"></div>
+                                    <div class="f_bubble-content js_bubbleContent">
+                                        <div class="f_group">
+                                                <div class="f_group-item">
+                                                    <!-- HTML pro sloupec -->
+
+
+                                                                                                                            <p class="f_title">
+                                                                            <a class="f_anchor">First minute</a>
+                                                                        </p>
+                                                                        <ul class="f_list f_list--unordered">
+                                                                                <li class="f_list-item">
+                                                                                    <a href="/first-minute/bratislava" class="f_anchor ">Odlety z Bratislavy</a>
+                                                                                </li>
+                                                                                <li class="f_list-item">
+                                                                                    <a href="/first-minute/kosice" class="f_anchor ">Odlety z Koš&#237;c</a>
+                                                                                </li>
+                                                                                <li class="f_list-item">
+                                                                                    <a href="/first-minute/poprad" class="f_anchor ">Odlety z Popradu</a>
+                                                                                </li>
+                                                                        </ul>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </li>
+                <li class="f_menu-item">
+                    <div class="f_menu-item-content
+               ">
+                        <a href="/kontakty/nase-predajne" class="f_menu-anchor">
+                            <span class="f_menu-anchor-content">Pobočky</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="f_menu-item">
+                    <div class="f_menu-item-content
+               f_menu-item-content--sub js_mainMenu-showBubble">
+                        <a href="/uzitocne-informacie/otazky" class="f_menu-anchor">
+                            <span class="f_menu-anchor-content">Čast&#233; ot&#225;zky</span>
+                        </a>
+                            <span class="f_menu-mobileHandler js_slideDownUp"></span>
+                            <div class="f_menu-sub js_slideDownUp-content" style="display: none;">
+                                <div class="f_bubble">
+                                    <div class="f_bubble-arrow"></div>
+                                    <div class="f_bubble-content js_bubbleContent">
+                                        <div class="f_group">
+                                                <div class="f_group-item">
+                                                    <!-- HTML pro sloupec -->
+
+
+                                                        <p class="f_title">
+                                                            <a href="/dynamix" class="f_anchor">FISCHER Dynamix</a>
+                                                        </p>
+                                                                                                                <ul class="f_list f_list--unordered">
+                                                                    <li class="f_list-item">
+                                                                        <a href="/dynamix" class="f_anchor">FISCHER Dynamix</a>
+                                                                    </li>
+                                                            </ul>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </li>
+                <li class="f_menu-item">
+                    <div class="f_menu-item-content
+               f_menu-item-content--sub js_mainMenu-showBubble">
+                        <a href="/vysledky-vyhladavania?IFS=True&amp;ST=1&amp;NN=7|8|9&amp;PF=1000&amp;PT=450000&amp;TT=1" class="f_menu-anchor">
+                            <span class="f_menu-anchor-content">Destin&#225;cie</span>
+                        </a>
+                            <span class="f_menu-mobileHandler js_slideDownUp"></span>
+                            <div class="f_menu-sub js_slideDownUp-content" style="display: none;">
+                                <div class="f_bubble">
+                                    <div class="f_bubble-arrow"></div>
+                                    <div class="f_bubble-content js_bubbleContent">
+                                        <div class="f_group">
+                                                <div class="f_group-item">
+                                                    <!-- HTML pro sloupec -->
+
+
+                                                                                                                    <ul class="f_list ">
+                                                                        <li class="f_list-item">
+                                                                            <a href="/bulharsko" class="f_anchor f_flag f_flag--">Bulharsko</a>
+                                                                        </li>
+                                                                        <li class="f_list-item">
+                                                                            <a href="/cyprus" class="f_anchor f_flag f_flag--">Cyprus</a>
+                                                                        </li>
+                                                                        <li class="f_list-item">
+                                                                            <a href="/dominikanska-rep" class="f_anchor f_flag f_flag--">Dominik&#225;nska r.</a>
+                                                                        </li>
+                                                                        <li class="f_list-item">
+                                                                            <a href="/egypt" class="f_anchor f_flag f_flag--">Egypt</a>
+                                                                        </li>
+                                                                        <li class="f_list-item">
+                                                                            <a href="/grecko" class="f_anchor f_flag f_flag--">Gr&#233;cko</a>
+                                                                        </li>
+                                                                        <li class="f_list-item">
+                                                                            <a href="/chorvatsko" class="f_anchor f_flag f_flag--">Chorv&#225;tsko</a>
+                                                                        </li>
+                                                                        <li class="f_list-item">
+                                                                            <a href="/jamajka" class="f_anchor f_flag f_flag--">Jamajka</a>
+                                                                        </li>
+                                                                        <li class="f_list-item">
+                                                                            <a href="/kapverdske-ostrovy" class="f_anchor f_flag f_flag--">Kapverdy</a>
+                                                                        </li>
+                                                                </ul>
+                                                </div>
+                                                <div class="f_group-item">
+                                                    <!-- HTML pro sloupec -->
+
+
+                                                                                                                    <ul class="f_list ">
+                                                                        <li class="f_list-item">
+                                                                            <a href="/kena" class="f_anchor f_flag f_flag--">Keňa</a>
+                                                                        </li>
+                                                                        <li class="f_list-item">
+                                                                            <a href="/kuba" class="f_anchor f_flag f_flag--">Kuba</a>
+                                                                        </li>
+                                                                        <li class="f_list-item">
+                                                                            <a href="/maldivy" class="f_anchor f_flag f_flag--">Maldivy</a>
+                                                                        </li>
+                                                                        <li class="f_list-item">
+                                                                            <a href="/malta" class="f_anchor f_flag f_flag--">Malta</a>
+                                                                        </li>
+                                                                        <li class="f_list-item">
+                                                                            <a href="/mauricius" class="f_anchor f_flag f_flag--">Maur&#237;cius</a>
+                                                                        </li>
+                                                                        <li class="f_list-item">
+                                                                            <a href="/mexiko" class="f_anchor f_flag f_flag--">Mexiko</a>
+                                                                        </li>
+                                                                        <li class="f_list-item">
+                                                                            <a href="/portugalsko" class="f_anchor f_flag f_flag--">Portugalsko</a>
+                                                                        </li>
+                                                                        <li class="f_list-item">
+                                                                            <a href="/seychely" class="f_anchor f_flag f_flag--">Seychely</a>
+                                                                        </li>
+                                                                </ul>
+                                                </div>
+                                                <div class="f_group-item">
+                                                    <!-- HTML pro sloupec -->
+
+
+                                                                                                                    <ul class="f_list ">
+                                                                        <li class="f_list-item">
+                                                                            <a href="/sri-lanka" class="f_anchor f_flag f_flag--">Sr&#237; Lanka</a>
+                                                                        </li>
+                                                                        <li class="f_list-item">
+                                                                            <a href="/spanielsko" class="f_anchor f_flag f_flag--">Španielsko</a>
+                                                                        </li>
+                                                                        <li class="f_list-item">
+                                                                            <a href="/taliansko" class="f_anchor f_flag f_flag--">Taliansko</a>
+                                                                        </li>
+                                                                        <li class="f_list-item">
+                                                                            <a href="/thajsko" class="f_anchor f_flag f_flag--">Thajsko</a>
+                                                                        </li>
+                                                                        <li class="f_list-item">
+                                                                            <a href="/tunisko" class="f_anchor f_flag f_flag--">Tunisko</a>
+                                                                        </li>
+                                                                        <li class="f_list-item">
+                                                                            <a href="/turecko" class="f_anchor f_flag f_flag--">Turecko</a>
+                                                                        </li>
+                                                                        <li class="f_list-item">
+                                                                            <a href="/vietnam" class="f_anchor f_flag f_flag--">Vietnam</a>
+                                                                        </li>
+                                                                        <li class="f_list-item">
+                                                                            <a href="/tanzania/zanzibar" class="f_anchor f_flag f_flag--">Zanzibar</a>
+                                                                        </li>
+                                                                </ul>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </li>
+                <li class="f_menu-item">
+                    <div class="f_menu-item-content
+               f_menu-item-content--sub js_mainMenu-showBubble">
+                        <a href="/sluzby" class="f_menu-anchor">
+                            <span class="f_menu-anchor-content">Služby</span>
+                        </a>
+                            <span class="f_menu-mobileHandler js_slideDownUp"></span>
+                            <div class="f_menu-sub js_slideDownUp-content" style="display: none;">
+                                <div class="f_bubble">
+                                    <div class="f_bubble-arrow"></div>
+                                    <div class="f_bubble-content js_bubbleContent">
+                                        <div class="f_group">
+                                                <div class="f_group-item">
+                                                    <!-- HTML pro sloupec -->
+
+
+                                                                                                                            <p class="f_title">
+                                                                            <a href="/sluzby" class="f_anchor">Pred odjazdom</a>
+                                                                        </p>
+                                                                        <ul class="f_list f_list--unordered">
+                                                                                <li class="f_list-item">
+                                                                                    <a href="https://www.kartago.sk/sluzby/cestovne-poistenie" class="f_anchor ">Cestovn&#233; poistenie</a>
+                                                                                </li>
+                                                                                <li class="f_list-item">
+                                                                                    <a href="/flexitravel" class="f_anchor ">Flexi Travel</a>
+                                                                                </li>
+                                                                                <li class="f_list-item">
+                                                                                    <a href="https://www.kartago.sk/sluzby/parkovanie-na-letisku" class="f_anchor ">Parkovanie na letisku</a>
+                                                                                </li>
+                                                                                <li class="f_list-item">
+                                                                                    <a href="https://www.kartago.sk/sluzby/ubytovanie-na-letisku" class="f_anchor ">Ubytovanie na letisku</a>
+                                                                                </li>
+                                                                        </ul>
+                                                </div>
+                                                <div class="f_group-item">
+                                                    <!-- HTML pro sloupec -->
+
+
+                                                                                                                            <p class="f_title">
+                                                                            <a href="/sluzby" class="f_anchor">Na letisku</a>
+                                                                        </p>
+                                                                        <ul class="f_list f_list--unordered">
+                                                                                <li class="f_list-item">
+                                                                                    <a href="https://www.kartago.sk/sluzby/letiskove-saloniky" class="f_anchor ">Letiskov&#233; sal&#243;niky</a>
+                                                                                </li>
+                                                                                <li class="f_list-item">
+                                                                                    <a href="https://www.kartago.sk/sluzby/sluzby-pre-hendikepovanych" class="f_anchor ">Asistenčn&#233; služby</a>
+                                                                                </li>
+                                                                        </ul>
+                                                </div>
+                                                <div class="f_group-item">
+                                                    <!-- HTML pro sloupec -->
+
+
+                                                                                                                            <p class="f_title">
+                                                                            <a href="/sluzby" class="f_anchor">V lietadle</a>
+                                                                        </p>
+                                                                        <ul class="f_list f_list--unordered">
+                                                                                <li class="f_list-item">
+                                                                                    <a href="https://www.kartago.sk/sluzby/premium-fly-s-world2fly" class="f_anchor ">Premium fly</a>
+                                                                                </li>
+                                                                                <li class="f_list-item">
+                                                                                    <a href="https://www.kartago.sk/sluzby/rezervacia-miest-v-lietadle" class="f_anchor ">Rezerv&#225;cia miest v lietadle</a>
+                                                                                </li>
+                                                                                <li class="f_list-item">
+                                                                                    <a href="https://www.kartago.sk/servis-na-palube-lietadla" class="f_anchor ">Servis na palube</a>
+                                                                                </li>
+                                                                                <li class="f_list-item">
+                                                                                    <a href="https://www.kartago.sk/sluzby/preprava-batoziny-a-zvierat" class="f_anchor ">Preprava batožiny a zvierat</a>
+                                                                                </li>
+                                                                        </ul>
+                                                </div>
+                                                <div class="f_group-item">
+                                                    <!-- HTML pro sloupec -->
+
+
+                                                                                                                            <p class="f_title">
+                                                                            <a href="/sluzby" class="f_anchor">V destin&#225;cii</a>
+                                                                        </p>
+                                                                        <ul class="f_list f_list--unordered">
+                                                                                <li class="f_list-item">
+                                                                                    <a href="https://info.dertouristik.sk/" class="f_anchor ">V&#237;za</a>
+                                                                                </li>
+                                                                                <li class="f_list-item">
+                                                                                    <a href="https://www.kartago.sk/sluzby/esim" class="f_anchor ">eSIM</a>
+                                                                                </li>
+                                                                                <li class="f_list-item">
+                                                                                    <a href="https://www.kartago.sk/sluzby/individualny-transfer" class="f_anchor ">Individu&#225;lny transfer z/na letisko</a>
+                                                                                </li>
+                                                                                <li class="f_list-item">
+                                                                                    <a href="https://www.kartago.sk/sluzby/cestovanie-s-detmi-do-10-mesiacov" class="f_anchor ">Cestovanie s dieťaťom do 10 mesiacov</a>
+                                                                                </li>
+                                                                                <li class="f_list-item">
+                                                                                    <a href="https://www.kartago.sk/sluzby/early-check-in-late-check-out" class="f_anchor ">Early check-in / Late check-out</a>
+                                                                                </li>
+                                                                                <li class="f_list-item">
+                                                                                    <a href="https://www.kartago.sk/sluzby/fakultativne-vylety" class="f_anchor ">Fakultat&#237;vne v&#253;lety</a>
+                                                                                </li>
+                                                                        </ul>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </li>
+        </ul>
+        <div data-component-name="appAbnbHeader">
+
+            <script type="application/json">
+             {
+                "logo": {
+                    "url": "/KartagoSK/media/KartagoSK/logo/KARTAGOtours_NEGATIV.svg",
+                    "text": "Kartago Tours"
+                },
+                "fulltext": {
+                    "inputText": "Tu napíšte čo hľadáte",
+                    "baseUrl": "/hladanie-vysledky?q="
+                },
+                    
+                "phoneNumber": "+421257205700"
+                    
+            }
+            </script>
+            <div class="max-w-[--content-width-maximum] mx-auto px-[--content-width-padding] py-4 relative z-[100]">
+                <div class="flex justify-between w-full items-center">
+                    <a href="/">
+                        <img src="/KartagoSK/media/KartagoSK/logo/KARTAGOtours_NEGATIV.svg"
+                             alt="Kartago Tours"
+                             class="max-h-5 sm:max-h-6 block transition-all"/>
+                    </a>
+                    <ul class="flex items-center gap-4 sm:gap-8 p-0 m-0 list-none transition-all">
+                        <li>
+                            <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative block w-6 h-6">
+                                <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative block w-6 h-6">
+                                <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                            </div>
+                        </li>
+                        <li class="hidden min-[701px]:block">
+                            <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative block w-6 h-6">
+                                <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative block w-24 h-6">
+                                <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div data-component-name="mainSearchFilter" class="w-full">
+            <script type="application/json">
+            
+                {"segmentationType":"residential","mobileIsOpened":false,"showMeal":false,"resetAdditionaFilterOnSearch":false,"aISearchSecret":""}
+            </script>
+
+
+            <!--mobile placeholder start -->
+            <div class="bg-[--mainFilter-background] min-[1100px]:hidden w-full py-3 px-4">
+                <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative w-1/4 mx-auto h-[22px]">
+                    <div class="motion-safe:animate-[loader_1S_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                </div>
+            </div>
+            <!--mobile placeholder end -->
+            <!--placeholder start -->
+            <!-- obsah pro desktop a pro otevĹ™enou mobilnĂ­ verzi v pĹ™Ă­padÄ› Ĺľe na mobilu mĂˇ bĂ˝t otevĹ™eno, je potĹ™eba odebrat classu max-[1099px]:hidden -->
+            <div class="bg-[--mainFilter-background] py-4 w-full  max-[1099px]:hidden ">
+                <div class="max-w-[1212px] mx-auto">
+
+                    <div class="pb-3.5 flex gap-6 max-w-[--content-width-maximum] relative mx-auto mb-4 overflow-auto after:content-[''] after:h-px after:absolute after:bottom-0 after:inset-x-0 after:opacity-50 after:bg-[--segmentation-bottomLine]">
+                        <div>
+                            <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-5 w-5 mx-auto mb-[5px] min-[750px]:hidden">
+                                <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                            </div>
+                            <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-5 w-[100px]">
+                                <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-5 w-5 mx-auto mb-[5px] min-[750px]:hidden">
+                                <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                            </div>
+                            <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-5 w-[160px]">
+                                <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-5 w-5 mx-auto mb-[5px] min-[750px]:hidden">
+                                <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                            </div>
+                            <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-5 w-[90px]">
+                                <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mx-4 grid grid-cols-1 min-[460px]:grid-cols-2 min-[1100px]:grid-cols-4 gap-4">
+                        <div class="bg-white box-border rounded-[--cornerRounding] py-2 px-4 w-full">
+                            <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-4 mb-0.5 w-2/3">
+                                <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                            </div>
+                            <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-3.5 w-1/2">
+                                <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                            </div>
+                        </div>
+                        <div class="bg-white box-border rounded-[--cornerRounding] py-2 px-4 w-full">
+                            <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-4 mb-0.5 w-2/3">
+                                <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                            </div>
+                            <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-3.5 w-1/2">
+                                <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                            </div>
+                        </div>
+                        <div class="bg-white box-border rounded-[--cornerRounding] py-2 px-4 w-full">
+                            <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-4 mb-0.5 w-2/3">
+                                <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                            </div>
+                            <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-3.5 w-1/2">
+                                <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                            </div>
+                        </div>
+                        <div class="bg-white box-border rounded-[--cornerRounding] py-2 px-4 w-full">
+                            <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-4 mb-0.5 w-2/3">
+                                <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                            </div>
+                            <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-3.5 w-1/2">
+                                <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--placeholder end -->
+            <script type="application/json">
+               {"segmentationType":"residential"}
+            </script>
+            <span class="f_loaderPlaceholder"></span>
+        </div>
+
+
+</header>
+    <!-- Rendered page content -->
+    <section class="main transition-auto transition-dim" id="snippet--content">
+        <div id="pageContent">
+            
+
+
+<div data-component-name="mainSearch">
+    <script type="application/json">
+               {"tourQuestion":true,"segmentationType":"residential","templateType":"list"}
+    </script>
+</div>
+        </div>
+    </section>
+
+    <div id="pageFooter">
+        
+<div data-component-name="appServiceRequest">
+    <script type="application/json">
+ {"serviceTypes":[{"id":1,"text":"Parkovanie na letisku"},{"id":2,"text":"Cestovné poistenie"},{"id":3,"text":"Palubná služba (stravovanie)"},{"id":4,"text":"Sedadlá lietadla (sedadlá)"},{"id":5,"text":"Letiskový salónik"},{"id":6,"text":"Ubytovanie na letisku - Holiday Inn"},{"id":7,"text":"Iná služba"}]}
+    </script>
+</div>
+
+
+
+    <div data-component-name="appContactUsSection">
+        <script type="application/json">
+              {"phone":{"defaultRegion":"SK"},"tripTypeSelection":[{"value":1,"text":"nový zájazd"},{"value":2,"text":"zakúpený zájazd"}],"hideBranchVisit":false,"serviceTypeSelection":{"serviceTypes":[{"id":1,"text":"Parkovanie na letisku"},{"id":2,"text":"Cestovné poistenie"},{"id":3,"text":"Palubná služba (stravovanie)"},{"id":4,"text":"Sedadlá lietadla (sedadlá)"},{"id":5,"text":"Letiskový salónik"},{"id":6,"text":"Ubytovanie na letisku - Holiday Inn"},{"id":7,"text":"Iná služba"}]},"Hotel":{"Identifier":0,"HotelName":null,"Country":null,"Destination":null,"Region":null}}
+        </script>
+        <div class="hidden sm:block py-4 mx-auto max-w-[--content-width-maximum] px-4">
+            <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-[40px] w-52 mx-auto my-4">
+                <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+            </div>
+            <div class="grid gap-4 md:grid-cols-3">
+                <div class="gap-4 flex flex-col text-[--text-title] items-center">
+                    <div class="bg-neutral-200 overflow-hidden relative rounded-full w-20 h-20">
+                        <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                    </div>
+                    <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-12 w-36">
+                        <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                    </div>
+                    <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-12 w-full">
+                        <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                    </div>
+                    <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-9 w-36 mx-auto">
+                        <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                    </div>
+                </div>
+                <div class="gap-4 flex flex-col text-[--text-title] items-center">
+                    <div class="bg-neutral-200 overflow-hidden relative rounded-full w-20 h-20">
+                        <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                    </div>
+                    <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-12 w-36">
+                        <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                    </div>
+                    <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-12 w-full">
+                        <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                    </div>
+                    <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-9 w-36 mx-auto">
+                        <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                    </div>
+                </div>
+                <div class="gap-4 flex flex-col text-[--text-title] items-center">
+                    <div class="bg-neutral-200 overflow-hidden relative rounded-full w-20 h-20">
+                        <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                    </div>
+                    <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-12 w-36">
+                        <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                    </div>
+                    <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-12 w-full">
+                        <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                    </div>
+                    <div class="bg-neutral-200 overflow-hidden rounded-[--cornerRounding] relative h-9 w-36 mx-auto">
+                        <div class="motion-safe:animate-[loader_1s_linear_infinite] left-0 absolute inset-y-0 right-full bg-neutral-300"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div id="newsletter_anchor"></div>
+<div class="fshr-pageSection fshr-pageSection--highlighted fshr-notForMaximizedMap fshr-form-aboveFooter" id="eximFooterNewsletter">
+
+
+    <div class="grd-container js-form js-sendByAjax js-gtm-trackGoal" data-ajaxform-url="/api/ContactForm/newsletter" data-ajaxform-method="post"
+          data-gtm-trackgoal-action="Newsletter" data-selector-helperdatapool="#helperPool">
+      <div class="js-ajaxResultMessage fshr-ajaxResultMessage"></div>
+      <div class="grd-row">
+        <div class="grd-col grd-col--4 grd-col--slg-12">
+          <label class="fshr-contentSeparated-label" for="email-footer">Najlepšie ponuky do v&#225;šho e-mailu</label>
+        </div>
+        <div class="grd-col grd-col--5 grd-col--slg-8 grd-col--smd-12">
+          <div class="fshr-contentSeparated-formItem">
+            <input id="email-footer" name="email-footer" class="fshr-contentSeparated-formItem-input js-showContentIfValue"
+                    type="email" placeholder="Zadajte svoj e-mail"
+                    required type="email" data-showcontentifvalue-selector="closest(.grd-row)->next(.grd-row)"
+                    data-text-itemrequired="(povinn&#225; položka)"
+                    data-validitytext-empty="Položka je povinn&#225;.&lt;br&gt;Pros&#237;me, vyplňte ju."
+                    data-text-itemrequired-invalid="(zl&#253; form&#225;t)"
+                    data-validitytext-invalid="(zl&#253; form&#225;t)"
+                    data-validitytext-selectone="Pros&#237;me, vyberte jednu z možnost&#237;."
+                    data-text-itemrequired-valid="(v poriadku)">
+
+          </div>
+        </div>
+        <div class="grd-col grd-col--3 grd-col--slg-4 grd-col--smd-8 grd-offset--smd-2">
+          <button class="f_button f_button--common" style="margin: 0" type="submit">
+            <span class="f_button-text f_icon f_icon_set--right f_icon--chevronRight">
+              Odoberať
+            </span>
+          </button>
+        </div>
+      </div>
+
+      
+
+    </div>
+</div>
+
+<div class="bg-neutral-100">
+    <div class="max-w-(--web-contentWidth-withPadding) pt-8 pb-6 px-4 box-border mx-auto">
+        
+
+
+
+
+<div class="md:flex gap-4 justify-between items-stretch">
+
+    <div class="sm:flex gap-4 sm:justify-between md:w-3/4">
+                <div class="hidden sm:block md:w-1/3">
+                                <div class="text-xl text-(--web-titleColor) font-semibold  ">
+                                    KARTAGO tours
+                                </div>
+                                    <ul class="m-0 mt-4 p-0 list-none">
+                                            <li class="mt-2  ">
+                                                    <a  class="f_anchor" href="/kontakty">Kontakt</a>
+                                            </li>
+                                            <li class="mt-2  ">
+                                                    <a  class="f_anchor" href="/kontakty/nase-predajne">Pobočky</a>
+                                            </li>
+                                            <li class="mt-2  ">
+                                                    <a  class="f_anchor" href="/o-nas/praca">Kari&#233;ra</a>
+                                            </li>
+                                            <li class="mt-2  ">
+                                                    <a  class="f_anchor" href="/o-nas">O n&#225;s</a>
+                                            </li>
+                                            <li class="mt-2  ">
+                                                    <a  class="f_anchor" href="/pre-predajcov">Pre predajcov</a>
+                                            </li>
+                                            <li class="mt-2  ">
+                                                    <a  class="f_anchor" href="/prehlasenie-o-pristupnosti">Prehl&#225;senie o pr&#237;stupnosti</a>
+                                            </li>
+                                    </ul>
+                </div>
+                <div class="hidden sm:block md:w-1/3">
+                                <div class="text-xl text-(--web-titleColor) font-semibold  ">
+                                    Pre klientov
+                                </div>
+                                    <ul class="m-0 mt-4 p-0 list-none">
+                                            <li class="mt-2  ">
+                                                    <a  class="f_anchor" href="/moje-kartago">Moje KARTAGO</a>
+                                            </li>
+                                            <li class="mt-2  ">
+                                                    <a  class="f_anchor" href="/darcekove-poukazy">Darčekov&#233; poukazy</a>
+                                            </li>
+                                            <li class="mt-2  ">
+                                                    <a  class="f_anchor" href="/uzitocne-informacie/ochrana-osobnych-udajov">Ochrana osobn&#253;ch &#250;dajov</a>
+                                            </li>
+                                            <li class="mt-2  ">
+                                                    <a class="f_anchor" onclick="UC_UI.showSecondLayer();">Nastavenie s&#250;kromia</a>
+                                            </li>
+                                            <li class="mt-2  ">
+                                                    <a  class="f_anchor" href="/uzitocne-informacie">D&#244;ležit&#233; inform&#225;cie</a>
+                                            </li>
+                                    </ul>
+                </div>
+                <div class="hidden sm:block md:w-1/3">
+                                <div class="text-xl text-(--web-titleColor) font-semibold  ">
+                                    Inform&#225;cie k z&#225;jazdu
+                                </div>
+                                    <ul class="m-0 mt-4 p-0 list-none">
+                                            <li class="mt-2  ">
+                                                    <a  class="f_anchor" href="/sluzby/cestovne-poistenie">Cestovn&#233; poistenie</a>
+                                            </li>
+                                            <li class="mt-2  ">
+                                                    <a  class="f_anchor" href="/uzitocne-informacie/otazky">Často kladen&#233; ot&#225;zky</a>
+                                            </li>
+                                            <li class="mt-2  ">
+                                                    <a  class="f_anchor" href="/uzitocne-informacie/vseobecne-podmienky">Podmienky pre cestuj&#250;cich</a>
+                                            </li>
+                                            <li class="mt-2  ">
+                                                    <a  class="f_anchor" href="/sluzby">Služby k dovolenke</a>
+                                            </li>
+                                            <li class="mt-2  ">
+                                                    <a target=_blank class="f_anchor" href="https://info.dertouristik.sk/">Vstupn&#233; a pobytov&#233; poplatky</a>
+                                            </li>
+                                    </ul>
+                </div>
+                <div class="hidden sm:block md:w-1/3">
+                                <div class="text-xl text-(--web-titleColor) font-semibold  ">
+                                    Typy dovolenky
+                                </div>
+                                    <ul class="m-0 mt-4 p-0 list-none">
+                                            <li class="mt-2  ">
+                                                    <a  class="f_anchor" href="/letna-dovolenka-pri-mori">Letn&#225; dovolenka pri mori</a>
+                                            </li>
+                                            <li class="mt-2  ">
+                                                    <a  class="f_anchor" href="/last-minute">Last minute z&#225;jazdy</a>
+                                            </li>
+                                            <li class="mt-2  ">
+                                                    <a  class="f_anchor" href="/first-minute/leto">Dovolenka na leto 2026</a>
+                                            </li>
+                                            <li class="mt-2  ">
+                                                    <a  class="f_anchor" href="/vlastnou-dopravou">Dovolenka vlastnou dopravou</a>
+                                            </li>
+                                            <li class="mt-2  ">
+                                                    <a  class="f_anchor" href="https://www.kartago.sk/letenky/vysledky-vyhladavania?ac1=2&amp;nn=7|8|9|10|11|12|13|14&amp;rd=&amp;to=483|1837|3437&amp;tt=1">Samostatn&#233; letenky</a>
+                                            </li>
+                                    </ul>
+                </div>
+    </div>
+
+
+
+    
+        <div class="sm:hidden">
+            <ul class="m-0 p-0 list-none text-center">
+<li class="">
+                            <a  href="/last-minute" class="f_anchor">Last minute z&#225;jazdy</a>
+                    </li>
+<li class="mt-2">
+                            <a  href="/letna-dovolenka-pri-mori" class="f_anchor">Letn&#225; dovolenka pri mori</a>
+                    </li>
+<li class="mt-2">
+                            <a  href="/kontakty" class="f_anchor">Kontakty</a>
+                    </li>
+<li class="mt-2">
+                            <a  href="/kontakty/nase-predajne" class="f_anchor">Pobočky</a>
+                    </li>
+<li class="mt-2">
+                            <a  href="/moje-kartago" class="f_anchor">Moje KARTAGO</a>
+                    </li>
+<li class="mt-2">
+                            <a  href="/aplikacia" class="f_anchor">Mobiln&#225; aplik&#225;cia KARTAGO</a>
+                    </li>
+<li class="mt-2">
+                            <a  href="/uzitocne-informacie/cestovne-poistenie" class="f_anchor">Cestovn&#233; poistenie</a>
+                    </li>
+<li class="mt-2">
+                            <a  href="/uzitocne-informacie/otazky" class="f_anchor">Čast&#233; ot&#225;zky</a>
+                    </li>
+<li class="mt-2">
+                            <a  href="/uzitocne-informacie/vseobecne-podmienky" class="f_anchor">Podmienky pre cestuj&#250;cich</a>
+                    </li>
+<li class="mt-2">
+                            <a  href="/uzitocne-informacie" class="f_anchor">D&#244;ležit&#233; inform&#225;cie</a>
+                    </li>
+<li class="mt-2">
+                            <a  href="/o-nas/praca" class="f_anchor">Voľn&#233; poz&#237;cie</a>
+                    </li>
+<li class="mt-2">
+                            <a  href="/uzitocne-informacie/ochrana-osobnych-udajov" class="f_anchor">Ochrana osobn&#253;ch &#250;dajov</a>
+                    </li>
+<li class="mt-2">
+                            <a onclick="UC_UI.showSecondLayer();" class="f_anchor">Nastavenie s&#250;kromia</a>
+                    </li>
+            </ul>
+        </div>
+
+    <div class="text-center mt-8 md:mt-0 md:flex md:flex-col md:justify-between">
+        <div class="text-title inline-block md:block md:text-right md:h-full">
+            <div class="text-right">Po-Ne 7-22 hod.</div>
+            <a href="tel:+421257205700"
+               class="f_icon f_icon--phone f_icon_set--inheritColor text-3xl text-brand-primary font-semibold no-underline before:text-xl before:leading-none before:pr-3">
+                02 / 5720 5700
+            </a>
+            <div class="js-gtmWhatsappButton"></div>
+        </div>
+        <div class="mt-8 md:mt-0 md:pt-8 box-border">
+            <div class="flex gap-5 my-auto justify-center mb-4 md:justify-end">
+                        <a href="https://www.facebook.com/kartagotours">
+                            <img class="block js-gtm-eventClick" src="/Content/Css/Exim/web/asset/image/social/grayscale/facebook.svg" data-gtm-eventclick-category="ClickSocial" data-gtm-eventclick-action="clickFacebook"
+                                 alt="Facebook" loading="lazy" />
+                        </a>
+                        <a href="https://twitter.com/kartagosk">
+                            <img class="block js-gtm-eventClick" src="/Content/Css/Exim/web/asset/image/social/grayscale/twitter.svg" data-gtm-eventclick-category="ClickSocial" data-gtm-eventclick-action="clickTwitter"
+                                 alt="Twitter" loading="lazy" />
+                        </a>
+                        <a href="https://www.instagram.com/kartago_sk/">
+                            <img class="block js-gtm-eventClick" src="/Content/Css/Exim/web/asset/image/social/grayscale/instagram.svg" data-gtm-eventclick-category="ClickSocial" data-gtm-eventclick-action="clickInstagram"
+                                 alt="Instagram" loading="lazy" />
+                        </a>
+                        <a href="https://www.youtube.com/@kartagoytb">
+                            <img class="block js-gtm-eventClick" src="/Content/Css/Exim/web/asset/image/social/grayscale/youtube.svg" data-gtm-eventclick-category="ClickSocial" data-gtm-eventclick-action="clickYoutube"
+                                 alt="Youtube" loading="lazy" />
+                        </a>
+                        <a href="https://www.linkedin.com/company/dertour-cz/">
+                            <img class="block js-gtm-eventClick" src="/Content/Css/Exim/web/asset/image/social/grayscale/linkedin.svg" style="height: 35px" data-gtm-eventclick-category="ClickSocial" data-gtm-eventclick-action="clickLinkedIn"
+                                 alt="Linked" loading="lazy" />
+                        </a>
+            </div>
+            <div class="text-center md:text-right">Copyright &#169; 2026, DERTOUR SK a. s.</div>
+        </div>
+    </div>
+</div>
+            <div data-component-name="footerStorePromo">
+        <script type="application/json">
+          {"image":{"src":"https://www.kartago.sk/KartagoSK/media/KartagoSK/kartagofooter.png","alt":"Vaša dovolenka vo vrecku","title":"Vaša dovolenka vo vrecku"},"content":{"title":"Vaša dovolenka vo vrecku","description":"Stiahnite si aplikáciu a majte všetko dôležité o vašom zájazde vždy po ruke."},"store":[{"image":{"src":"https://www.kartago.sk/KartagoSK/media/KartagoSK/appstoredownload.png","alt":"App Store","title":"App Store"},"link":"https://apps.apple.com/us/app/kartago/id6471257287","type":0},{"image":{"src":"https://www.kartago.sk/KartagoSK/media/KartagoSK/googleplaydownload.png","alt":"Google Play","title":"Google Play"},"link":"https://play.google.com/store/apps/details?id=com.dertouristik.kartago","type":1}],"qr":{"src":"https://www.kartago.sk/KartagoSK/media/KartagoSK/Kartago-Footer.svg","alt":"QR na stiahnutie aplikácie","title":"QR na stiahnutie aplikácie"},"bookingLink":"kartago://sunrise.app/home/addBooking","enabledDataSources":[256,2048,8192,16384,65536,92416],"enabled":true,"orderVerificationPhoneImage":{"src":"https://www.kartago.sk/KartagoSK/media/KartagoSK/App/app-phone-ktgsk.png","title":"Vaše dovolená v kapse"}}
+        </script>
+    </div>
+
+
+<div class="mt-8 border-t border-t-neutral-200 border-solid border-0 pt-6 lg:flex lg:gap-4 items-center">
+    <div class="sm:flex gap-4 justify-center sm:items-center">
+        <div class="text-center block w-auto h-auto shrink-0">
+            <a href="https://www.dertouristik.cz/" title="DER Touristik" target="_blank">
+                <img class="block mx-auto h-full shrink-0" alt="DER Touristik" src="/Scripts/web/assets/image/logo/der-touristik.svg" loading="lazy"/>
+            </a>
+        </div>
+        <div class="text-center sm:text-left text-neutral-400 text-sm mt-4">
+            Sme súčasťou <b>REWE Group</b> a jej divízie <b>DERTOUR&nbsp;Group</b>, najväčšej stredoeurópskej skupiny v cestovnom ruchu.
+        </div>
+    </div>
+        <div class="hidden sm:flex gap-4 justify-center shrink-0 sm:mt-4">
+            <div>
+                <img src="/Scripts/web/assets/image/footerBrands/exim.svg" alt="" loading="lazy"/>
+            </div>
+            <div>
+                <img src="/Scripts/web/assets/image/footerBrands/fischer.svg" alt="" loading="lazy"/>
+            </div>
+            
+            <div>
+                <img src="/Scripts/web/assets/image/footerBrands/nevdama.svg" alt="" loading="lazy"/>
+            </div>
+            <div>
+                <img src="/Scripts/web/assets/image/footerBrands/etravel.svg" alt="" loading="lazy"/>
+            </div>
+            <div>
+                <img src="/Scripts/web/assets/image/footerBrands/kartago.svg" alt="" loading="lazy" />
+            </div>
+        </div>
+</div>
+    </div>
+</div>
+
+
+
+        
+<div class="fshr-popupWindow-overlay js-popupWindow-overlay fshr-popupWindow--callback" id="popup-callback" data-popup-ajaxurl="/home/callback" data-popup-ajaxmethod="get">
+  <div class="fshr-popupWindow-centerWrapper">
+    <div class="fshr-popupWindow-center">
+      <div class="fshr-popupWindow fshr-popupWindow--centered js-popupWindow js-form js-sendByAjax fshr-icon fshr-icon--phone js-gtm-trackGoal" data-gtm-trackgoal-action="Callback"
+           data-ajaxform-url="/api/ContactForm/callback" data-ajaxform-method="post" data-selector-helperdatapool="#helperPool">
+        <div class="fshr-popupWindow-header">
+          <a href="#" class="fshr-popupWindow-close js-popupWindow--close">Zavrieť</a>
+          <p class="fshr-popupWindow-title">
+            Sp&#228;tn&#233; volanie
+          </p>
+        </div>
+        <div class="fshr-popupWindow-content js-popupWindow-content"></div>
+        <div class="fshr-popupWindow-footer js-popupWindow-footer"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="fshr-popupWindow-overlay js-popupWindow-overlay fshr-popupWindow--branch" id="popup-branch" data-popup-ajaxurl="/home/branchvisit" data-popup-ajaxmethod="get">
+  <div class="fshr-popupWindow-centerWrapper">
+    <div class="fshr-popupWindow-center">
+      <div class="fshr-popupWindow fshr-popupWindow--centered js-form js-popupWindow fshr-icon fshr-icon--man js-sendByAjax js-gtm-trackGoal" data-gtm-trackgoal-action="VisitBranch"
+           data-ajaxform-url="/api/ContactForm/branch" data-ajaxform-method="post" data-selector-helperdatapool="#helperPool">
+        <div class="fshr-popupWindow-header">
+          <a href="#" class="fshr-popupWindow-close js-popupWindow--close">Zavrieť</a>
+          <p class="fshr-popupWindow-title">N&#225;všteva pobočky</p>
+        </div>
+        <div class="fshr-popupWindow-content js-popupWindow-content">
+        </div>
+        <div class="fshr-popupWindow-footer js-popupWindow-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="fshr-popupWindow-overlay js-popupWindow-overlay fshr-popupWindow--question" id="popup-question" data-popup-ajaxurl="/home/question" data-popup-ajaxmethod="get">
+  <div class="fshr-popupWindow-centerWrapper">
+    <div class="fshr-popupWindow-center">
+      <div class="fshr-popupWindow fshr-popupWindow--centered js-popupWindow fshr-icon fshr-icon--envelope js-form js-sendByAjax js-gtm-trackGoal"
+           data-gtm-trackgoal-action="Question" data-ajaxerror-message="Formul&#225;r sa nepodarilo odoslať, sk&#250;ste to pros&#237;m nesk&#244;r."
+           data-ajaxform-url="/api/ContactForm/question" data-ajaxform-method="post" data-selector-helperdatapool="#helperPool">
+        <div class="fshr-popupWindow-header">
+          <a href="#" class="fshr-popupWindow-close js-popupWindow--close">Zavrieť</a>
+          <p class="fshr-popupWindow-title">Ot&#225;zka k z&#225;jazdu</p>
+        </div>
+        <div class="fshr-popupWindow-content js-popupWindow-content"></div>
+        <div class="fshr-popupWindow-footer js-popupWindow-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="fshr-popupWindow-overlay js-popupWindow-overlay" id="popup-contacts">
+    <div class="fshr-popupWindow-centerWrapper">
+        <div class="fshr-popupWindow-center">
+            <div class="fshr-popupWindow fshr-popupWindow--centered js-popupWindow">
+                <div class="fshr-popupWindow-header">
+                    <a href="#" class="fshr-popupWindow-close js-popupWindow--close">Zavrieť</a>
+                    <p class="fshr-popupWindow-title">Kontaktujte n&#225;s</p>
+                </div>
+                <div class="fshr-popupWindow-content">
+                    <div class="fshr-contentBox">
+                        <a href="tel:+42102 / 5720 5700" class="fshr-mobileListMenu-anchor fshr-mobileListMenu-anchor--phone">
+                            <span class="fshr-mobileListMenu-item-title">02 / 5720 5700</span>
+                            <span class="fshr-mobileListMenu-item-text">volajte zadarmo</span>
+                        </a>
+                    </div>
+                    <div class="fshr-contentBox" style="margin-top: 10px;">
+                        <ul class="fshr-mobileListMenu">
+                            <li class="fshr-mobileListMenu-item">
+                                <a href="#popup-callback" data-popup-ajaxurl="/home/callback" data-popup-ajaxmethod="get"
+                                   class="fshr-mobileListMenu-anchor fshr-icon fshr-icon--phone js-popupWindow--show js-gtm-eventClick" 
+                                   data-gtm-eventclick-category="ClickGoal" data-gtm-eventclick-action="Callback">
+                                    <span class="fshr-mobileListMenu-item-title">Sp&#228;tn&#233; volanie</span>
+                                    <span class="fshr-mobileListMenu-item-text">Zanechajte n&#225;m svoje telef&#243;nne č&#237;slo a n&#225;š odborn&#253; poradca v&#225;s bude kontaktovať.</span>
+                                </a>
+                            </li>
+                            <li class="fshr-mobileListMenu-item">
+                                <a href="#popup-branch" data-popup-ajaxurl="/home/branchvisit" data-popup-ajaxmethod="get"
+                                   class="fshr-mobileListMenu-anchor fshr-icon fshr-icon--man js-popupWindow--show js-gtm-eventClick" 
+                                   data-gtm-eventclick-category="ClickGoal" data-gtm-eventclick-action="VisitBranch" data-map-branchid="">
+                                    <span class="fshr-mobileListMenu-item-title">N&#225;všteva pobočky</span>
+                                    <span class="fshr-mobileListMenu-item-text">Dohodnite si sch&#244;dzku v najbližšej pobočke. Šetrite svoj čas a nechajte n&#225;s vypracovať vhodn&#250; ponuku.</span>
+                                </a>
+                            </li>
+
+                            <li class="fshr-mobileListMenu-item">
+                                <a href="#popup-question" data-popup-ajaxurl="/home/question" data-popup-ajaxmethod="get"
+                                   class="fshr-mobileListMenu-anchor fshr-icon fshr-icon--envelope js-popupWindow--show js-gtm-eventClick" 
+                                   data-gtm-eventclick-category="ClickGoal" data-gtm-eventclick-action="Question">
+                                    <span class="fshr-mobileListMenu-item-title">Ot&#225;zka k z&#225;jazdu</span>
+                                    <span class="fshr-mobileListMenu-item-text">Nie ste si 100% ist&#237; v&#253;berom z&#225;jazdu? Sme pripraven&#237; odpovedať všetky vaše ot&#225;zky.</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="fshr-popupWindow-overlay js-popupWindow-overlay fshr-popupWindow--question" id="popup-question-service" data-popup-ajaxurl="/home/questionservice" data-popup-ajaxmethod="get">
+    <div class="fshr-popupWindow-centerWrapper">
+        <div class="fshr-popupWindow-center">
+            <div class="fshr-popupWindow fshr-popupWindow--centered js-popupWindow fshr-icon fshr-icon--envelope js-form js-sendByAjax js-gtm-trackGoal"
+                 data-gtm-trackgoal-action="Question" data-ajaxerror-message="Formulář se nepodařilo odeslat, zkuste to prosím později."
+                 data-ajaxform-url="/api/ContactForm/QuestionService" data-ajaxform-method="post" data-selector-helperdatapool="#helperPool">
+                <div class="fshr-popupWindow-header">
+                    <a href="#" class="fshr-popupWindow-close js-popupWindow--close">Zavrieť</a>
+                    <p class="fshr-popupWindow-title">Z&#225;ujem o službu</p>
+                </div>
+                <div class="fshr-popupWindow-content js-popupWindow-content"></div>
+                <div class="fshr-popupWindow-footer js-popupWindow-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div id="c_popup-availability"></div>
+
+        <div data-component-name="popupAside"></div>
+        <div data-component-name="popup"></div>
+
+    </div>
+
+
+    <script src='/Scripts/web/index.BUniwKnw.js' type='module'></script>
+<script src='/Scripts/web/index.CD3GWOsj.js' type='module'></script>
+
+
+
+<script src="/Scripts/Exim/Localization/sk.js"></script>
+    <script src="/Scripts/Exim/vendor/jquery/jquery.slick.min.js"></script>
+
+    
+    
+
+    <style>
+        @media (max-width: 640px) {
+            .f_breadcrumb {
+                display: none !important;
+            }
+        }
+
+        .grecaptcha-badge {
+            visibility: hidden;
+        }
+    </style>
+
+</body>
+</html>
