@@ -1,2 +1,5 @@
 001 200 https://www.cedok.sk/robots.txt
 002 200 https://tiptravel.sk/robots.txt
+003 200 https://www.cedok.sk/robots.txt
+004 200 https://tiptravel.sk/robots.txt
+005 200 https://seneca.sk/robots.txt
