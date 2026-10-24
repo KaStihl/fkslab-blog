@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-24T08:53:10Z",
+ "generated_at": "2026-10-24T09:02:58Z",
  "criteria": {
   "adults": 1,
   "children_ages": [
@@ -54,16 +54,16 @@
    "status": "empty",
    "count": 0,
    "error": null,
-   "duration_s": 190.2
+   "duration_s": 81.4
   },
   {
    "id": "satur",
    "name": "Satur.sk",
    "home": "https://www.satur.sk",
    "status": "ok",
-   "count": 89,
+   "count": 66,
    "error": null,
-   "duration_s": 72.0
+   "duration_s": 122.3
   },
   {
    "id": "kartago",
@@ -250,6 +250,41 @@
    "price_change": 0
   },
   {
+   "hotel": "Hotel El Mehdi Beach Resort",
+   "url": "https://www.satur.sk/produkt/primasol-el-mehdi--316520?strava=ultra-all-inclusive&doprava=letecky&odlet=BTS",
+   "image": "https://www.satur.sk/media/cache/500x333/tour/316520/3018232f11a40cf028e026cc9318218d-ocpprod_69ef315784826.jpeg",
+   "stars": 4.0,
+   "rating": 8.0,
+   "country": "Tunisko",
+   "country_code": "TN",
+   "region": null,
+   "place": "Mahdia",
+   "board": "UAI",
+   "transport": "flight",
+   "departure": "BTS",
+   "date_from": "2027-07-02",
+   "date_to": "2027-07-09",
+   "nights": 7,
+   "price_total": 2457,
+   "price_original": 3510,
+   "discount_label": "Zľava (cena za os. × 3, orientačne)",
+   "pets_allowed": null,
+   "source": "satur",
+   "source_name": "Satur.sk",
+   "discount_pct": 30,
+   "id": "satur:ffc8b1a10640",
+   "score": 86,
+   "first_seen": "2026-10-24",
+   "last_seen": "2026-10-24",
+   "price_history": [
+    [
+     "2026-10-24",
+     2457
+    ]
+   ],
+   "price_change": null
+  },
+  {
    "hotel": "Hotel Donat",
    "url": "https://www.satur.sk/produkt/donat?doprava=vlastna",
    "image": "https://www.satur.sk/media/cache/500x333/tour/540/293737_6541066f35650.jpeg",
@@ -286,7 +321,7 @@
   },
   {
    "hotel": "Hotel SATUR Club Melia El Mansour Mahdia",
-   "url": "https://www.satur.sk/produkt/satur-club-melia-el-mansour-mahdia?doprava=letecky&odlet=BTS",
+   "url": "https://www.satur.sk/produkt/satur-club-melia-el-mansour-mahdia?strava=all-inclusive&doprava=letecky&odlet=BTS",
    "image": "https://www.satur.sk/media/cache/500x333/tour/2262/compressed-aerial_69bd10cd69669.jpeg",
    "stars": 4.0,
    "rating": 9.0,
@@ -318,6 +353,41 @@
     ]
    ],
    "price_change": 0
+  },
+  {
+   "hotel": "Hotel Caribbean World Mahdia",
+   "url": "https://www.satur.sk/produkt/caribbean-mahdia-by-magic-hotels--316587?strava=all-inclusive&doprava=letecky&odlet=BTS",
+   "image": "https://www.satur.sk/media/cache/500x333/tour/316587/Snimka-obrazovky-2026-07-03-171951_6a47d32294fec.jpeg",
+   "stars": 4.0,
+   "rating": 8.4,
+   "country": "Tunisko",
+   "country_code": "TN",
+   "region": null,
+   "place": "Mahdia",
+   "board": "AI",
+   "transport": "flight",
+   "departure": "BTS",
+   "date_from": "2027-07-02",
+   "date_to": "2027-07-09",
+   "nights": 7,
+   "price_total": 2877,
+   "price_original": 4110,
+   "discount_label": "Zľava (cena za os. × 3, orientačne)",
+   "pets_allowed": null,
+   "source": "satur",
+   "source_name": "Satur.sk",
+   "discount_pct": 30,
+   "id": "satur:8b1aa8438983",
+   "score": 78,
+   "first_seen": "2026-10-24",
+   "last_seen": "2026-10-24",
+   "price_history": [
+    [
+     "2026-10-24",
+     2877
+    ]
+   ],
+   "price_change": null
   },
   {
    "hotel": "Hotelový komplex Imperial",
@@ -422,7 +492,7 @@
      2940
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Vila Viskovič",
@@ -527,7 +597,7 @@
      3387
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Yalihan Una",
@@ -597,7 +667,7 @@
      3417
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Iz Flower",
@@ -667,7 +737,7 @@
      3477
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Annabella Diamond",
@@ -737,11 +807,11 @@
      3507
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Arnor De Luxe Hotel & Spa",
-   "url": "https://www.satur.sk/produkt/arnor-de-luxe-hotel-spa--347289?doprava=letecky&odlet=BTS",
+   "url": "https://www.satur.sk/produkt/arnor-de-luxe-hotel-spa--347289?strava=ultra-all-inclusive&doprava=letecky&odlet=BTS",
    "image": "https://www.satur.sk/media/cache/500x333/tour/347289/1-8_673726b8d7e60.jpeg",
    "stars": 5.0,
    "rating": 8.8,
@@ -773,6 +843,76 @@
     ]
    ],
    "price_change": 0
+  },
+  {
+   "hotel": "Hotel Barcelo Concorde Green Park Palace",
+   "url": "https://www.satur.sk/produkt/barcelo-concorde-green-park-palace?strava=all-inclusive&doprava=letecky&odlet=BTS",
+   "image": "https://www.satur.sk/media/cache/500x333/tour/316565/ZSK066574k_69d64c6e9dd36.jpeg",
+   "stars": 5.0,
+   "rating": 6.8,
+   "country": "Tunisko",
+   "country_code": "TN",
+   "region": null,
+   "place": "Sousse",
+   "board": "AI",
+   "transport": "flight",
+   "departure": "BTS",
+   "date_from": "2027-07-02",
+   "date_to": "2027-07-09",
+   "nights": 7,
+   "price_total": 3147,
+   "price_original": 4497,
+   "discount_label": "Zľava (cena za os. × 3, orientačne)",
+   "pets_allowed": null,
+   "source": "satur",
+   "source_name": "Satur.sk",
+   "discount_pct": 30,
+   "id": "satur:560a9fc2837b",
+   "score": 64,
+   "first_seen": "2026-10-24",
+   "last_seen": "2026-10-24",
+   "price_history": [
+    [
+     "2026-10-24",
+     3147
+    ]
+   ],
+   "price_change": null
+  },
+  {
+   "hotel": "Hotel Iberostar Royal El Mansour",
+   "url": "https://www.satur.sk/produkt/iberostar-royal-el-mansour-1?strava=all-inclusive&doprava=letecky&odlet=BTS",
+   "image": "https://www.satur.sk/media/cache/500x333/tour/316554/46152689-iberostar-royal-el-mansour-thalasso-11zon_69de0c84c0e64.jpeg",
+   "stars": 5.0,
+   "rating": 9.0,
+   "country": "Tunisko",
+   "country_code": "TN",
+   "region": null,
+   "place": "Mahdia",
+   "board": "AI",
+   "transport": "flight",
+   "departure": "BTS",
+   "date_from": "2027-07-02",
+   "date_to": "2027-07-09",
+   "nights": 7,
+   "price_total": 3237,
+   "price_original": 4626,
+   "discount_label": "Zľava (cena za os. × 3, orientačne)",
+   "pets_allowed": null,
+   "source": "satur",
+   "source_name": "Satur.sk",
+   "discount_pct": 30,
+   "id": "satur:3420a65f1675",
+   "score": 64,
+   "first_seen": "2026-10-24",
+   "last_seen": "2026-10-24",
+   "price_history": [
+    [
+     "2026-10-24",
+     3237
+    ]
+   ],
+   "price_change": null
   },
   {
    "hotel": "Futura Club Torre Rinalda",
@@ -807,7 +947,7 @@
      3009
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Sural Hotel",
@@ -877,7 +1017,7 @@
      3597
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Stamatia",
@@ -912,7 +1052,7 @@
      3717
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Seven Seas Kaila Bay (ex-Seven Seas Palmeras Bay)",
@@ -947,11 +1087,11 @@
      3777
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Phokaia Beach Resort",
-   "url": "https://www.satur.sk/produkt/phokaia-beach-resort?doprava=letecky&odlet=BTS",
+   "url": "https://www.satur.sk/produkt/phokaia-beach-resort?strava=ultra-all-inclusive&doprava=letecky&odlet=BTS",
    "image": "https://www.satur.sk/media/cache/500x333/tour/437297/3_6abf962d8f701.jpeg",
    "stars": 5.0,
    "rating": null,
@@ -985,8 +1125,43 @@
    "price_change": 0
   },
   {
+   "hotel": "Hotel Marvel",
+   "url": "https://www.satur.sk/produkt/marvel?strava=all-inclusive&doprava=letecky&odlet=BTS",
+   "image": "https://www.satur.sk/media/cache/500x333/tour/2173/9_673370eb04bec.jpeg",
+   "stars": 4.0,
+   "rating": 8.6,
+   "country": "Bulharsko",
+   "country_code": "BG",
+   "region": null,
+   "place": "Slnečné pobrežie",
+   "board": "AI",
+   "transport": "flight",
+   "departure": "BTS",
+   "date_from": "2027-07-01",
+   "date_to": "2027-07-08",
+   "nights": 7,
+   "price_total": 3567,
+   "price_original": 5097,
+   "discount_label": "Zľava (cena za os. × 3, orientačne)",
+   "pets_allowed": null,
+   "source": "satur",
+   "source_name": "Satur.sk",
+   "discount_pct": 30,
+   "id": "satur:37fe066e343a",
+   "score": 59,
+   "first_seen": "2026-10-24",
+   "last_seen": "2026-10-24",
+   "price_history": [
+    [
+     "2026-10-24",
+     3567
+    ]
+   ],
+   "price_change": null
+  },
+  {
    "hotel": "Hotel Seashell Resort & Spa",
-   "url": "https://www.satur.sk/produkt/seashell-resort-spa?doprava=letecky&odlet=BTS",
+   "url": "https://www.satur.sk/produkt/seashell-resort-spa?strava=ultra-all-inclusive&doprava=letecky&odlet=BTS",
    "image": "https://www.satur.sk/media/cache/500x333/tour/6309/368996_65251b0b2c834.jpeg",
    "stars": 5.0,
    "rating": 9.0,
@@ -1021,7 +1196,7 @@
   },
   {
    "hotel": "Hotel Argile Resort",
-   "url": "https://www.satur.sk/produkt/argile-resort?doprava=letecky&odlet=BTS",
+   "url": "https://www.satur.sk/produkt/argile-resort?strava=all-inclusive&doprava=letecky&odlet=BTS",
    "image": "https://www.satur.sk/media/cache/500x333/tour/201110/Argile-TITULKA-26_68cf0700551e7.jpeg",
    "stars": 4.0,
    "rating": 8.6,
@@ -1087,11 +1262,11 @@
      3837
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Thassos Grand Resort",
-   "url": "https://www.satur.sk/produkt/thassos-grand-resort?doprava=letecky&odlet=BTS",
+   "url": "https://www.satur.sk/produkt/thassos-grand-resort?strava=all-inclusive&doprava=letecky&odlet=BTS",
    "image": "https://www.satur.sk/media/cache/500x333/tour/5201/530944_652518f720266.jpeg",
    "stars": 5.0,
    "rating": 9.0,
@@ -1157,7 +1332,7 @@
      3897
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Side Star Resort",
@@ -1190,6 +1365,41 @@
     [
      "2026-10-24",
      4017
+    ]
+   ],
+   "price_change": 0
+  },
+  {
+   "hotel": "Hotel Side Star Beach",
+   "url": "https://www.satur.sk/produkt/side-star-beach--313734?strava=ultra-all-inclusive&doprava=letecky&odlet=BTS",
+   "image": "https://www.satur.sk/media/cache/500x333/tour/313734/s_68d11a40ad773.jpeg",
+   "stars": 5.0,
+   "rating": 10.0,
+   "country": "Turecko",
+   "country_code": "TR",
+   "region": null,
+   "place": "Side",
+   "board": "UAI",
+   "transport": "flight",
+   "departure": "BTS",
+   "date_from": "2027-08-11",
+   "date_to": "2027-08-18",
+   "nights": 7,
+   "price_total": 4047,
+   "price_original": 5784,
+   "discount_label": "Zľava (cena za os. × 3, orientačne)",
+   "pets_allowed": null,
+   "source": "satur",
+   "source_name": "Satur.sk",
+   "discount_pct": 30,
+   "id": "satur:123dd11e2c9e",
+   "score": 57,
+   "first_seen": "2026-10-24",
+   "last_seen": "2026-10-24",
+   "price_history": [
+    [
+     "2026-10-24",
+     4047
     ]
    ],
    "price_change": null
@@ -1230,8 +1440,43 @@
    "price_change": 0
   },
   {
+   "hotel": "Hotel Iberostar Selection Kuriat Palace",
+   "url": "https://www.satur.sk/produkt/iberostar-selection-kuriat-palace?strava=all-inclusive&doprava=letecky&odlet=BTS",
+   "image": "https://www.satur.sk/media/cache/500x333/tour/316562/kur-pool-0022_69d89fecacd48.jpeg",
+   "stars": 5.0,
+   "rating": null,
+   "country": "Tunisko",
+   "country_code": "TN",
+   "region": null,
+   "place": "Monastir",
+   "board": "AI",
+   "transport": "flight",
+   "departure": "BTS",
+   "date_from": "2027-07-02",
+   "date_to": "2027-07-09",
+   "nights": 7,
+   "price_total": 3777,
+   "price_original": 5397,
+   "discount_label": "Zľava (cena za os. × 3, orientačne)",
+   "pets_allowed": null,
+   "source": "satur",
+   "source_name": "Satur.sk",
+   "discount_pct": 30,
+   "id": "satur:4b72e8dac3a3",
+   "score": 56,
+   "first_seen": "2026-10-24",
+   "last_seen": "2026-10-24",
+   "price_history": [
+    [
+     "2026-10-24",
+     3777
+    ]
+   ],
+   "price_change": null
+  },
+  {
    "hotel": "Hotel Arcanus Hotels Sorgun - All Inclusive",
-   "url": "https://www.satur.sk/produkt/arcanus-hotels-sorgun?doprava=letecky&odlet=BTS",
+   "url": "https://www.satur.sk/produkt/arcanus-hotels-sorgun?strava=ultra-all-inclusive&doprava=letecky&odlet=BTS",
    "image": "https://www.satur.sk/media/cache/500x333/tour/3343/39674_65eb7a0bcfb8b.jpeg",
    "stars": 5.0,
    "rating": 8.8,
@@ -1263,6 +1508,76 @@
     ]
    ],
    "price_change": 0
+  },
+  {
+   "hotel": "Amadil Ocean Club",
+   "url": "https://www.satur.sk/produkt/atlas-amadil-beach?strava=all-inclusive&doprava=letecky&odlet=BTS",
+   "image": "https://www.satur.sk/media/cache/500x333/tour/3184/view3_68ef862e98141.jpeg",
+   "stars": 5.0,
+   "rating": null,
+   "country": "Maroko",
+   "country_code": "MA",
+   "region": null,
+   "place": "Agadir",
+   "board": "AI",
+   "transport": "flight",
+   "departure": null,
+   "date_from": "2027-07-05",
+   "date_to": "2027-07-12",
+   "nights": 7,
+   "price_total": 3186,
+   "price_original": null,
+   "discount_label": "Cena za os. × 3 (orientačne)",
+   "pets_allowed": null,
+   "source": "satur",
+   "source_name": "Satur.sk",
+   "discount_pct": null,
+   "id": "satur:837c73995473",
+   "score": 55,
+   "first_seen": "2026-10-24",
+   "last_seen": "2026-10-24",
+   "price_history": [
+    [
+     "2026-10-24",
+     3186
+    ]
+   ],
+   "price_change": null
+  },
+  {
+   "hotel": "Hotel Secrets Sunny Beach Resort & Spa",
+   "url": "https://www.satur.sk/produkt/hotel-secrets-sunny-beach-resort-spa?strava=all-inclusive&doprava=letecky&odlet=BTS",
+   "image": "https://www.satur.sk/media/cache/500x333/tour/386916/SESUN-DBXOF-Terrace-Views1-OF-FEM_66155b5f36ece.jpeg",
+   "stars": 5.0,
+   "rating": 9.8,
+   "country": "Bulharsko",
+   "country_code": "BG",
+   "region": null,
+   "place": "Slnečné pobrežie",
+   "board": "AI",
+   "transport": "flight",
+   "departure": "BTS",
+   "date_from": "2027-08-23",
+   "date_to": "2027-08-30",
+   "nights": 7,
+   "price_total": 3867,
+   "price_original": 5526,
+   "discount_label": "Zľava (cena za os. × 3, orientačne)",
+   "pets_allowed": null,
+   "source": "satur",
+   "source_name": "Satur.sk",
+   "discount_pct": 30,
+   "id": "satur:281a830708a8",
+   "score": 55,
+   "first_seen": "2026-10-24",
+   "last_seen": "2026-10-24",
+   "price_history": [
+    [
+     "2026-10-24",
+     3867
+    ]
+   ],
+   "price_change": null
   },
   {
    "hotel": "Hotel Evalena Beach",
@@ -1297,7 +1612,7 @@
      4107
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Corali",
@@ -1332,11 +1647,11 @@
      3627
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Med il Caesar",
-   "url": "https://www.satur.sk/produkt/hotel-med-ii-caesar?doprava=letecky&odlet=BTS",
+   "url": "https://www.satur.sk/produkt/hotel-med-ii-caesar?strava=all-inclusive&doprava=letecky&odlet=BTS",
    "image": "https://www.satur.sk/media/cache/500x333/tour/409313/Caesar-Bay-D-20_6915f4020ffff.jpeg",
    "stars": 5.0,
    "rating": 9.0,
@@ -1402,7 +1717,7 @@
      3837
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Sol Melia Marina Beach",
@@ -1437,7 +1752,7 @@
      4137
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Turan Prince - All Inclusive",
@@ -1507,7 +1822,7 @@
      4227
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Medora Auri Family Beach Resort",
@@ -1577,42 +1892,7 @@
      4227
     ]
    ],
-   "price_change": null
-  },
-  {
-   "hotel": "Hotel Miracle Resort",
-   "url": "https://www.satur.sk/produkt/miracle-resort?strava=ultra-all-inclusive&doprava=letecky&odlet=BTS",
-   "image": "https://www.satur.sk/media/cache/500x333/tour/3336/523756_65251712aee8e.jpeg",
-   "stars": 5.0,
-   "rating": 8.8,
-   "country": "Turecko",
-   "country_code": "TR",
-   "region": "Antalya",
-   "place": "Lara",
-   "board": "UAI",
-   "transport": "flight",
-   "departure": "BTS",
-   "date_from": "2027-08-24",
-   "date_to": "2027-08-31",
-   "nights": 7,
-   "price_total": 4287,
-   "price_original": 7146,
-   "discount_label": "Zľava (cena za os. × 3, orientačne)",
-   "pets_allowed": null,
-   "source": "satur",
-   "source_name": "Satur.sk",
-   "discount_pct": 40,
-   "id": "satur:3e89dd06a21c",
-   "score": 52,
-   "first_seen": "2026-10-24",
-   "last_seen": "2026-10-24",
-   "price_history": [
-    [
-     "2026-10-24",
-     4287
-    ]
-   ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Sovereign Beach",
@@ -1647,11 +1927,46 @@
      4287
     ]
    ],
-   "price_change": null
+   "price_change": 0
+  },
+  {
+   "hotel": "Hotel Miracle Resort",
+   "url": "https://www.satur.sk/produkt/miracle-resort?strava=ultra-all-inclusive&doprava=letecky&odlet=BTS",
+   "image": "https://www.satur.sk/media/cache/500x333/tour/3336/523756_65251712aee8e.jpeg",
+   "stars": 5.0,
+   "rating": 8.8,
+   "country": "Turecko",
+   "country_code": "TR",
+   "region": "Antalya",
+   "place": "Lara",
+   "board": "UAI",
+   "transport": "flight",
+   "departure": "BTS",
+   "date_from": "2027-08-24",
+   "date_to": "2027-08-31",
+   "nights": 7,
+   "price_total": 4287,
+   "price_original": 7146,
+   "discount_label": "Zľava (cena za os. × 3, orientačne)",
+   "pets_allowed": null,
+   "source": "satur",
+   "source_name": "Satur.sk",
+   "discount_pct": 40,
+   "id": "satur:3e89dd06a21c",
+   "score": 52,
+   "first_seen": "2026-10-24",
+   "last_seen": "2026-10-24",
+   "price_history": [
+    [
+     "2026-10-24",
+     4287
+    ]
+   ],
+   "price_change": 0
   },
   {
    "hotel": "Hotel Jaz Tamerina",
-   "url": "https://www.satur.sk/produkt/jaz-tamerina?doprava=letecky&odlet=BTS",
+   "url": "https://www.satur.sk/produkt/jaz-tamerina?strava=all-inclusive&doprava=letecky&odlet=BTS",
    "image": "https://www.satur.sk/media/cache/500x333/tour/201088/Plaz-jaz-almaza-2_65eb4b35c6a60.jpeg",
    "stars": 5.0,
    "rating": 9.0,
@@ -1721,7 +2036,7 @@
   },
   {
    "hotel": "Hotel Aqua Heneish Beach Resort",
-   "url": "https://www.satur.sk/produkt/aqua-heneish-beach-resort?doprava=letecky&odlet=BTS",
+   "url": "https://www.satur.sk/produkt/aqua-heneish-beach-resort?strava=all-inclusive&doprava=letecky&odlet=BTS",
    "image": "https://www.satur.sk/media/cache/500x333/tour/201140/Plaz-4_653ed3b77e393.jpeg",
    "stars": 4.0,
    "rating": 8.4,
@@ -1787,11 +2102,11 @@
      4347
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Bretanide Sport & Wellness resort",
-   "url": "https://www.satur.sk/produkt/bretanide-sport-wellness-resort?doprava=letecky&odlet=BTS",
+   "url": "https://www.satur.sk/produkt/bretanide-sport-wellness-resort?strava=all-inclusive&doprava=letecky&odlet=BTS",
    "image": "https://www.satur.sk/media/cache/500x333/tour/200102/525558_6525209b6ff6d.jpeg",
    "stars": 5.0,
    "rating": 8.8,
@@ -1892,7 +2207,7 @@
      4377
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Rodos Princess",
@@ -1927,7 +2242,7 @@
      4437
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Sol Torremolinos Don Pedro",
@@ -1962,7 +2277,7 @@
      3906
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Esperides Beach",
@@ -1997,7 +2312,7 @@
      4497
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Jaz Viva Villagio",
@@ -2032,11 +2347,11 @@
      4383
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Wave Resort",
-   "url": "https://www.satur.sk/produkt/wave-resort?doprava=letecky&odlet=BTS",
+   "url": "https://www.satur.sk/produkt/wave-resort?strava=ultra-all-inclusive&doprava=letecky&odlet=BTS",
    "image": "https://www.satur.sk/media/cache/500x333/tour/200036/BOJ-79197-Wave-Resort-0719-25_65c4bc2e60da2.jpeg",
    "stars": 5.0,
    "rating": 9.2,
@@ -2070,8 +2385,43 @@
    "price_change": 0
   },
   {
+   "hotel": "Hotel Rosamar",
+   "url": "https://www.satur.sk/produkt/rosamar--321794?strava=ultra-all-inclusive&doprava=letecky&odlet=BTS",
+   "image": "https://www.satur.sk/media/cache/500x333/tour/699c64ececb28.jpeg",
+   "stars": 4.0,
+   "rating": null,
+   "country": "Španielsko",
+   "country_code": "ES",
+   "region": "Valencia",
+   "place": "Alicante",
+   "board": "UAI",
+   "transport": "flight",
+   "departure": null,
+   "date_from": "2027-07-07",
+   "date_to": "2027-07-14",
+   "nights": 7,
+   "price_total": 4086,
+   "price_original": null,
+   "discount_label": "Cena za os. × 3 (orientačne)",
+   "pets_allowed": null,
+   "source": "satur",
+   "source_name": "Satur.sk",
+   "discount_pct": null,
+   "id": "satur:5d183e8900cc",
+   "score": 45,
+   "first_seen": "2026-10-24",
+   "last_seen": "2026-10-24",
+   "price_history": [
+    [
+     "2026-10-24",
+     4086
+    ]
+   ],
+   "price_change": null
+  },
+  {
    "hotel": "Hotel Jaz Almaza Beach",
-   "url": "https://www.satur.sk/produkt/jaz-almaza?doprava=letecky&odlet=BTS",
+   "url": "https://www.satur.sk/produkt/jaz-almaza?strava=all-inclusive&doprava=letecky&odlet=BTS",
    "image": "https://www.satur.sk/media/cache/500x333/tour/201095/Plaz-jaz-almaza-3_65eb440a8e50a.jpeg",
    "stars": 5.0,
    "rating": 8.8,
@@ -2137,7 +2487,7 @@
      4227
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "DoubleTree By Hilton Malta",
@@ -2172,7 +2522,7 @@
      4392
     ]
    ],
-   "price_change": null
+   "price_change": 0
   }
  ]
 }
