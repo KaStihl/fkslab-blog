@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-24T09:08:35Z",
+ "generated_at": "2026-10-24T09:13:37Z",
  "criteria": {
   "adults": 1,
   "children_ages": [
@@ -60,9 +60,9 @@
    "name": "Satur.sk",
    "home": "https://www.satur.sk",
    "status": "ok",
-   "count": 135,
+   "count": 281,
    "error": null,
-   "duration_s": 146.7
+   "duration_s": 126.6
   },
   {
    "id": "kartago",
@@ -164,6 +164,13 @@
   },
   {
    "transport": "flight",
+   "label": "Letecky z Bratislavy, AI, júl–aug, 7–14 nocí, 1+2",
+   "url": "https://www.kartago.sk/vysledky-vyhladavania?DS=0&TT=1&TO=483&DD=2027-07-01&RD=2027-08-31&NN=7&MNN=7&NNM=14&MT=5&AC1=1&KC1=2&IC1=0&PF=0&PT=4500",
+   "source": "kartago",
+   "name": "Kartago Tours"
+  },
+  {
+   "transport": "flight",
    "label": "Letecky z Viedne, AI, júl–aug, 7–14 nocí, 1+2",
    "url": "https://www.kartago.sk/vysledky-vyhladavania?DS=0&TT=1&TO=3789&DD=2027-07-01&RD=2027-08-31&NN=7&MNN=7&NNM=14&MT=5&AC1=1&KC1=2&IC1=0&PF=0&PT=4500",
    "source": "kartago",
@@ -171,22 +178,15 @@
   },
   {
    "transport": "flight",
-   "label": "Turecko (ponuky z Bratislavy)",
-   "url": "https://www.kartago.sk/turecko",
-   "source": "kartago",
-   "name": "Kartago Tours"
-  },
-  {
-   "transport": "flight",
-   "label": "Letecky, AI, júl–aug, 7–14 nocí (odlet vybrať na stránke)",
-   "url": "https://www.fischer.sk/vysledky-vyhledavani?tt=1&dd=2027-07-01&rd=2027-08-31&nn=7%7C8%7C9%7C10%7C11%7C12%7C13%7C14&ac1=1&kc1=2&m=5",
+   "label": "Letecky z Bratislavy/Viedne, AI, júl–aug, 7–14 nocí, 1+2 (vek detí doplniť)",
+   "url": "https://www.fischer.sk/vysledky-vyhledavani?tt=1&to=483%7C3789&dd=2027-07-01&rd=2027-08-31&nn=7%7C8%7C9%7C10%7C11%7C12%7C13%7C14&ac1=1&kc1=2&m=5",
    "source": "fischer",
    "name": "Fischer"
   },
   {
    "transport": "flight",
-   "label": "Letecky, AI, júl–aug, 7–14 nocí (odlet vybrať na stránke)",
-   "url": "https://www.eximtours.sk/vysledky-vyhledavani?tt=1&dd=2027-07-01&rd=2027-08-31&nn=7%7C8%7C9%7C10%7C11%7C12%7C13%7C14&ac1=1&kc1=2&m=5",
+   "label": "Letecky z Bratislavy/Viedne, AI, júl–aug, 7–14 nocí, 1+2 (vek detí doplniť)",
+   "url": "https://www.eximtours.sk/vysledky-vyhledavani?tt=1&to=483%7C3789&dd=2027-07-01&rd=2027-08-31&nn=7%7C8%7C9%7C10%7C11%7C12%7C13%7C14&ac1=1&kc1=2&m=5",
    "source": "eximtours",
    "name": "Exim Tours"
   },
@@ -246,7 +246,7 @@
      2184
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Calypso",
@@ -316,7 +316,7 @@
      1701
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Veya Maradiso hotel by Aminess",
@@ -351,7 +351,7 @@
      1764
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Mimosa / Lido Palace",
@@ -386,7 +386,7 @@
      2043
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Magal Maradiso hotel by Aminess",
@@ -421,7 +421,7 @@
      1722
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Laguna Maradiso hotel by Aminess",
@@ -456,7 +456,7 @@
      1827
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Narcis",
@@ -491,7 +491,7 @@
      1932
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Veli Mel Sunny Hotel",
@@ -526,7 +526,7 @@
      1953
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Sunny Baška Hotel (ex. Corinthia)",
@@ -561,7 +561,7 @@
      2664
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel El Mehdi Beach Resort",
@@ -631,7 +631,7 @@
      2373
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Valamar Club Tamaris Resort",
@@ -666,7 +666,7 @@
      2793
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Rezort Amarin",
@@ -701,7 +701,7 @@
      1701
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Donat",
@@ -771,7 +771,7 @@
      1236
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Aminess Style Camping Atea Resort",
@@ -806,7 +806,7 @@
      1572
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Zaton (mobilné domčeky)",
@@ -841,7 +841,7 @@
      1134
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Apartmány Koversada",
@@ -876,7 +876,7 @@
      1500
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Rezort Villas Rubin",
@@ -911,7 +911,7 @@
      1659
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Apartmány Zaton Holiday Resort",
@@ -946,7 +946,7 @@
      1737
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Valamar Atrium Baška Residence",
@@ -981,7 +981,7 @@
      2418
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Aminess Younique Liburna hotel",
@@ -1016,7 +1016,7 @@
      2520
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Sunny Rabac by Valamar",
@@ -1051,7 +1051,7 @@
      2703
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel SATUR Club Melia El Mansour Mahdia",
@@ -1121,7 +1121,7 @@
      1635
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Elesio",
@@ -1156,7 +1156,7 @@
      2385
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Caribbean World Mahdia",
@@ -1226,7 +1226,7 @@
      2421
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Fafa Grand Blue Resort",
@@ -1261,7 +1261,7 @@
      2547
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Aminess Vival Maestral hotel",
@@ -1296,7 +1296,7 @@
      2814
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotelový komplex Imperial",
@@ -1366,7 +1366,7 @@
      2700
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Hedera",
@@ -1436,7 +1436,7 @@
      2796
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Horizont",
@@ -1471,7 +1471,7 @@
      2247
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Delight Hotel & SPA",
@@ -1506,7 +1506,7 @@
      2682
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Sunny Krk by valamar",
@@ -1541,7 +1541,7 @@
      2796
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Girandella Valamar Collection Resort – Designed for Adults",
@@ -1576,7 +1576,7 @@
      2796
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Royal G Deluxe",
@@ -1611,7 +1611,7 @@
      2847
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Pinija",
@@ -1646,7 +1646,7 @@
      2373
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Zora",
@@ -1681,7 +1681,7 @@
      2394
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Bluesun hotel Neptun",
@@ -1716,7 +1716,7 @@
      3192
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Vila Viskovič",
@@ -1786,7 +1786,7 @@
      1746
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Dražica",
@@ -1821,7 +1821,7 @@
      1974
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Biokovka",
@@ -1856,7 +1856,7 @@
      2100
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Funtana",
@@ -1891,7 +1891,7 @@
      2961
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Royal G Max",
@@ -1926,7 +1926,7 @@
      2970
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Iberostar Waves Founty Beach",
@@ -1961,7 +1961,7 @@
      2868
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Sandy Beach",
@@ -2206,7 +2206,7 @@
      2499
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Annabella Diamond",
@@ -2346,7 +2346,7 @@
      2751
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Barcelo Concorde Green Park Palace",
@@ -2451,7 +2451,7 @@
      3009
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Bluesun Alga",
@@ -2486,7 +2486,7 @@
      2856
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Porto Giardino",
@@ -2521,7 +2521,7 @@
      3069
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Sural Hotel",
@@ -2591,7 +2591,7 @@
      3114
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Eurovillage Achilleas",
@@ -2696,7 +2696,7 @@
      3234
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Seven Seas Kaila Bay (ex-Seven Seas Palmeras Bay)",
@@ -2801,7 +2801,7 @@
      3207
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Marvel",
@@ -2906,7 +2906,7 @@
      3093
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Argile Resort",
@@ -3011,7 +3011,7 @@
      3303
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Thassos Grand Resort",
@@ -3186,7 +3186,7 @@
      1101
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Radisson Resort Kolberg",
@@ -3221,7 +3221,7 @@
      1794
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Movenpick Resort and Marine SPA",
@@ -3361,7 +3361,7 @@
      1335
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hilton Swinoujscie Resort & Spa",
@@ -3396,7 +3396,7 @@
      1860
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Amadil Ocean Club",
@@ -3431,7 +3431,7 @@
      3186
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Secrets Sunny Beach Resort & Spa",
@@ -3606,7 +3606,7 @@
      1155
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Occidental Torremolinos Playa",
@@ -3641,7 +3641,7 @@
      3552
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Sural Saray",
@@ -4026,7 +4026,7 @@
      3696
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Villa Espana",
@@ -4061,7 +4061,7 @@
      3738
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Aqua Heneish Beach Resort",
@@ -4271,7 +4271,7 @@
      3438
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Villa del Mar",
@@ -4306,7 +4306,7 @@
      3789
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Bluesun hotel Jadran",
@@ -4341,7 +4341,7 @@
      3780
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Rodos Princess",
@@ -4411,7 +4411,7 @@
      3906
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Esperides Beach",
@@ -4481,7 +4481,7 @@
      3951
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Jaz Viva Villagio",
@@ -4586,7 +4586,7 @@
      4089
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Jaz Almaza Beach",
@@ -4656,7 +4656,7 @@
      4143
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Hotel Harmony Crest",
@@ -4726,7 +4726,7 @@
      4308
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Vibra Beverly Playa",
@@ -4761,7 +4761,7 @@
      4236
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Aeolos Beach Resort Korfu",
@@ -4796,7 +4796,7 @@
      4320
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Sol Torremolinos - Don Marco",
@@ -4831,7 +4831,7 @@
      4344
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "DoubleTree By Hilton Malta",
@@ -4866,7 +4866,7 @@
      4392
     ]
    ],
-   "price_change": null
+   "price_change": 0
   },
   {
    "hotel": "Futura Club Baia di Conte",
@@ -4901,7 +4901,7 @@
      4464
     ]
    ],
-   "price_change": null
+   "price_change": 0
   }
  ]
 }
