@@ -1,10 +1,12 @@
 """Shared helpers for adapters: polite HTTP, normalisation, offer construction."""
 
 import hashlib
+import os
 import re
 import time
 import unicodedata
 import urllib.robotparser
+from pathlib import Path
 from urllib.parse import urlsplit
 
 import requests
@@ -29,6 +31,26 @@ def session():
     return _session
 
 
+DUMP_DIR = Path(__file__).resolve().parent / "debug"
+_dump_n = 0
+
+
+def dump(url, status, body):
+    """DOVOLENKA_DUMP=1: keep every response body (max 400 KB) in debug/ for offline parser work."""
+    global _dump_n
+    if os.environ.get("DOVOLENKA_DUMP") != "1":
+        return
+    _dump_n += 1
+    parts = urlsplit(url)
+    slug = re.sub(r"[^a-z0-9]+", "-", (parts.path + "-" + parts.query).lower()).strip("-")[:60] or "root"
+    ext = "json" if body.lstrip()[:1] in ("{", "[") else "html"
+    name = f"{_dump_n:03d}_{parts.netloc.replace('www.', '')}_{slug}.{ext}"
+    DUMP_DIR.mkdir(exist_ok=True)
+    (DUMP_DIR / name).write_text(body[:400_000], encoding="utf-8")
+    with open(DUMP_DIR / "index.txt", "a", encoding="utf-8") as f:
+        f.write(f"{_dump_n:03d} {status} {url}\n")
+
+
 class RobotsDisallowed(Exception):
     pass
 
@@ -42,6 +64,7 @@ def allowed(url):
         rp = urllib.robotparser.RobotFileParser()
         try:
             r = session().get(base + "/robots.txt", timeout=15)
+            dump(r.url, r.status_code, r.text)
             rp.parse(r.text.splitlines() if r.ok else [])
         except requests.RequestException:
             rp.parse([])
@@ -49,14 +72,17 @@ def allowed(url):
     return rp.can_fetch(UA, url)
 
 
-def get(url, *, params=None, headers=None, retries=2, delay=1.5, as_json=False, method="GET", json_body=None):
+def get(url, *, params=None, headers=None, retries=2, delay=1.5, as_json=False, method="GET", json_body=None,
+        data=None):
     """GET/POST with robots check, small retry loop and a pause between calls."""
     if not allowed(url):
         raise RobotsDisallowed(url)
     last = None
     for attempt in range(retries + 1):
         try:
-            r = session().request(method, url, params=params, headers=headers, json=json_body, timeout=30)
+            r = session().request(method, url, params=params, headers=headers, json=json_body, data=data,
+                                  timeout=30)
+            dump(r.url if method == "GET" else url, r.status_code, r.text)
             if r.status_code in (429, 500, 502, 503, 504) and attempt < retries:
                 time.sleep(delay * (attempt + 2))
                 continue
