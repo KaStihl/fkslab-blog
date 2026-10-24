@@ -40,6 +40,8 @@ def dump(url, status, body):
     global _dump_n
     if os.environ.get("DOVOLENKA_DUMP") != "1":
         return
+    if not _dump_n and (DUMP_DIR / "index.txt").exists():  # continue numbering across processes
+        _dump_n = len((DUMP_DIR / "index.txt").read_text().splitlines())
     _dump_n += 1
     parts = urlsplit(url)
     slug = re.sub(r"[^a-z0-9]+", "-", (parts.path + "-" + parts.query).lower()).strip("-")[:60] or "root"
@@ -83,12 +85,19 @@ def get(url, *, params=None, headers=None, retries=2, delay=1.5, as_json=False, 
             r = session().request(method, url, params=params, headers=headers, json=json_body, data=data,
                                   timeout=30)
             dump(r.url if method == "GET" else url, r.status_code, r.text)
+            if 400 <= r.status_code < 500 and r.status_code != 429:
+                time.sleep(delay)
+                r.raise_for_status()  # client errors (403 block, 404) are final, no retry
             if r.status_code in (429, 500, 502, 503, 504) and attempt < retries:
                 time.sleep(delay * (attempt + 2))
                 continue
             r.raise_for_status()
             time.sleep(delay)
             return r.json() if as_json else r.text
+        except requests.HTTPError as e:
+            if e.response is not None and 400 <= e.response.status_code < 500 and e.response.status_code != 429:
+                raise
+            last = e
         except requests.RequestException as e:
             last = e
             if attempt < retries:

@@ -178,7 +178,7 @@ def _terms(cfg, meta, airport):
 
 def search(cfg):
     budget = Budget(MAX_REQUESTS)
-    per_dest = {}
+    per_dest, blocked = {}, 0
     for cc, paths in LANDINGS.items():
         hotels = per_dest.setdefault(cc, [])
         for p in paths:
@@ -188,6 +188,9 @@ def search(cfg):
                 html = get(HOME + p)
             except Exception as e:
                 print(f"[invia] landing {p}: {type(e).__name__} {str(e)[:120]}")
+                blocked += "403" in str(e)
+                if blocked >= 3 and not any(per_dest.values()):
+                    raise RuntimeError("invia.sk answers 403 (CloudFront 'Request blocked') to this runner") from e
                 continue
             found = parse_landing(html)
             print(f"[invia] landing {p}: {len(html)} B, {len(found)} hotels, "
