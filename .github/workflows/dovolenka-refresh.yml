@@ -40,6 +40,12 @@ jobs:
       - name: Unit tests
         run: python -m pytest -q tools/dovolenka/tests
 
+      - name: Probe candidate sites (TEMP debug, push only)
+        if: github.event_name == 'push'
+        env:
+          DOVOLENKA_DUMP: "1"
+        run: python tools/dovolenka/probe.py || true
+
       - name: Scrape travel agencies
         run: python tools/dovolenka/run.py
 
@@ -48,6 +54,7 @@ jobs:
           git config user.name "dovolenka-bot"
           git config user.email "dovolenka-bot@users.noreply.github.com"
           git add static/dovolenka/data/offers.json static/dovolenka/data/history.json
+          if [ "${{ github.event_name }}" = "push" ] && [ -d tools/dovolenka/debug ]; then git add -f tools/dovolenka/debug; fi
           if git diff --cached --quiet; then
             echo "no changes"
             exit 0
