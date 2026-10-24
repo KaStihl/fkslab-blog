@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title> - nenájdené</title>
+  <meta name="author" content="redred.sk" />
+  <meta name="robots" content="noindex" />
+  <meta http-equiv="refresh" content="25;url=/" />
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,100&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <style type="text/css">
+    html,
+    body {
+      position: relative;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      height: 100%;
+    }
+    
+    body {
+      min-height: 100%;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      font-weight: 100;
+      color: #C60;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+    }
+    
+    h1,
+    h2,
+    h3,
+    p {
+      padding: 0.3em;
+      font-weight: 100;
+      margin: 5px;
+    }
+    
+    h1 {
+      font-size: 54px;
+    }
+    
+    h2 {
+      font-size: 20px;
+    }
+    
+    .ntm {
+      font-weight: normal;
+    }
+    
+    .big {
+      font-size: 18px;
+      display: block;
+      color: #FFF;
+      margin: 1em auto;
+      text-decoration: none;
+      width: 400px;
+      padding: 0.9em 0;
+      background: #C60;
+      max-width: 90%;
+    }
+    
+    .big:hover {
+      background: #D70;
+    }
+    
+    body,
+    td,
+    th {
+      font-family: Roboto, sans-serif;
+    }
+    
+    .theurl {
+      font-weight: 100;
+      color: #666;
+      font-size: 28px;
+    }
+    
+    #footer {
+      padding: 1em;
+      font-size: 12px;
+      color: #666;
+      letter-spacing: 1px;
+    }
+    
+    #footer a {
+      color: #C66;
+    }
+    
+    #footer a:hover {
+      color: #E00;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="height: 30px;  "> </div>
+
+  <h1>Chyba 404</h1>
+  <p class="theurl">
+
+    <script>
+      document.writeln('' + window.location.pathname);
+    </script>
+
+  </p>
+  <h2>stránka alebo súbor sa nenašli</h2>
+  <div style="height: 30px; "> </div>
+  <a id="continu" href="/" class="big hli">pokračovať</a>
+
+  <div style="height: 30px; "></div>
+  <script>
+    var CButon = document.getElementById('continu');
+    var cText = CButon.innerHTML;
+    var cTime = 20;
+
+    var myVar;
+    myVar = setInterval(alertFunc, 1000);
+
+    function alertFunc() {
+      cTime = cTime - 1;
+      if (cTime == 1) {
+        window.location = "/";
+      }
+      if (cTime < 0) {
+        cTime = 0
+      };
+      CButon.innerHTML = cText + '  (' + cTime + ') ';
+    }
+  </script>
+
+  <div id="footer">
+
+    <script>
+      var hostname = window.location.hostname;
+      document.title = hostname + ' - ' + document.title;
+      document.writeln('<a href="http://' + hostname + '">http://' + hostname + '</a>');
+    </script>
+
+  </div>
+
+</body>
+
+</html>
