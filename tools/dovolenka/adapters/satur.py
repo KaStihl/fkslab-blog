@@ -14,7 +14,8 @@ from common import get, norm_board, norm_country, parse_price
 NAME = "Satur.sk"
 HOME = "https://www.satur.sk"
 
-# (path, transport, pets_allowed, pages). Listings take ?termin=dd.mm.yyyy-dd.mm.yyyy and ?stranka=N (20 cards).
+# (path, transport, pets_allowed, pages). Listings take ?termin=dd.mm.yyyy-dd.mm.yyyy, ?dlzka-pobytu=<nights>
+# and ?stranka=N (20 cards per page); each card shows the cheapest matching term of one hotel.
 PAGES = [
     ("/dovolenka/chorvatsko/so-psom", "car", True, 3),
     ("/dovolenka/so-psom", "car", True, 3),
@@ -112,6 +113,9 @@ def to_offer(c, transport, pets, party):
     tt = (c["transport_text"] or "").lower()
     car = "individu" in tt or "vlastn" in tt or (transport == "car" and "let" not in tt)
     dep = next((code for k, code in AIRPORTS.items() if k in tt.replace("í", "i").replace("š", "s")), None)
+    if not dep and not car:  # some cards omit the flight tag; their link still says ?odlet=BTS
+        m = re.search(r"[?&]odlet=([A-Z]{3})", c["url"])
+        dep = m[1] if m else None
     orig = c["price_person_original"]
     return {
         "hotel": c["hotel"], "url": c["url"], "image": c["image"], "stars": c["stars"], "rating": c["rating"],
@@ -132,7 +136,7 @@ def search(cfg):
     offers, seen = [], set()
     for path, transport, pets, pages in PAGES:
         for n in range(1, pages + 1):
-            params = {"termin": termin, **({"stranka": n} if n > 1 else {})}
+            params = {"termin": termin, "dlzka-pobytu": cfg["nights_min"], **({"stranka": n} if n > 1 else {})}
             try:
                 cards = parse_cards(get(HOME + path, params=params))
             except Exception as e:

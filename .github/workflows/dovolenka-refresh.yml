@@ -40,12 +40,6 @@ jobs:
       - name: Unit tests
         run: python -m pytest -q tools/dovolenka/tests
 
-      - name: Probe link-only sites (debug, push only)
-        if: github.event_name == 'push'
-        env:
-          DOVOLENKA_DUMP: "1"
-        run: python tools/dovolenka/debug/probe.py || true
-
       - name: Scrape travel agencies
         env:
           DOVOLENKA_DUMP: ${{ github.event_name == 'push' && '1' || '' }}

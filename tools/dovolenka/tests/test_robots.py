@@ -1,12 +1,12 @@
 from pathlib import Path
 
-from common import BOT_UA, UA, Robots
+from common import UA, Robots
 
 FX = Path(__file__).parent / "fixtures"
 
 
 def test_invia_robots():
-    rb = Robots((FX / "invia_robots.txt").read_text(), BOT_UA)
+    rb = Robots((FX / "invia_robots.txt").read_text(), UA)
     assert rb.can_fetch("https://www.invia.sk/dovolenka/turecko/all-inclusive/")
     assert rb.can_fetch("https://www.invia.sk/dovolenka/turecko/all-inclusive/2/")
     assert rb.can_fetch("https://www.invia.sk/hotel/turecko/side/orfeus-park/")
@@ -30,3 +30,8 @@ def test_wildcards_and_precedence():
     assert not rb.can_fetch("https://h/a/ok/more") and not rb.can_fetch("https://h/f.pdf")
     assert rb.can_fetch("https://h/f.pdf?x=1") and rb.can_fetch("https://h/b")
     assert Robots("", "x").can_fetch("https://h/anything")
+
+
+def test_group_for_our_own_token():
+    txt = "User-agent: fkslab-dovolenka-tracker\nDisallow: /\n\nUser-agent: *\nAllow: /\n"
+    assert not Robots(txt, UA).can_fetch("https://h/x") and Robots(txt, "Other/1").can_fetch("https://h/x")
