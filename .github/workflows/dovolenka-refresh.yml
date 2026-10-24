@@ -40,11 +40,11 @@ jobs:
       - name: Unit tests
         run: python -m pytest -q tools/dovolenka/tests
 
-      - name: Probe candidate sites (TEMP debug, push only)
+      - name: Dump new adapters (TEMP debug, push only)
         if: github.event_name == 'push'
         env:
           DOVOLENKA_DUMP: "1"
-        run: python tools/dovolenka/probe.py || true
+        run: python tools/dovolenka/run.py cedok tiptravel || true
 
       - name: Scrape travel agencies
         run: python tools/dovolenka/run.py

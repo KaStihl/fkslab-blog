@@ -1,4 +1,10 @@
-"""Kartago Tours – results load via XHR, so only search links for a human."""
+"""Kartago Tours – search links only (needs JavaScript).
+
+Checked 2026-10-24 from GitHub runners: robots.txt allows everything and the terms carry no TDM reservation,
+but /vysledky-vyhladavania, /first-minute/* and hotel pages fill terms and prices client-side (DER Touristik
+JS app). Country pages (/turecko, 14 MB) only hold a hidden SEO teaser – one term per hotel, mostly Prague
+departures in Oct–Jan – and ignore all query parameters, so there is nothing for Jul–Aug 2027 to parse.
+"""
 
 from urllib.parse import urlencode
 

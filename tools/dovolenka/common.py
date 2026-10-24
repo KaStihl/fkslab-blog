@@ -35,7 +35,7 @@ _dump_n = 0
 
 
 def dump(url, status, body):
-    """DOVOLENKA_DUMP=1: keep every response body (max 400 KB) in debug/ for offline parser work."""
+    """DOVOLENKA_DUMP=1: keep every response body (max 1.5 MB) in debug/ for offline parser work."""
     global _dump_n
     if os.environ.get("DOVOLENKA_DUMP") != "1":
         return
@@ -47,7 +47,7 @@ def dump(url, status, body):
     ext = "json" if body.lstrip()[:1] in ("{", "[") else "html"
     name = f"{_dump_n:03d}_{parts.netloc.replace('www.', '')}_{slug}.{ext}"
     DUMP_DIR.mkdir(exist_ok=True)
-    (DUMP_DIR / name).write_text(body[:400_000], encoding="utf-8")
+    (DUMP_DIR / name).write_text(body[:1_500_000], encoding="utf-8")
     with open(DUMP_DIR / "index.txt", "a", encoding="utf-8") as f:
         f.write(f"{_dump_n:03d} {status} {url}\n")
 
