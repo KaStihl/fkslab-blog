@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-24T09:13:37Z",
+ "generated_at": "2026-10-24T09:17:47Z",
  "criteria": {
   "adults": 1,
   "children_ages": [
@@ -60,9 +60,9 @@
    "name": "Satur.sk",
    "home": "https://www.satur.sk",
    "status": "ok",
-   "count": 281,
+   "count": 134,
    "error": null,
-   "duration_s": 126.6
+   "duration_s": 116.6
   },
   {
    "id": "kartago",
