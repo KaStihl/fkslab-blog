@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-24T08:26:14Z",
+ "generated_at": "2026-10-24T08:38:56Z",
  "criteria": {
   "adults": 1,
   "children_ages": [
@@ -46,7 +46,172 @@
    "TN": 0.65
   }
  },
- "sources": [],
- "deeplinks": [],
+ "sources": [
+  {
+   "id": "invia",
+   "name": "Invia.sk",
+   "home": "https://www.invia.sk",
+   "status": "empty",
+   "count": 0,
+   "error": null,
+   "duration_s": 128.3
+  },
+  {
+   "id": "satur",
+   "name": "Satur.sk",
+   "home": "https://www.satur.sk",
+   "status": "empty",
+   "count": 0,
+   "error": null,
+   "duration_s": 39.1
+  },
+  {
+   "id": "kartago",
+   "name": "Kartago Tours",
+   "home": "https://www.kartago.sk",
+   "status": "disabled",
+   "count": 0,
+   "error": null
+  },
+  {
+   "id": "fischer",
+   "name": "Fischer",
+   "home": "https://www.fischer.sk",
+   "status": "disabled",
+   "count": 0,
+   "error": null
+  },
+  {
+   "id": "eximtours",
+   "name": "Exim Tours",
+   "home": "https://www.eximtours.sk",
+   "status": "disabled",
+   "count": 0,
+   "error": null
+  },
+  {
+   "id": "tiptravel",
+   "name": "TIP travel",
+   "home": "https://exotika.tiptravel.sk",
+   "status": "disabled",
+   "count": 0,
+   "error": null
+  },
+  {
+   "id": "blue_style",
+   "name": "Blue Style",
+   "home": "https://www.blue-style.cz",
+   "status": "disabled",
+   "count": 0,
+   "error": null
+  }
+ ],
+ "deeplinks": [
+  {
+   "transport": "flight",
+   "label": "Letecky z Bratislavy, AI/UAI, júl–aug, 7–14 nocí, 1+2",
+   "url": "https://www.invia.sk/dovolenka/?d_start_from=01.07.2027&d_end_to=31.08.2027&nl_length_from=8&nl_length_to=15&nl_occupancy_adults=1&nl_occupancy_children=2&sort=c_price&sort_order=asc&nl_transportation_id%5B%5D=3_5&nl_meal_id%5B%5D=5&nl_meal_id%5B%5D=11&nl_ages_children%5B%5D=10&nl_ages_children%5B%5D=12",
+   "source": "invia",
+   "name": "Invia.sk"
+  },
+  {
+   "transport": "flight",
+   "label": "Letecky z Viedne, AI/UAI, júl–aug, 7–14 nocí, 1+2",
+   "url": "https://www.invia.sk/dovolenka/?d_start_from=01.07.2027&d_end_to=31.08.2027&nl_length_from=8&nl_length_to=15&nl_occupancy_adults=1&nl_occupancy_children=2&sort=c_price&sort_order=asc&nl_transportation_id%5B%5D=3_6&nl_meal_id%5B%5D=5&nl_meal_id%5B%5D=11&nl_ages_children%5B%5D=10&nl_ages_children%5B%5D=12",
+   "source": "invia",
+   "name": "Invia.sk"
+  },
+  {
+   "transport": "car",
+   "label": "Vlastná doprava (psy overiť v detaile hotela)",
+   "url": "https://www.invia.sk/dovolenka/vlastna-doprava/",
+   "source": "invia",
+   "name": "Invia.sk"
+  },
+  {
+   "transport": "car",
+   "label": "Chorvátsko so psom, vlastná doprava",
+   "url": "https://www.satur.sk/dovolenka/chorvatsko/so-psom",
+   "source": "satur",
+   "name": "Satur.sk"
+  },
+  {
+   "transport": "car",
+   "label": "Dovolenka so psom (všetky krajiny)",
+   "url": "https://www.satur.sk/dovolenka/so-psom",
+   "source": "satur",
+   "name": "Satur.sk"
+  },
+  {
+   "transport": "car",
+   "label": "First minute, vlastná doprava",
+   "url": "https://www.satur.sk/first-minute/vlastna",
+   "source": "satur",
+   "name": "Satur.sk"
+  },
+  {
+   "transport": "flight",
+   "label": "First minute letecky z Bratislavy, AI, 7–14 nocí",
+   "url": "https://www.satur.sk/first-minute/letecky/z-bratislavy/all-inclusive",
+   "source": "satur",
+   "name": "Satur.sk"
+  },
+  {
+   "transport": "flight",
+   "label": "Turecko letecky z Bratislavy, AI",
+   "url": "https://www.satur.sk/dovolenka/turecko/letecky/z-bratislavy/all-inclusive",
+   "source": "satur",
+   "name": "Satur.sk"
+  },
+  {
+   "transport": "flight",
+   "label": "Letecky z Viedne, AI, júl–aug, 7–14 nocí, 1+2",
+   "url": "https://www.kartago.sk/vysledky-vyhladavania?DS=0&TT=1&TO=3789&DD=2027-07-01&RD=2027-08-31&NN=7&MNN=7&NNM=14&MT=5&AC1=1&KC1=2&IC1=0&PF=0&PT=4500",
+   "source": "kartago",
+   "name": "Kartago Tours"
+  },
+  {
+   "transport": "flight",
+   "label": "Turecko (ponuky z Bratislavy)",
+   "url": "https://www.kartago.sk/turecko",
+   "source": "kartago",
+   "name": "Kartago Tours"
+  },
+  {
+   "transport": "flight",
+   "label": "Letecky, AI, júl–aug, 7–14 nocí (odlet vybrať na stránke)",
+   "url": "https://www.fischer.sk/vysledky-vyhledavani?tt=1&dd=2027-07-01&rd=2027-08-31&nn=7%7C8%7C9%7C10%7C11%7C12%7C13%7C14&ac1=1&kc1=2&m=5",
+   "source": "fischer",
+   "name": "Fischer"
+  },
+  {
+   "transport": "flight",
+   "label": "Letecky, AI, júl–aug, 7–14 nocí (odlet vybrať na stránke)",
+   "url": "https://www.eximtours.sk/vysledky-vyhledavani?tt=1&dd=2027-07-01&rd=2027-08-31&nn=7%7C8%7C9%7C10%7C11%7C12%7C13%7C14&ac1=1&kc1=2&m=5",
+   "source": "eximtours",
+   "name": "Exim Tours"
+  },
+  {
+   "transport": "flight",
+   "label": "Turecko, odlety z Bratislavy / Košíc / Viedne",
+   "url": "https://exotika.tiptravel.sk/turecko",
+   "source": "tiptravel",
+   "name": "TIP travel"
+  },
+  {
+   "transport": "flight",
+   "label": "Grécke ostrovy",
+   "url": "https://exotika.tiptravel.sk/grecko/grecko-ostrovy",
+   "source": "tiptravel",
+   "name": "TIP travel"
+  },
+  {
+   "transport": "flight",
+   "label": "Letecky z Brna/Prahy, júl–aug (len české letiská)",
+   "url": "https://www.blue-style.cz/vyhledavani/?dateFrom=2027-07-01&dateTo=2027-08-31&priceType=total",
+   "source": "blue_style",
+   "name": "Blue Style"
+  }
+ ],
  "offers": []
 }
