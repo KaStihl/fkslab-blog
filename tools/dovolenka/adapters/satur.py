@@ -23,8 +23,10 @@ PAGES = [
     ("/dovolenka/vlastna", "car", None),
     ("/first-minute/letecky/z-bratislavy", "flight", None),
     ("/first-minute/letecky/z-bratislavy/all-inclusive", "flight", None),
-    ("/dovolenka/turecko/letecky/z-bratislavy/all-inclusive", "flight", None),
-]
+    ("/dovolenka/letecky/z-bratislavy/all-inclusive", "flight", None),
+    ("/dovolenka/letecky/z-bratislavy/ultra-all-inclusive", "flight", None),
+] + [(f"/dovolenka/{c}/letecky/z-bratislavy/all-inclusive", "flight", None)
+     for c in ("turecko", "grecko", "cyprus", "taliansko", "spanielsko", "chorvatsko", "malta")]
 
 DATES_RE = re.compile(r"(\d{1,2})\.(\d{1,2})\.(\d{4})?\s*-\s*(\d{1,2})\.(\d{1,2})\.(\d{4})")
 AIRPORTS = {"bratislava": "BTS", "viede": "VIE", "vieden": "VIE", "kosice": "KSC", "budapest": "BUD"}

@@ -16,8 +16,17 @@ UA = (
     "Chrome/126.0 Safari/537.36 fkslab-dovolenka-tracker/1.0 (+https://fkslab.com/dovolenka/)"
 )
 
+# Honest bot UA (no browser token). invia.sk's CloudFront rejects the browser-like UA from datacenter IPs
+# with 403 but serves a plain bot UA, so hosts listed here get this one.
+BOT_UA = "fkslab-dovolenka-tracker/1.0 (+https://fkslab.com/dovolenka/)"
+HOST_UA = {"www.invia.sk": BOT_UA}
+
 _session = None
 _robots = {}
+
+
+def _ua(url):
+    return HOST_UA.get(urlsplit(url).netloc, UA)
 
 
 def session():
@@ -65,13 +74,13 @@ def allowed(url):
     if rp is None:
         rp = urllib.robotparser.RobotFileParser()
         try:
-            r = session().get(base + "/robots.txt", timeout=15)
+            r = session().get(base + "/robots.txt", headers={"User-Agent": _ua(url)}, timeout=15)
             dump(r.url, r.status_code, r.text)
             rp.parse(r.text.splitlines() if r.ok else [])
         except requests.RequestException:
             rp.parse([])
         _robots[base] = rp
-    return rp.can_fetch(UA, url)
+    return rp.can_fetch(_ua(url), url)
 
 
 def get(url, *, params=None, headers=None, retries=2, delay=1.5, as_json=False, method="GET", json_body=None,
@@ -79,6 +88,7 @@ def get(url, *, params=None, headers=None, retries=2, delay=1.5, as_json=False, 
     """GET/POST with robots check, small retry loop and a pause between calls."""
     if not allowed(url):
         raise RobotsDisallowed(url)
+    headers = {"User-Agent": _ua(url), **(headers or {})}
     last = None
     for attempt in range(retries + 1):
         try:
