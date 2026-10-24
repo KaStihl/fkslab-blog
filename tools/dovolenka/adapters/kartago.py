@@ -6,7 +6,8 @@ NAME = "Kartago Tours"
 HOME = "https://www.kartago.sk"
 DEEPLINK_ONLY = True
 
-AIRPORTS = {"VIE": ("3789", "z Viedne")}  # TO= airport id; the BTS id is not known yet
+# TO= airport ids, read off kartago.sk/fischer.sk links on 2026-10-24 (483 next to "Bratislava", 3789 "Viedeň")
+AIRPORTS = {"BTS": ("483", "z Bratislavy"), "VIE": ("3789", "z Viedne")}
 
 
 def deeplinks(cfg):
@@ -18,7 +19,6 @@ def deeplinks(cfg):
         out.append({"transport": "flight",
                     "label": f"Letecky {label}, AI, júl–aug, {cfg['nights_min']}–{cfg['nights_max']} nocí, 1+2",
                     "url": f"{HOME}/vysledky-vyhladavania?{urlencode(q)}"})
-    out.append({"transport": "flight", "label": "Turecko (ponuky z Bratislavy)", "url": HOME + "/turecko"})
     return out
 
 

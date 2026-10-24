@@ -48,3 +48,38 @@ def test_pets_from_perks():
 def test_deeplinks_and_pages():
     assert all(d["url"].startswith("https://www.satur.sk/") for d in satur.deeplinks(CONFIG))
     assert all(p[1] in ("car", "flight") for p in satur.PAGES)
+
+
+def test_summer_listing_passes_the_criteria():
+    # ?termin=01.07.2027-31.08.2027&dlzka-pobytu=7: every card is a 7-night Jul–Aug term
+    cards = satur.parse_cards((FX / "satur_so_psom_summer.html").read_text())
+    offers = [satur.to_offer(c, "car", True, 3) for c in cards]
+    kept = [run.normalise(o, "satur", "Satur.sk", CONFIG) for o in offers]
+    assert len(kept) == 3 and all(kept)
+    assert {(k["transport"], k["nights"], k["pets_allowed"], k["country_code"]) for k in kept} == {("car", 7, True, "HR")}
+    assert kept[1]["hotel"] == "Hotel Medora Auri Family Beach Resort" and kept[1]["date_from"] == "2027-07-01"
+    assert kept[1]["price_total"] == 1248 * 3 and kept[1]["board"] == "HB"
+    # same hotel + date twice (two apartment types): run.py keeps the cheaper one under one id
+    assert kept[0]["id"] == kept[2]["id"] and kept[2]["price_total"] < kept[0]["price_total"]
+
+
+def test_search_reports_total_failure(monkeypatch):
+    def boom(*a, **k):
+        raise OSError("403 blocked")
+    monkeypatch.setattr(satur, "get", boom)
+    try:
+        satur.search(CONFIG)
+    except RuntimeError as e:
+        assert "403 blocked" in str(e)
+    else:
+        raise AssertionError("expected RuntimeError")
+
+
+def test_search_uses_summer_filter(monkeypatch):
+    calls = []
+    html = (FX / "satur_so_psom_summer.html").read_text()
+    monkeypatch.setattr(satur, "get", lambda url, params=None: calls.append((url, params)) or html)
+    offers = satur.search(CONFIG)
+    assert len(calls) == len(satur.PAGES)  # 3 cards < 20, so no page 2 anywhere
+    assert calls[0][1] == {"termin": "01.07.2027-31.08.2027", "dlzka-pobytu": 7}
+    assert len(offers) == 3 * len(satur.PAGES)
