@@ -48,17 +48,41 @@ def snippets(soup):
         yield txt[max(0, m.start() - 160): m.end() + 160]
 
 
+DUMP = [  # sites whose terms carry no TDM reservation (checked in run 1)
+    "https://www.cedok.sk/",
+    "https://www.cedok.sk/vysledky-vyhladavania/dovolenky/turecko/z-bratislavy/?departuresByPlane=BTS",
+    "https://www.cedok.sk/vysledky-vyhladavania/dovolenky/turecko/?departuresByPlane=BTS%2CVIE&dateFrom=01.07.2027&dateTo=31.08.2027&order=priceAsc",
+    "https://www.kartago.sk/turecko",
+    "https://www.kartago.sk/first-minute/bratislava",
+    "https://www.kartago.sk/vlastnou-dopravou",
+    "https://www.kartago.sk/vysledky-vyhladavania?DS=0&TT=1&TO=483&DD=2027-07-01&RD=2027-08-31&NN=7&AC1=1&KC1=2",
+    "https://tiptravel.sk/",
+    "https://tiptravel.sk/dovolenka/cyprus/",
+    "https://tiptravel.sk/zajazdy/?TransportationTypeID=201&AirportID=199",
+    "https://seneca.sk/dovolenka/turecko/",
+]
+NEW_HOSTS = ["https://exotika.tiptravel.sk", "https://firotour.sk", "https://www.firotour.sk", "https://ckkoala.sk",
+             "https://www.koala.sk", "https://seneca.sk"]
+
+
 def main():
-    for base in HOSTS:
+    for u in DUMP:
+        fetch(u, dump=True)
+    r, soup = fetch("https://www.sorea.sk/katalog/")  # no dump: sorea reserves its content (pravne-informacie)
+    if soup is not None:
+        print("  sorea katalog links:", sorted({a["href"] for a in soup.select("a[href]")})[:120])
+    for base in NEW_HOSTS:
         print(f"\n===== {base}")
-        common.allowed(base + "/")  # dumps robots.txt
+        try:
+            common.allowed(base + "/")
+        except Exception as e:
+            print("  robots err", e)
         rp = common._robots.get(base)
         print("  robots rules:", [("A" if a else "D") + ":" + p for a, p in (rp.rules if rp else [])][:40])
         r, soup = fetch(base + "/")
         if soup is None:
             continue
-        meta = [m.attrs for m in soup.select("meta[name*=tdm], meta[name=robots]")]
-        print("  title:", soup.title.get_text(strip=True)[:100] if soup.title else None, "meta:", meta)
+        print("  title:", soup.title.get_text(strip=True)[:100] if soup.title else None)
         links = {}
         for a in soup.select("a[href]"):
             href = urljoin(r.url, a["href"])
@@ -67,8 +91,7 @@ def main():
             links.setdefault(href.split("#")[0], re.sub(r"\s+", " ", a.get_text(" ", strip=True))[:50])
         print("  links:", json.dumps(sorted(links.items())[:250], ensure_ascii=False))
         hits = [u for u, t in links.items() if TERMS_RE.search(u) or TERMS_RE.search(t)]
-        print("  homepage TDM snippets:", list(snippets(soup))[:5])
-        for u in hits[:5] + [base + g for g in GUESS]:
+        for u in hits[:5]:
             rr, s2 = fetch(u, dump=True)
             if s2 is not None and rr.ok:
                 for sn in list(snippets(s2))[:8]:
