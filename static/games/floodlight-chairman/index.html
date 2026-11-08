@@ -6,6 +6,14 @@
 <title>Floodlight Chairman</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="A football club management game: run the team, the stadium and the money of a fictional club.">
+<link rel="manifest" href="/games/floodlight-chairman/manifest.webmanifest">
+<meta name="theme-color" content="#0a1b16">
+<link rel="icon" type="image/png" sizes="192x192" href="/games/floodlight-chairman/icon-192.png">
+<link rel="apple-touch-icon" href="/games/floodlight-chairman/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Floodlight">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -891,6 +899,7 @@ function viewNew(){
   return `<section class="hero">
     <div class="label">A football club management game</div>
     <h1>Floodlight<span>Chairman</span></h1>
+    <div id="installrow">${installUI()}</div>
     <p>Pick a club, set the team, build the stadium and keep the bank happy. Three divisions, a cup, live matches, transfers and a board that is watching every result. Every club and player here is invented.</p>
   </section>
   <div class="panel" style="margin-bottom:16px">
@@ -1279,6 +1288,7 @@ function viewClub(){
      <div class="stack">
       <label class="row"><input type="checkbox" id="sound" data-act="sound" ${UI.sound?'checked':''}> Crowd sound and whistles on matchday</label>
       <label class="row"><input type="checkbox" id="autosub2" data-act="autosub" ${S.autoSub?'checked':''}> Assistant makes substitutions</label>
+      <div id="installrow">${installUI()}</div>
       <div class="row"><button class="btn bad" data-act="newgame">Start a new career…</button></div><div id="ngconfirm"></div>
      </div></div>
    </div></div>`;
@@ -1558,6 +1568,7 @@ document.addEventListener('click',e=>{
     case 'skip':{const L=UI.live;while(!L.m.done){const evs=L.m.step();liveComm(evs)}liveScore();liveControls();liveSubs();whistle(3);ambient(false);break}
     case 'sndtoggle':UI.sound=!UI.sound;if(UI.sound){auInit();try{AU.ctx.resume()}catch(err){}if(!UI.live.m.done)ambient(true)}else ambient(false);liveControls();break;
     case 'livedone':{const L=UI.live;cancelAnimationFrame(L.raf);if(L.viz)window.removeEventListener('resize',L.viz._rs);ambient(false);UI.live=null;finishWeek(L.m);UI.view='week';render();window.scrollTo(0,0);break}
+    case 'install':doInstall();break;
     case 'newseason':S.review=null;UI.view='home';save();render();window.scrollTo(0,0);break;
   }
 });
@@ -1587,6 +1598,25 @@ document.addEventListener('submit',e=>{
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#modal').hidden)closeModal()});
 $('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
 window.addEventListener('resize',()=>{if(UI.view==='stadium'&&S)drawStadium($('#stad'),UC())});
+
+/* ---------- installable app ---------- */
+const APP={prompt:null,installed:false};
+const isStandalone=()=>{try{return matchMedia('(display-mode: standalone)').matches||navigator.standalone===true}catch(e){return false}};
+const isIOS=()=>/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const canSW=()=>'serviceWorker' in navigator&&location.pathname.startsWith('/games/floodlight-chairman')&&(location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1');
+function installUI(){
+  if(isStandalone())return '<span class="chip good">Installed app</span> <span class="dim" style="font-size:12.5px">Works offline. Your saves stay on this device.</span>';
+  if(APP.installed)return '<span class="chip good">Installed</span> <span class="dim" style="font-size:12.5px">Open Floodlight Chairman from your home screen or app list.</span>';
+  if(APP.prompt)return '<div class="row"><button class="btn pri" data-act="install">Install as an app</button><span class="dim" style="font-size:12.5px">Home-screen icon, full screen, plays offline.</span></div>';
+  if(canSW()&&isIOS())return '<span class="dim" style="font-size:12.5px">To install on iPhone or iPad: tap Share, then <b>Add to Home Screen</b>.</span>';
+  return '';
+}
+function refreshInstallUI(){document.querySelectorAll('#installrow').forEach(el=>el.innerHTML=installUI())}
+async function doInstall(){if(!APP.prompt)return;APP.prompt.prompt();try{const r=await APP.prompt.userChoice;if(r.outcome==='accepted')APP.installed=true}catch(e){}APP.prompt=null;refreshInstallUI()}
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();APP.prompt=e;refreshInstallUI()});
+window.addEventListener('appinstalled',()=>{APP.installed=true;APP.prompt=null;refreshInstallUI();toast('Installed. Find Floodlight Chairman on your home screen.')});
+if(canSW()){window.addEventListener('load',()=>{navigator.serviceWorker.register('/games/floodlight-chairman/sw.js',{scope:'/games/floodlight-chairman/'}).catch(()=>{})});
+  if(isStandalone()&&navigator.storage&&navigator.storage.persist){navigator.storage.persist().catch(()=>{})}}
 
 /* ---------- boot ---------- */
 function start(data){

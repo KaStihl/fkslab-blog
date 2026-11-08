@@ -49,3 +49,16 @@
   for = "/images/*"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+# Floodlight Chairman (installable web app): the service worker and manifest must
+# always be revalidated so players pick up new versions of the game.
+[[headers]]
+  for = "/games/floodlight-chairman/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/games/floodlight-chairman/manifest.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json"
+    Cache-Control = "no-cache"
