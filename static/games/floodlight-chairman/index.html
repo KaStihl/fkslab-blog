@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Big+Shoulders+Display:wght@600;800;900&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
 /* Layout: a sticky floodlit scoreboard bar with a tab rail, then a 1200px column of panels; matchday takes over the column with the live pitch. */
 :root{
@@ -37,6 +37,7 @@
   --shadow:0 10px 30px rgba(0,0,0,.35);
   --f-display:'Big Shoulders Display','Arial Narrow','Roboto Condensed',Impact,sans-serif;
   --f-body:'Archivo',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --f-tab:'Anton',Impact,'Arial Narrow Bold',sans-serif;
   --f-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   color-scheme:dark;
 }
@@ -215,6 +216,43 @@ textarea.inp{width:100%;min-height:90px;font-family:var(--f-mono);font-size:11px
 .build-stripe{background:repeating-linear-gradient(45deg,rgba(255,211,107,.18) 0 8px,transparent 8px 16px)}
 .legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--dim)}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+/* newspaper back page: a physical object, so it keeps its own newsprint colours */
+.paper{background:#f1ecdf;color:#16130f;border-radius:3px;padding:18px 20px 20px;box-shadow:0 14px 34px rgba(0,0,0,.45);transform:rotate(-.5deg);font-family:Georgia,'Times New Roman',serif;max-width:820px;margin:0 auto}
+.paper .mast{display:flex;justify-content:space-between;align-items:center;border-bottom:3px double #16130f;padding-bottom:6px;margin-bottom:8px;gap:10px;flex-wrap:wrap}
+.paper .mast b{background:#c8102e;color:#fff;font-family:var(--f-tab);font-size:21px;letter-spacing:.04em;padding:3px 10px 1px;text-transform:uppercase;font-weight:400}
+.paper .mast span{font-size:12px;font-style:italic;color:#4b4338}
+.paper h4{font-family:var(--f-tab);font-weight:400;text-transform:uppercase;font-size:clamp(34px,7vw,64px);line-height:.95;margin:6px 0 8px;text-wrap:balance;color:#100d0a}
+.paper .deck{font-size:16px;font-weight:700;margin:0 0 10px;line-height:1.35}
+.paper .cols{columns:2 250px;column-gap:24px;font-size:14px;line-height:1.55;color:#2a251e}
+.paper .cols p{margin:0 0 8px}
+.paper .quote{border-left:4px solid #c8102e;padding:4px 0 4px 10px;font-style:italic;break-inside:avoid}
+.paper .gossip{border-top:1px solid #16130f;margin-top:10px;padding-top:8px;font-size:13px;line-height:1.5;color:#2a251e}
+.paper .gossip b{font-family:var(--f-tab);font-weight:400;color:#c8102e;letter-spacing:.06em;margin-right:6px}
+.paper.mini{transform:none;padding:12px 14px;box-shadow:none;cursor:pointer;text-align:left;width:100%;border:0}
+.paper.mini h4{font-size:30px;margin:2px 0 4px}
+.paper.mini .deck{font-size:13px;margin:0}
+/* negotiation chat */
+.chat{display:flex;flex-direction:column;gap:8px;max-height:300px;overflow:auto;padding:4px 2px;margin:12px 0}
+.msg{max-width:86%;padding:8px 11px;border-radius:8px;font-size:13.5px;line-height:1.4}
+.msg small{display:block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:2px;font-weight:600}
+.msg.them{background:var(--panel-2);border:1px solid var(--line);align-self:flex-start}
+.msg.me{background:rgba(255,179,64,.13);border:1px solid rgba(255,179,64,.35);align-self:flex-end}
+.msg.sys{align-self:center;color:var(--dim);font-size:12px;text-align:center;max-width:100%}
+.patience{display:inline-flex;gap:3px;vertical-align:-1px}.patience i{width:10px;height:10px;border-radius:50%;background:var(--amber)}.patience i.off{background:var(--line)}
+/* ground hero */
+.hero-ground{position:relative;padding:0;overflow:hidden;background:#060d16}
+.hero-ground canvas{display:block;width:100%}
+.hero-ground .ov{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 16px;background:linear-gradient(rgba(5,13,11,0),rgba(5,13,11,.88))}
+.hero-ground .ov h2{font-size:clamp(22px,4vw,36px)}
+@media (max-width:640px){.hero-ground .ov{position:static;background:var(--panel)}}
+.takings{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:8px}
+.takings div{background:var(--bg-2);border:1px solid var(--line);border-radius:5px;padding:8px 10px;min-width:0}
+.takings b{display:block;font-family:var(--f-mono);font-size:16px;font-variant-numeric:tabular-nums}
+.takings .tot{border-color:rgba(255,179,64,.5)}.takings .tot b{color:var(--amber)}
+.adgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:6px}
+.adb{background:#07100d;border:1px solid #1f3a31;border-radius:3px;padding:8px 6px;text-align:center;font-family:var(--f-tab);text-transform:uppercase;font-size:13px;letter-spacing:.04em;color:var(--amber);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.adb:nth-child(even){color:var(--chalk)}
+.adb.empty{color:var(--faint);border-style:dashed;font-family:var(--f-body);font-size:11px;letter-spacing:.1em}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 @media (max-width:640px){
   .kpis{gap:12px;margin-left:0;width:100%;justify-content:space-between}
@@ -377,15 +415,272 @@ function genWorld(){
 function startCareer(cid,manager){
   S.user=cid;S.manager=manager||'The Chairman';
   const u=UC();u.cash=Math.max(u.cash,250000);
-  S.ledger=blankLedger();S.balHist=[u.cash];
+  S.ledger=blankLedger();S.balHist=[u.cash];S.mood=60;S.papers=[];S.paper=null;S.talks={};S.lastTakings=null;S.com=null;migrate();
   newFixtures();newCup();
   S.sponsorOffers=genSponsors(u);
   for(const id in S.players){S.players[id].o0=ovr(S.players[id])}
   news(`${S.manager} takes charge of ${u.name}. The board expects ${expText(u)}.`,'good');
   news(`Three companies want their logo on the ${u.name} shirt. Choose a sponsor in the Finances tab before the first match.`,'offer');
-  UI.view='home';save();render();
+  UI.view='home';save();render();window.scrollTo(0,0);
 }
-function blankLedger(){return {tickets:0,boxes:0,shop:0,food:0,tv:0,sponsor:0,bonus:0,prize:0,sales:0,wages:0,maint:0,build:0,purchases:0,interest:0}}
+function blankLedger(){return {tickets:0,boxes:0,shop:0,food:0,prog:0,merch:0,ads:0,tv:0,sponsor:0,bonus:0,prize:0,sales:0,wages:0,maint:0,build:0,purchases:0,stock:0,interest:0}}
+const SHIRT_IDEAL=[55,45,35];
+const ADS=['Fizzwell Lemonade','Crestline Paints','Ostrava Steel','Kolibri Shoes','Mountain Ale','Dunmore Dairy','Spark Electrics','Tidewater Ferries','Vega Pizza','Oakhurst Timber','Rapid Taxis','Linden Pharmacy','Borealis Radio','Copperpot Coffee','Summit Insurance','Pinewood Hotels'];
+const AGENTS=['Rico Valente','Dana Krupp','Miles Okoro','Ines Falk','Vik Horák','Sasha Brandt','Tom Ferris','Lena Marek','Otto Reiner','Bea Sousa'];
+function migrate(){
+  if(!S||S.user<0)return;const u=UC();
+  if(S.mood==null)S.mood=60;
+  if(!S.com)S.com={prog:3,shirt:SHIRT_IDEAL[u.div],stock:1500,cater:1,sold:0,lost:0,warned:false,boards:[],boardOffers:[]};
+  if(!S.com.boardOffers.length&&S.com.boards.length<12)S.com.boardOffers=genBoardOffers(u);
+  if(!S.papers)S.papers=[];if(S.paper===undefined)S.paper=null;if(!S.talks)S.talks={};
+  const bl=blankLedger();for(const k in bl)if(!(k in S.ledger))S.ledger[k]=0;
+}
+function weekDate(w=S.week,y=S.year){const d=new Date(Date.UTC(y,7,1));while(d.getUTCDay()!==6)d.setUTCDate(d.getUTCDate()+1);d.setUTCDate(d.getUTCDate()+7*Math.min(w,CAL.length-1));return d}
+const fmtDate=(d,long)=>d.toLocaleDateString('en-GB',long?{weekday:'long',day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}:{weekday:'short',day:'numeric',month:'short',timeZone:'UTC'});
+function moodAdj(d){S.mood=clamp((S.mood??60)+d,0,100)}
+function moodText(m=S.mood){return m>=80?'Delirious':m>=62?'Happy':m>=48?'Content':m>=32?'Restless':m>=18?'Angry':'Mutinous'}
+function genBoardOffers(u){
+  const used=new Set(((S.com&&S.com.boards)||[]).map(b=>b.name));if(S.sponsor)used.add(S.sponsor.name);
+  const names=shuffle(SPONS.concat(ADS).filter(n=>!used.has(n)));const base=[5200,2200,800][u.div]*(u.rep/60);
+  return names.slice(0,4).map(n=>{const wk=pick([10,14,28]);return {id:S.oid++,name:n,weekly:Math.round(base*(.7+R()*.6)*(wk===28?.9:1)/50)*50,weeks:wk}});
+}
+function boardNames(cid){
+  if(cid===S.user&&S.com){const n=S.com.boards.map(b=>b.name);const c=C(cid);if(!n.length)n.push(c.name.toUpperCase()+' FOREVER');while(n.length<6)n.push(n.length%2?'Advertise here':c.name);return n}
+  const arr=SPONS.concat(ADS);return [0,1,2,3,4,5].map(i=>arr[(cid*7+i*5)%arr.length]);
+}
+function fanQuote(){
+  const u=UC();const m=S.mood;const who=`${pick(FN)}, ${pick(['North Stand','South Stand','West End','East End','season-ticket holder','fan for 30 years'])}`;
+  const dear=u.price>idealPrice(u)*1.3;
+  const pool=dear?[`€${u.price} a ticket for that? Some of us have mortgages.`,`Ticket prices are going up faster than we are.`,`I love this club, but I can't afford it any more.`]
+   :m>=78?[`Best I've seen us play in years. Don't sell anyone!`,`The whole town is buzzing.`,`I'd pay double to watch this team.`]
+   :m>=55?[`Decent, but we still need a proper striker.`,`Getting there. Keep the faith.`,`Can't complain. Well, I can, but I won't.`]
+   :m>=32?[`The board needs to put its hand in its pocket.`,`I've seen better teams in the park on a Sunday.`,`Something has to change, and soon.`]
+   :[`Board out! Sell the club!`,`I'm handing my season ticket back.`,`Worst I can remember, and I remember a lot.`];
+  return {t:pick(pool),who};
+}
+function rumours(){
+  const u=UC();const out=[];const sq=u.squad.map(P).sort((a,b)=>ovr(b)-ovr(a));const star=sq[0];
+  const big=S.clubs.filter(c=>c.rep>u.rep+5);
+  if(star&&big.length)out.push(`${pick(big).name} sent scouts to watch ${pname(star)}.`);
+  const sad=sq.find(p=>p.morale<35);if(sad)out.push(`${pname(sad)} is said to be unhappy at ${u.name}.`);
+  const fa=S.free.map(P).sort((a,b)=>ovr(b)-ovr(a))[0];if(fa)out.push(`Free agent ${pname(fa)} (${fa.pos}, ${ovr(fa)}) is looking for a club.`);
+  if(u.cash<0)out.push(`The bank manager was spotted at ${u.ground} again.`);
+  if(S.mood<30)out.push(`A supporters' group is planning a protest before the next home game.`);
+  if(S.com&&S.com.stock===0)out.push(`Fans queued at the club shop and left empty-handed: no shirts left.`);
+  out.push(`${pick(S.clubs.filter(c=>c.id!==S.user)).name} are ready to spend big, insiders say.`);
+  return shuffle(out).slice(0,3);
+}
+function makePaper(ur){
+  const u=UC();const pp={name:`${u.town} Evening Post`,date:fmtDate(weekDate(),true),body:[],fan:fanQuote(),gossip:rumours()};
+  const T=u.town.toUpperCase();const t=table(u.div);const pos=t.findIndex(r=>r.id===S.user)+1;
+  const standing=()=>{const lead=t[0];const me=t[pos-1];if(pos===1)return `${u.name} sit top of the ${DIVS[u.div]}, ${me.pts-t[1].pts} point${me.pts-t[1].pts===1?'':'s'} clear.`;if(u.div<2&&pos>=11)return `${u.name} are ${ord(pos)} in the ${DIVS[u.div]} and in real danger of going down.`;return `${u.name} are ${ord(pos)} in the ${DIVS[u.div]}, ${lead.pts-me.pts} point${lead.pts-me.pts===1?'':'s'} behind leaders ${C(lead.id).name}.`};
+  if(!ur){const lead=C(t[0].id);pp.head=pick([`QUIET WEEK AT ${u.ground.toUpperCase()}`,`${lead.town.toUpperCase()} SET THE PACE`]);pp.deck=`No match for ${u.name} this week.`;pp.body=[`The players trained at ${u.ground} while the cup went on without them.`,standing()];return pp}
+  const {res,us,r,f}=ur;const opp=C(us?f.h:f.a);const O=opp.town.toUpperCase();const gf=us?res.ag:res.hg,ga=us?res.hg:res.ag;
+  const mine=res.goals.filter(g=>g.side===us);const cnt={};mine.forEach(g=>cnt[g.pid]=(cnt[g.pid]||0)+1);
+  const topId=Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a])[0];const tp=topId?P(+topId):null;const hat=tp&&cnt[topId]>=3;
+  let pool;
+  if(f.cup&&res.pens)pool=r==='W'?[`SPOT-KICK HEROES`,`NERVES OF STEEL`]:[`PENALTY HEARTBREAK`,`OUT ON PENALTIES`];
+  else if(f.cup&&r==='W')pool=[`CUP MAGIC!`,`${T} MARCH ON`,`${O} DUMPED OUT`];
+  else if(f.cup)pool=[`CUP DREAM OVER`,`${O} END THE RUN`];
+  else if(hat)pool=[`${tp.ln.toUpperCase()} HAT-TRICK HERO`];
+  else if(r==='W'&&gf-ga>=3)pool=[`${O} THRASHED`,`${gf}-GOAL ROMP`,`${T} RUN RIOT`];
+  else if(r==='W')pool=[tp?`${tp.ln.toUpperCase()} THE HERO`:`${T} GRIND IT OUT`,`${T} EDGE PAST ${O}`,`THREE POINTS!`,`JOB DONE`,`${T} ON THE UP`,tp?`${tp.ln.toUpperCase()} DOES IT AGAIN`:`CLEAN SHEET, FULL POINTS`];
+  else if(r==='D')pool=[`HONOURS EVEN`,`${O} HOLD ${T}`,`STALEMATE`,`ALL SQUARE`,`POINTS SHARED`,`SO CLOSE, ${T}`];
+  else if(ga-gf>=3)pool=[`HUMILIATION`,`${ga}-GOAL HORROR SHOW`,S.board.conf<35?`CHAIRMAN UNDER FIRE`:`NIGHTMARE FOR ${T}`];
+  else pool=[`${T} BEATEN`,`${O} SPOIL THE PARTY`,`NO ANSWER FROM ${T}`,`${O} TOO GOOD`,`BACK TO THE DRAWING BOARD`,`${T} FALL SHORT`,`LONG WAY HOME`];
+  const prev=new Set(S.papers.slice(0,4).map(x=>x.head));const fresh=pool.filter(h=>!prev.has(h));pp.head=pick(fresh.length?fresh:pool);
+  const byP={};mine.forEach(g=>{(byP[g.pid]=byP[g.pid]||[]).push(g.m+"'")});
+  const sc=Object.entries(byP).map(([id,ms])=>`${P(+id)?pname(P(+id)):'?'} (${ms.join(', ')})`).join(', ');
+  pp.deck=`${u.name} ${gf}–${ga} ${opp.name}${res.pens?` (${res.pens[us]}–${res.pens[1-us]} on penalties)`:''}.${sc?' Scorers: '+sc+'.':''}`;
+  const hc=C(f.h);const full=res.att>=stadiumCap(hc)*.98;
+  pp.body.push(`${int(res.att)} fans ${f.h===S.user?'came through the turnstiles at':'were at'} ${hc.ground}${full?' for a sell-out':''}${f.h===S.user&&!full&&res.att<stadiumCap(hc)*.7?', with empty seats all around the ground':''}.`);
+  pp.body.push(r==='W'?pick([`${u.name} were the better side for long spells and deserved the win.`,`It was not always pretty, but ${u.name} got the job done.`,`${opp.name} had no answer once ${u.name} took control.`]):r==='D'?pick([`Neither side did enough to win it.`,`A scrappy game that never really caught fire.`,`Both keepers had a busy afternoon.`]):pick([`${opp.name} were sharper all over the pitch.`,`${u.name} never got going, and ${opp.name} punished them.`,`It was a long afternoon for the home-grown players and the travelling support.`]));
+  if(res.motm&&P(res.motm))pp.body.push(`${pname(P(res.motm))} was the pick of the players on the pitch.`);
+  if(!f.cup)pp.body.push(standing());
+  pp.body.push(`"${r==='W'?pick(['The lads were brilliant. The fans drove us on.','We stuck to the plan and it worked.','That is what this club is about.']):r==='D'?pick(['A point is a point. We go again next week.','We wanted more, but I can\'t fault the effort.']):pick(['Not good enough. I take responsibility.','We have to look at ourselves after that.','The supporters deserve better and they will get it.'])}" said ${S.manager}.`);
+  return pp;
+}
+function paperHTML(pp,mini){
+  if(!pp)return '';
+  if(mini)return `<button class="paper mini" data-act="paper"><div class="mast"><b>${esc(pp.name)}</b><span>${esc(pp.date)}</span></div><h4>${esc(pp.head)}</h4><p class="deck">${esc(pp.deck)}</p></button>`;
+  return `<article class="paper"><div class="mast"><b>${esc(pp.name)}</b><span>${esc(pp.date)} · Sport</span></div><h4>${esc(pp.head)}</h4><p class="deck">${esc(pp.deck)}</p><div class="cols">${pp.body.map(t=>`<p>${esc(t)}</p>`).join('')}${pp.fan?`<p class="quote">“${esc(pp.fan.t)}” — ${esc(pp.fan.who)}</p>`:''}</div>${pp.gossip&&pp.gossip.length?`<div class="gossip"><b>GOSSIP</b>${pp.gossip.map(esc).join(' · ')}</div>`:''}</article>`;
+}
+function takingsHTML(t){
+  if(!t)return '<p class="dim" style="margin:0">Your first home match will show up here.</p>';
+  const tot=t.gate+t.prog+t.food+t.box+t.shop;
+  return `<div class="takings"><div><span class="label">Crowd</span><b>${int(t.att)}</b><span class="faint" style="font-size:11px">${Math.round(t.att/t.cap*100)}% full</span></div><div><span class="label">Gate</span><b>${money(t.gate)}</b></div><div><span class="label">Programmes</span><b>${money(t.prog)}</b><span class="faint" style="font-size:11px">${int(t.progN)} sold</span></div><div><span class="label">Food & drink</span><b>${money(t.food)}</b></div><div><span class="label">Boxes</span><b>${money(t.box)}</b></div><div><span class="label">Souvenirs</span><b>${money(t.shop)}</b></div><div class="tot"><span class="label">Matchday total</span><b>${money(tot)}</b></div></div>`;
+}
+
+/* ---------- negotiations ---------- */
+function startTalks(pid,mode){
+  const p=P(pid),u=UC();
+  if((S.talks[pid]||0)>S.week){toast(mode==='renew'?`${p.ln}'s agent won't talk again until next month.`:`Talks over ${p.ln} are off until next month.`);return}
+  const seller=p.club>=0&&p.club!==S.user?C(p.club):null;
+  const N={pid,mode,log:[],stage:seller?'club':'player',fee:0,cp:3,ap:3,agent:pick(AGENTS),greed:.92+R()*.3};
+  if(seller){const ask=askingPrice(p);N.min=Math.round(ask*(.85+R()*.12)/5000)*5000;N.counter=Math.round(ask*1.1/5000)*5000;
+    N.log.push({w:'them',n:`${seller.name} chairman`,t:p.listed?`${p.ln} is available. Make us a sensible offer.`:pick([`${p.ln} is not for sale. Everyone has a price, though, and this one is high.`,`We'd rather keep ${p.ln}. If you want to talk, it will cost you.`,`You've got a nerve calling about ${p.ln}. Go on then, what's the offer?`])})}
+  else agentOpen(N);
+  UI.neg=N;negModal();
+}
+function agentOpen(N){
+  const p=P(N.pid),u=UC();
+  const base=N.mode==='renew'?Math.round(wageFor(p)*1.1*(p.morale<40?1.25:1)/50)*50:wageDemand(p,u);
+  N.dem=Math.round(base*N.greed/50)*50;N.sign=Math.round(N.dem*ri(4,9)/1000)*1000;N.yrs=p.age<=23?4:p.age<=29?3:2;
+  N.afee=N.mode==='renew'?Math.round(N.dem*2/1000)*1000:Math.round(Math.max(N.fee*.05,N.dem*4)/1000)*1000;
+  const gap=(p.club>=0&&p.club!==S.user?C(p.club).rep:u.rep)-u.rep;N.need=(gap>18&&!p.listed&&N.mode==='buy')?1.3:1;
+  N.cw=Math.round(N.dem*.9/50)*50;N.cs=Math.round(N.sign*.5/1000)*1000;N.cy=N.yrs;N.stage='player';N.ap=3;
+  N.log.push({w:'them',n:`${N.agent}, agent`,t:`My client wants ${money(N.dem)} a week, a ${money(N.sign)} signing-on fee and a ${N.yrs}-year contract. My own fee is ${money(N.afee)}.${N.need>1?` And to be honest, ${p.ln} expects to be paid well to drop down to a club like yours.`:''}`});
+}
+function negFee(fee){
+  const N=UI.neg,p=P(N.pid),u=UC(),sel=C(p.club);const who=`${sel.name} chairman`;
+  if(fee>u.cash+overdraft(u)){N.log.push({w:'sys',t:`You can't fund ${money(fee)}. Balance plus overdraft is ${money(u.cash+overdraft(u))}.`});return}
+  N.log.push({w:'me',n:'You',t:`We'll pay ${money(fee)}.`});
+  if(fee>=N.min){N.fee=fee;N.log.push({w:'them',n:who,t:pick([`Done. ${money(fee)} it is. You can speak to the agent now.`,`You drive a hard bargain. Agreed.`,`Fine. Shake on it. The agent's number is on its way.`])});agentOpen(N);return}
+  if(fee<N.min*.6){N.cp-=2;N.log.push({w:'them',n:who,t:pick([`Is that a joke? Don't insult us.`,`That wouldn't buy the boots.`,`I'm putting the phone down if that's your best.`])})}
+  else{N.cp-=1;N.counter=Math.max(N.min,Math.round((N.counter-(N.counter-fee)*.35)/5000)*5000);N.log.push({w:'them',n:who,t:pick([`Not enough. We'd need ${money(N.counter)}.`,`Come on. ${money(N.counter)} and we can talk.`,`My board would laugh at that. ${money(N.counter)}.`])})}
+  if(N.cp<=0){N.stage='dead';S.talks[N.pid]=S.week+4;N.log.push({w:'sys',t:`Talks have broken down. ${sel.name} won't discuss ${p.ln} for four weeks.`})}
+}
+function negTerms(w,sgn,y){
+  const N=UI.neg,p=P(N.pid),u=UC();const who=`${N.agent}, agent`;
+  N.log.push({w:'me',n:'You',t:`${money(w)} a week, ${money(sgn)} to sign, ${y} year${y>1?'s':''}.`});
+  const yAdj=-.04*Math.abs(y-N.yrs);const sPart=Math.min(1.5,sgn/Math.max(1,N.sign))*.22;
+  const score=Math.min(2.5,w/N.dem)*.78+sPart+yAdj;
+  if(score>=N.need-.004){completeTalks(w,sgn,y);return}
+  N.ap-=score>=N.need-.12?1:1.5;
+  N.cw=Math.max(w+50,Math.ceil(((N.need-yAdj-sPart)/.78)*N.dem/50)*50);N.cs=sgn;N.cy=y;
+  if(N.ap<=0){N.stage='dead';S.talks[N.pid]=S.week+4;N.log.push({w:'them',n:who,t:pick([`We're done here. Good luck finding someone else.`,`My client has other offers. Goodbye.`])});N.log.push({w:'sys',t:N.mode==='renew'?`No new contract. Try again in four weeks.`:`Talks have collapsed.`});return}
+  N.log.push({w:'them',n:who,t:score>=N.need-.12?pick([`Close. Make it ${money(N.cw)} a week and we have a deal.`,`We're nearly there. ${money(N.cw)} a week and I'll get the pen.`]):pick([`No. ${p.ln} is worth far more than that. Think ${money(N.cw)} a week.`,`You're wasting my time. ${money(N.cw)} a week, minimum.`])});
+}
+function completeTalks(w,sgn,y){
+  const N=UI.neg,p=P(N.pid),u=UC();const extra=sgn+N.afee;
+  if(N.fee+extra>u.cash+overdraft(u)){N.log.push({w:'sys',t:`You can't afford the full package (${money(N.fee+extra)}).`});return}
+  if(N.mode==='buy'){
+    if(u.squad.length>=30){N.log.push({w:'sys',t:'Your squad is full (30). Sell or release someone first.'});return}
+    const from=p.club>=0?C(p.club):null;const strong=ovr(p)>squadAvg(u)+4;
+    moveP(p.id,S.user,N.fee,w,y);u.cash-=extra;S.ledger.purchases+=extra;
+    news(`${pname(p)} signs for ${u.name}${from?` from ${from.name} for ${money(N.fee)}`:' on a free transfer'}. ${money(w)}/wk for ${y} year${y>1?'s':''}.`,'good');
+    if(strong){moodAdj(4);news(`Fans are thrilled with the arrival of ${pname(p)}.`,'good')}
+  }else{p.wage=w;p.contract=y;p.morale=clamp(p.morale+8,0,100);u.cash-=extra;S.ledger.wages+=extra;news(`${pname(p)} signs a new ${y}-year contract at ${money(w)}/wk.`,'good')}
+  N.stage='done';N.log.push({w:'them',n:`${N.agent}, agent`,t:pick([`Pleasure doing business.`,`${p.ln} is delighted. Where do we sign?`,`Deal. You won't regret it.`])});
+  N.log.push({w:'sys',t:N.mode==='buy'?`${pname(p)} has joined ${u.name}.`:'Contract signed.'});save();render();
+}
+function negModal(){
+  const N=UI.neg;if(!N)return;const p=P(N.pid),u=UC();const sel=p.club>=0&&p.club!==S.user?C(p.club):null;
+  const pat=n=>`<span class="patience" title="Patience">${[0,1,2].map(i=>`<i class="${i<Math.ceil(n)?'':'off'}"></i>`).join('')}</span>`;
+  let form='';
+  if(N.stage==='club')form=`<form class="row" data-form="negfee" style="align-items:flex-end"><div class="field"><label class="label" for="nfee">Your offer (€)</label><input id="nfee" class="inp" type="number" step="5000" min="0" value="${Math.round(N.counter*.8/5000)*5000}"></div><button class="btn pri" type="submit">Make offer</button><button class="btn" type="button" data-act="negacc">Pay ${money(N.counter)}</button><span class="dim" style="font-size:12px">Their patience ${pat(N.cp)}</span></form>`;
+  else if(N.stage==='player')form=`<form class="stack" data-form="negterms"><div class="row"><div class="field"><label class="label" for="nw">Wage per week (€)</label><input id="nw" class="inp" type="number" step="50" min="0" value="${N.cw}"></div><div class="field"><label class="label" for="ns">Signing-on fee (€)</label><input id="ns" class="inp" type="number" step="1000" min="0" value="${N.cs}"></div><div class="field"><label class="label" for="ny">Years</label><select id="ny" class="inp">${[1,2,3,4,5].map(y=>`<option ${y===N.cy?'selected':''}>${y}</option>`).join('')}</select></div></div><div class="row"><button class="btn pri" type="submit">Propose terms</button><span class="dim" style="font-size:12px">Agent's patience ${pat(N.ap)}</span></div><p class="faint" style="font-size:12px;margin:0">You pay ${N.fee?money(N.fee)+' transfer fee + ':''}${money(N.afee)} agent's fee + the signing-on fee. Balance ${money(u.cash)}.</p></form>`;
+  else form=`<div class="row"><button class="btn pri" data-act="close">Close</button></div>`;
+  const step=N.stage==='club'?'Step 1 of 2 · the club':N.stage==='player'?(N.mode==='renew'?'Contract talks · the agent':'Step 2 of 2 · the agent'):N.stage==='done'?'Deal done':'Talks over';
+  openModal(`<div class="row" style="align-items:flex-start"><div style="flex:1;min-width:0"><div class="label">${step}</div><h2 style="font-size:28px;margin-top:4px">${esc(p.fn)} ${esc(p.ln)}</h2><div class="row" style="margin-top:6px">${posTag(p.pos)}${ovrBadge(ovr(p))}<span class="dim" style="font-size:12.5px">${p.age} · ${sel?esc(sel.name):p.club===S.user?esc(u.name):'Free agent'} · value ${money(value(p))}</span></div></div><button class="btn ghost sm" data-act="close" aria-label="Close">✕</button></div>
+   <div class="chat" id="chat">${N.log.map(m=>m.w==='sys'?`<div class="msg sys">${esc(m.t)}</div>`:`<div class="msg ${m.w}"><small>${esc(m.n)}</small>${esc(m.t)}</div>`).join('')}</div>${form}`);
+  const ch=$('#chat');if(ch)ch.scrollTop=ch.scrollHeight;
+}
+
+/* ---------- commercial ---------- */
+function viewCommercial(){
+  const u=UC(),cm=S.com;const ideal=SHIRT_IDEAL[u.div];
+  const cells=[];for(let i=0;i<12;i++){const b=cm.boards[i];cells.push(b?`<div class="adb" title="${esc(b.name)} · ${money(b.weekly)}/wk · ${b.left} wk left">${esc(b.name)}</div>`:'<div class="adb empty">For sale</div>')}
+  return `<div class="grid g-main">
+   <div class="stack" style="gap:16px">
+    <div class="panel"><div class="panel-h"><h2>Replica shirts</h2><span class="label">Club shop level ${u.fac.shop}</span></div>
+     <div class="row" style="gap:28px;align-items:flex-end">
+      <div><div class="label">In stock</div><div class="big ${cm.stock===0?'bad':''}">${int(cm.stock)}</div></div>
+      <div><div class="label">Sold this season</div><div class="big">${int(cm.sold)}</div></div>
+      <div><div class="label">Missed sales</div><div class="big ${cm.lost?'warn':''}">${int(cm.lost)}</div></div>
+     </div>
+     <div class="field" style="margin-top:14px"><label class="label" for="shirtp">Shirt price: <b class="amber" id="shirtv">€${cm.shirt}</b></label><input type="range" id="shirtp" min="15" max="${ideal*2}" value="${cm.shirt}" data-act="shirtp" style="width:100%;accent-color:#ffb340"></div>
+     <div class="row" style="margin-top:10px"><button class="btn pri" data-act="order" data-v="500">Order 500 · ${money(500*17)}</button><button class="btn" data-act="order" data-v="2000">Order 2,000 · ${money(2000*14)}</button></div>
+     <p class="faint" style="font-size:12px;margin:8px 0 0">Fans buy more after wins, on home matchdays and when the new kit comes out in August. Run out of stock and those sales are gone.</p></div>
+    <div class="panel"><div class="panel-h"><h2>Advertising boards</h2><span class="label">${cm.boards.length} of 12 sold · ${money(cm.boards.reduce((s,b)=>s+b.weekly,0))}/wk</span></div>
+     <div class="adgrid">${cells.join('')}</div>
+     <div class="label" style="margin:14px 0 6px">Companies asking</div>
+     <div class="stack" style="gap:6px">${cm.boardOffers.map(o=>`<div class="row" style="font-size:13px"><b style="flex:1;min-width:0">${esc(o.name)}</b><span class="mono">${money(o.weekly)}/wk · ${o.weeks} wk</span><button class="btn sm pri" data-act="adsell" data-v="${o.id}" ${cm.boards.length>=12?'disabled':''}>Sell a board</button></div>`).join('')||'<span class="dim">No enquiries this month.</span>'}</div>
+     <p class="faint" style="font-size:12px;margin:8px 0 0">Boards appear around the pitch on matchday. New enquiries arrive every few weeks.</p></div>
+   </div>
+   <div class="stack" style="gap:16px">
+    <div class="panel"><div class="panel-h"><h2>Matchday</h2></div>
+     <div class="field"><span class="label">Programme price</span><div class="seg">${[1,2,3,4,5,6].map(v=>`<button class="${cm.prog===v?'on':''}" data-act="prog" data-v="${v}">€${v}</button>`).join('')}</div></div>
+     <div class="field" style="margin-top:12px"><span class="label">Food & drink</span><div class="seg">${['Cheap','Standard','Premium'].map((n,i)=>`<button class="${cm.cater===i?'on':''}" data-act="cater" data-v="${i}">${n}</button>`).join('')}</div></div>
+     <p class="faint" style="font-size:12px;margin:8px 0 0">Premium catering earns 45% more per fan but grumbles on the terraces. Cheap pies keep everyone happy.</p></div>
+    <div class="panel"><div class="panel-h"><h2>Last home takings</h2>${S.lastTakings?`<span class="label">${esc(S.lastTakings.date)} v ${esc(C(S.lastTakings.opp).town)}</span>`:''}</div>${takingsHTML(S.lastTakings)}</div>
+    <div class="panel"><div class="panel-h"><h2>Supporters</h2><span class="label">${moodText()}</span></div><div class="meter"><i style="width:${S.mood}%;background:${S.mood<30?'var(--bad)':S.mood<50?'var(--warn)':'var(--good)'}"></i></div><p class="dim" style="font-size:12.5px;margin:8px 0 0">Happy fans come in bigger numbers and buy more shirts. Results, ticket prices, catering and big signings all move the mood.</p></div>
+   </div></div>`;
+}
+
+/* ---------- the ground at night (2.5D) ---------- */
+function seeded(seed){let s=(seed>>>0)||1;return ()=>{s=(s*1664525+1013904223)>>>0;return s/4294967296}}
+function drawIso(cv,c,opt={}){
+  if(!cv)return;const dpr=Math.min(2,window.devicePixelRatio||1);const W=cv.clientWidth||900;const H=Math.round(W*(opt.ratio||.5));cv.width=W*dpr;cv.height=H*dpr;cv.style.height=H+'px';const g=cv.getContext('2d');g.scale(dpr,dpr);
+  const rnd=seeded(c.id*977+13);const k=W/(opt.zoom||215),cx=W*.5,cy=H*.62;
+  const PJ=(x,y,z)=>[cx+(x+y*.5)*k,cy+(y*.36-z*.82)*k];
+  const poly=(pts,fill,stroke,lw)=>{g.beginPath();pts.forEach((q,i)=>{const [a,b]=PJ(q[0],q[1],q[2]);i?g.lineTo(a,b):g.moveTo(a,b)});g.closePath();if(fill){g.fillStyle=fill;g.fill()}if(stroke){g.strokeStyle=stroke;g.lineWidth=lw||1;g.stroke()}};
+  const sky=g.createLinearGradient(0,0,0,H);sky.addColorStop(0,'#050b14');sky.addColorStop(.5,'#0c1b26');sky.addColorStop(1,'#0a1b16');g.fillStyle=sky;g.fillRect(0,0,W,H);
+  for(let i=0;i<70;i++){g.fillStyle=`rgba(255,255,255,${.15+rnd()*.5})`;g.fillRect(rnd()*W,rnd()*H*.32,1,1)}
+  const hy=PJ(0,-112,0)[1];let x=-10;
+  while(x<W){const w=16+rnd()*38,h=10+rnd()*30;g.fillStyle='#0a1720';g.fillRect(x,hy-h,w,h+40);g.beginPath();g.moveTo(x-2,hy-h);g.lineTo(x+w/2,hy-h-6-rnd()*9);g.lineTo(x+w+2,hy-h);g.fill();
+    for(let j=0;j<3;j++)if(rnd()<.55){g.fillStyle=rnd()<.75?'rgba(255,200,115,.75)':'rgba(170,210,255,.55)';g.fillRect(x+4+rnd()*(w-10),hy-h+5+rnd()*(h-8),2.5,3.5)}x+=w+2}
+  poly([[-170,-112,0],[170,-112,0],[170,95,0],[-170,95,0]],'#0d1d17');
+  // pitch and apron
+  poly([[-58,-39,0],[58,-39,0],[58,39,0],[-58,39,0]],'#1f5a37');
+  for(let i=0;i<12;i++){const x0=-52.5+i*8.75;poly([[x0,-34,0],[x0+8.75,-34,0],[x0+8.75,34,0],[x0,34,0]],i%2?'#2a7a48':'#2f8551')}
+  const L='rgba(255,255,255,.8)';g.lineWidth=1;
+  poly([[-52.5,-34,0],[52.5,-34,0],[52.5,34,0],[-52.5,34,0]],null,L);
+  poly([[0,-34,0],[0,34,0],[0,34,0]],null,L);
+  g.beginPath();for(let i=0;i<=28;i++){const a=i/28*Math.PI*2;const [px,py]=PJ(Math.cos(a)*9.15,Math.sin(a)*9.15,0);i?g.lineTo(px,py):g.moveTo(px,py)}g.strokeStyle=L;g.stroke();
+  for(const sgn of [-1,1]){const gx=52.5*sgn;poly([[gx,-20.16,0],[gx-sgn*16.5,-20.16,0],[gx-sgn*16.5,20.16,0],[gx,20.16,0]],null,L);poly([[gx,-9.16,0],[gx-sgn*5.5,-9.16,0],[gx-sgn*5.5,9.16,0],[gx,9.16,0]],null,L);
+    poly([[gx,-3.66,0],[gx,3.66,0],[gx,3.66,2.44],[gx,-3.66,2.44]],'rgba(255,255,255,.18)','rgba(255,255,255,.9)')}
+  // advertising boards along the north touchline
+  const names=boardNames(c.id);const segN=8;
+  for(let i=0;i<segN;i++){const x0=-50+i*100/segN,x1=x0+100/segN-1;poly([[x0,-36,0],[x1,-36,0],[x1,-36,1.6],[x0,-36,1.6]],'#07100d');const [tx,ty]=PJ((x0+x1)/2,-36,.8);g.fillStyle=i%2?'#ffb340':'#eef1e4';g.font=`${Math.max(7,1.25*k)}px Anton, Impact, sans-serif`;g.textAlign='center';g.textBaseline='middle';g.fillText(names[i%names.length].toUpperCase(),tx,ty,(x1-x0)*k*.92)}
+  for(let i=0;i<5;i++){const y0=-30+i*12,y1=y0+11;poly([[54.5,y0,0],[54.5,y1,0],[54.5,y1,1.6],[54.5,y0,1.6]],i%2?'#3a1f05':'#07100d')}
+  g.textBaseline='alphabetic';
+  // stands
+  const gp=4;const fill=clamp(opt.fill==null?.6:opt.fill,0,1);
+  const crowdCols=[c.c1,c.c2,'#d9d4c7','#3b4a44','#8c3b2f','#c9a24a',c.c1,'#e8e2d0'];
+  const SP=(i,u,v,z,d)=>{if(i===0)return [-52.5+105*u,-34-gp-d*v,z];if(i===1)return [-52.5+105*u,34+gp+d*v,z];if(i===2)return [-52.5-gp-d*v,-34+68*u,z];return [52.5+gp+d*v,-34+68*u,z]};
+  const building=i=>S.user===c.id&&S.builds.some(b=>b.stand===i);
+  const drawStand=i=>{
+    const st=c.stands[i];const d=7+24*Math.sqrt(st.cap/STANDMAX[i]);const h=d*.55+2;const zf=1.2;
+    const Z=v=>zf+(h-zf)*v;const len=i<2?105:68;
+    // end wall (the face toward the camera)
+    const eu=i<2?0:1;poly([SP(i,eu,0,zf,d),SP(i,eu,1,h,d),SP(i,eu,1,0,d),SP(i,eu,0,0,d)],'#3c4741','#2a332f');
+    if(i!==1){
+      const n=Math.max(5,Math.round(d/1.5));
+      for(let r=0;r<n;r++){const v0=r/n,v1=(r+1)/n;let col;if(st.seated){col=r%2?shade(c.c1,-.28):c.c1;if(r%6===3)col=c.c2}else col=r%2?'#7a847e':'#8b958f';
+        poly([SP(i,0,v0,Z(v0),d),SP(i,1,v0,Z(v0),d),SP(i,1,v1,Z(v1),d),SP(i,0,v1,Z(v1),d)],col);
+        if(fill>0){const m=Math.round(len*1.6*fill);for(let q=0;q<m;q++){const uu=rnd(),vv=v0+rnd()*(v1-v0);const [a,b]=PJ(...SP(i,uu,vv,Z(vv)+.5,d));g.fillStyle=crowdCols[Math.floor(rnd()*crowdCols.length)];g.fillRect(a-.8,b-1.2,1.7,1.7)}}}
+      g.strokeStyle='rgba(0,0,0,.35)';g.lineWidth=1;for(let a=1;a<8;a++){const u=a/8;const p0=PJ(...SP(i,u,0,zf,d)),p1=PJ(...SP(i,u,1,h,d));g.beginPath();g.moveTo(p0[0],p0[1]);g.lineTo(p1[0],p1[1]);g.stroke()}
+      if(st.boxes){const nb=Math.min(st.boxes,40);for(let b=0;b<nb;b++){const u0=b/nb,u1=(b+.85)/nb;poly([SP(i,u0,.9,Z(.9),d),SP(i,u1,.9,Z(.9),d),SP(i,u1,1,Z(1)+1.2,d),SP(i,u0,1,Z(1)+1.2,d)],'rgba(127,208,255,.85)')}}
+      if(i===2)poly([SP(i,0,1,0,d),SP(i,1,1,0,d),SP(i,1,1,h,d),SP(i,0,1,h,d)],'#2f3a35');
+    }else{
+      // south stand: we see its back wall, with the club name painted on it
+      poly([SP(1,0,1,0,d),SP(1,1,1,0,d),SP(1,1,1,h,d),SP(1,0,1,h,d)],'#37423d','#26302b');
+      poly([SP(1,0,1,h*.82,d),SP(1,1,1,h*.82,d),SP(1,1,1,h,d),SP(1,0,1,h,d)],c.c1);
+      for(let w=0;w<14;w++){const u=(w+.5)/14;const [a,b]=PJ(...SP(1,u,1,h*.3,d));g.fillStyle=rnd()<.7?'rgba(255,205,120,.8)':'rgba(255,255,255,.15)';g.fillRect(a-2,b-2,4,3)}
+      const [tx,ty]=PJ(...SP(1,.5,1,h*.58,d));g.font=`${Math.max(10,Math.min(h*.42*k,30))}px Anton, Impact, sans-serif`;g.textAlign='center';g.textBaseline='middle';g.fillStyle=c.c2;g.strokeStyle='rgba(0,0,0,.6)';g.lineWidth=3;g.strokeText(c.name.toUpperCase(),tx,ty,105*k*.8);g.fillText(c.name.toUpperCase(),tx,ty,105*k*.8);g.textBaseline='alphabetic';
+      for(let t=0;t<4;t++){const u=.12+t*.25;poly([SP(1,u,1,0,d),SP(1,u+.04,1,0,d),SP(1,u+.04,1,2.6,d),SP(1,u,1,2.6,d)],'#111')}
+    }
+    if(st.roof){const rz=h+4;poly([SP(i,0,.22,rz,d),SP(i,1,.22,rz,d),SP(i,1,1.04,rz+1,d),SP(i,0,1.04,rz+1,d)],i===1?'rgba(170,186,194,.9)':'rgba(205,220,228,.42)','rgba(255,255,255,.25)');
+      poly([SP(i,0,.22,rz-1.4,d),SP(i,1,.22,rz-1.4,d),SP(i,1,.22,rz,d),SP(i,0,.22,rz,d)],shade(c.c1,.1));
+      if(i!==1)for(let a=0;a<=4;a++){const u=a/4;const p0=PJ(...SP(i,u,.22,rz-1.4,d)),p1=PJ(...SP(i,u,.22,Z(.22),d));g.strokeStyle='rgba(220,226,222,.6)';g.lineWidth=1;g.beginPath();g.moveTo(p0[0],p0[1]);g.lineTo(p1[0],p1[1]);g.stroke()}}
+    if(building(i)){g.save();g.strokeStyle='rgba(255,211,107,.75)';g.lineWidth=1;for(let a=0;a<=10;a++){const u=a/10;const p0=PJ(...SP(i,u,1,0,d)),p1=PJ(...SP(i,u,1,h+6,d));g.beginPath();g.moveTo(p0[0],p0[1]);g.lineTo(p1[0],p1[1]);g.stroke()}for(let b=1;b<=3;b++){const p0=PJ(...SP(i,0,1,b*(h+6)/3,d)),p1=PJ(...SP(i,1,1,b*(h+6)/3,d));g.beginPath();g.moveTo(p0[0],p0[1]);g.lineTo(p1[0],p1[1]);g.stroke()}
+      const base=SP(i,.7,1.15,0,d);const top=[base[0],base[1],h+30];const jib=i<2?[base[0]-38,base[1],h+30]:[base[0],base[1]+30,h+30];const ctr=i<2?[base[0]+10,base[1],h+30]:[base[0],base[1]-9,h+30];
+      g.strokeStyle='#ffd36b';g.lineWidth=2;const P0=PJ(...base),P1=PJ(...top),P2=PJ(...jib),P3=PJ(...ctr);g.beginPath();g.moveTo(P0[0],P0[1]);g.lineTo(P1[0],P1[1]);g.moveTo(P3[0],P3[1]);g.lineTo(P2[0],P2[1]);g.stroke();g.lineWidth=1;const hk=PJ(jib[0]*.6+top[0]*.4,jib[1]*.6+top[1]*.4,h+8);g.beginPath();g.moveTo(PJ(jib[0]*.6+top[0]*.4,jib[1]*.6+top[1]*.4,h+30)[0],PJ(jib[0]*.6+top[0]*.4,jib[1]*.6+top[1]*.4,h+30)[1]);g.lineTo(hk[0],hk[1]);g.stroke();g.restore()}
+  };
+  drawStand(0);drawStand(3);drawStand(2);
+  // floodlight pylons
+  const fl=[[-62,-46],[62,-46],[-62,46],[62,46]];
+  const pylon=([fx,fy])=>{const b=PJ(fx,fy,0),t=PJ(fx,fy,44);g.strokeStyle='#8d958f';g.lineWidth=Math.max(1.5,k*.5);g.beginPath();g.moveTo(b[0],b[1]);g.lineTo(t[0],t[1]);g.stroke();
+    const gr=g.createRadialGradient(t[0],t[1],0,t[0],t[1],k*34);gr.addColorStop(0,'rgba(255,224,160,.45)');gr.addColorStop(1,'rgba(255,224,160,0)');g.fillStyle=gr;g.fillRect(t[0]-k*34,t[1]-k*34,k*68,k*68);
+    g.fillStyle='#2a2f2c';g.fillRect(t[0]-k*3.4,t[1]-k*2.4,k*6.8,k*3.6);g.fillStyle='#fff3d4';for(let a=0;a<4;a++)for(let b2=0;b2<2;b2++)g.fillRect(t[0]-k*3+a*k*1.6,t[1]-k*2+b2*k*1.6,k*1.2,k*1.2)};
+  pylon(fl[0]);pylon(fl[1]);
+  drawStand(1);
+  pylon(fl[2]);pylon(fl[3]);
+  // a soft wash of floodlight over the pitch
+  const [mx2,my2]=PJ(0,0,0);const wash=g.createRadialGradient(mx2,my2,0,mx2,my2,W*.45);wash.addColorStop(0,'rgba(255,230,170,.08)');wash.addColorStop(1,'rgba(255,230,170,0)');g.fillStyle=wash;g.fillRect(0,0,W,H);
+}
+
 
 /* ---------- fixtures & cup ---------- */
 function roundRobin(ids){
@@ -567,7 +862,7 @@ function demand(c,opp,cup,price=c.price){
   const f=c.form.slice(-5);const pts=f.reduce((s,r)=>s+(r==='W'?3:r==='D'?1:0),0);const ff=f.length?.8+.4*pts/(3*f.length):1;
   const pf=clamp(1.45-.45*price/idealPrice(c),.08,1.35);
   const of=opp?clamp(Math.pow(opp.rep/c.rep,.3),.85,1.3):1;
-  return c.fans*ff*pf*of*(1+.04*c.fac.parking)*(1+.06*roofShare(c))*(1+.03*c.fac.screen)*(cup?1.08:1);
+  return c.fans*ff*pf*of*(1+.04*c.fac.parking)*(1+.06*roofShare(c))*(1+.03*c.fac.screen)*(cup?1.08:1)*(c.id===S.user?.82+.36*(S.mood??60)/100:1);
 }
 function attendance(c,opp,cup){return Math.round(Math.min(stadiumCap(c),demand(c,opp,cup)*(.95+R()*.1)))}
 function boxesOf(c){return c.stands.reduce((s,x)=>s+x.boxes,0)}
@@ -626,6 +921,7 @@ function acceptOffer(oid){
   const o=S.offers.find(x=>x.id===oid);if(!o)return toast('That offer has expired.');
   const p=P(o.pid),b=C(o.from);if(p.club!==S.user)return;
   if(UC().squad.length<=16)return toast('You need at least 16 players. Sign someone before selling.');
+  const top3=UC().squad.map(P).sort((a,b)=>ovr(b)-ovr(a)).slice(0,3).map(x=>x.id);if(top3.includes(o.pid)){moodAdj(-6);news(`Fans are furious about the sale of ${pname(p)}.`,'bad')}
   moveP(o.pid,o.from,o.amount);news(`${pname(p)} joins ${b.name} for ${money(o.amount)}.`,'good');S.offers=S.offers.filter(x=>x.id!==oid);save();render();toast(`Sold ${pname(p)} for ${money(o.amount)}`);
 }
 function rejectOffer(oid){S.offers=S.offers.filter(x=>x.id!==oid);S.news.forEach(n=>{if(n.offer===oid)n.offer=null});save();render()}
@@ -646,17 +942,21 @@ function aiMarket(){
 /* ---------- weekly cycle ---------- */
 function finishWeek(userMatch){
   const fx=weekFixtures();const ev=CAL[S.week];const out=[];
-  const u=UC();const fin={tickets:0,boxes:0,shop:0,food:0,tv:0,sponsor:0,bonus:0,wages:0,maint:0,interest:0,build:0,att:0};
+  const u=UC();const fin={tickets:0,boxes:0,shop:0,food:0,prog:0,merch:0,ads:0,tv:0,sponsor:0,bonus:0,wages:0,maint:0,interest:0,build:0,att:0};let ur=null;
   for(const f of fx){
     let m;if(userMatch&&(f.h===S.user||f.a===S.user))m=userMatch;else{m=new Match(f.h,f.a,f.cup);m.runAll()}
     const res=finalize(m);res.att=m.att;out.push(Object.assign({},f,res));
     if(!f.cup)S.res[f.div].push({r:f.r,h:f.h,a:f.a,hg:res.hg,ag:res.ag});
     else S.cup.ties[f.tie].res={hg:res.hg,ag:res.ag,pens:res.pens,w:m.winner()===0?f.h:f.a};
     // gate money
-    const hc=C(f.h);const gate=m.att*hc.price;const box=boxesOf(hc)*2500;const shop=m.att*2*hc.fac.shop;const food=m.att*1.5*hc.fac.food;
+    const hc=C(f.h);const gate=m.att*hc.price;const box=boxesOf(hc)*2500;const shop=Math.round(m.att*.8*hc.fac.shop);const food=Math.round(m.att*(.6+1.5*hc.fac.food)*(f.h===S.user?[.7,1,1.45][S.com.cater]:1));
+    if(f.h===S.user){const pr=S.com.prog;const buyers=Math.round(m.att*clamp(.55-.07*(pr-2.5),.05,.8));const net=Math.round(buyers*(pr-.9));hc.cash+=net;fin.prog+=net;
+      S.lastTakings={att:m.att,cap:stadiumCap(hc),gate:f.cup?Math.round(gate*.7):gate,prog:net,progN:buyers,food,box,shop,opp:f.a,date:fmtDate(weekDate())};
+      if(hc.price>idealPrice(hc)*1.35)moodAdj(-1.5);else if(hc.price<idealPrice(hc)*.9)moodAdj(.5);moodAdj([.4,0,-.5][S.com.cater])}
     if(f.cup){const ac=C(f.a);ac.cash+=Math.round(gate*.3);hc.cash+=Math.round(gate*.7)+box+shop+food;if(f.h===S.user){fin.tickets+=Math.round(gate*.7);fin.boxes+=box;fin.shop+=shop;fin.food+=food;fin.att=m.att}if(f.a===S.user)fin.tickets+=Math.round(gate*.3)}
     else{hc.cash+=gate+box+shop+food;if(f.h===S.user){fin.tickets+=gate;fin.boxes+=box;fin.shop+=shop;fin.food+=food;fin.att=m.att}}
     const wi=m.winner();
+    if(f.h===S.user||f.a===S.user){const us=f.h===S.user?0:1;const gd=m.score[us]-m.score[1-us];const r=wi===-1?'D':m.c[wi]===S.user?'W':'L';moodAdj(r==='W'?3+(gd>=3?2:0):r==='L'?-3-(gd<=-3?2:0):0);ur={res,us,r,f}}
     if(S.sponsor&&wi>=0&&m.c[wi]===S.user){fin.bonus+=S.sponsor.win}
     if(!f.cup&&(f.h===S.user||f.a===S.user))boardAfterMatch(wi===-1?'D':m.c[wi]===S.user?'W':'L');
   }
@@ -672,6 +972,15 @@ function finishWeek(userMatch){
     if(c.id===S.user){fin.tv=tv;fin.sponsor=spons;fin.wages=wages;fin.maint=maint;c.cash+=fin.bonus;
       const intr=Math.round(S.loan*.0025);fin.interest=intr;c.cash-=intr;}
   }
+  // commercial: replica shirts and advertising boards
+  {const cm=S.com;const pf=clamp(1.6-.6*cm.shirt/SHIRT_IDEAL[u.div],.05,1.5);const sf=posOf(S.user)<=4?1.15:.9;const launch=S.week<3?2.2:1;const home=fx.some(f=>f.h===S.user)?1.6:1;
+   const want=Math.round(u.fans*.009*(.6+.8*S.mood/100)*pf*sf*(1+.25*u.fac.shop)*launch*home);const sold=Math.min(cm.stock,want);cm.stock-=sold;cm.sold+=sold;cm.lost+=want-sold;
+   const rev=sold*cm.shirt;u.cash+=rev;fin.merch=rev;fin.shirts=sold;
+   if(want-sold>30&&!cm.warned){news(`Replica shirts have sold out. Fans wanted ${int(want-sold)} more this week. Order stock in Commercial.`,'bad');cm.warned=true}
+   let ads=0;for(const b of cm.boards){ads+=b.weekly;b.left--}u.cash+=ads;fin.ads=ads;
+   const gone=cm.boards.filter(b=>b.left<=0);if(gone.length)news(`Advertising deal${gone.length>1?'s':''} ended: ${gone.map(b=>b.name).join(', ')}. Sell the boards again in Commercial.`);cm.boards=cm.boards.filter(b=>b.left>0);
+   if(S.week%6===5&&cm.boards.length<12){cm.boardOffers=genBoardOffers(u);news(`${cm.boardOffers.length} companies want advertising boards at ${u.ground}.`,'offer')}}
+  S.mood=clamp(S.mood+(58-S.mood)*.04,0,100);S.board.conf=clamp(S.board.conf+(S.mood-50)*.02,0,100);
   // builds
   for(const b of S.builds){b.left--;if(b.left<=0)completeBuild(b)}S.builds=S.builds.filter(b=>b.left>0);
   // ledger
@@ -682,6 +991,7 @@ function finishWeek(userMatch){
   weeklyOffers();aiMarket();
   if(u.cash<-overdraft(u)){S.board.conf=clamp(S.board.conf-3,0,100);news(`The bank is worried: you are ${money(-u.cash)} overdrawn, past your ${money(overdraft(u))} limit. The board's patience is shrinking.`,'bad')}
   S.board.conf=clamp(S.board.conf,0,100);
+  S.paper=makePaper(ur);S.papers.unshift(S.paper);if(S.papers.length>8)S.papers.length=8;
   S.lastWeek={label:weekLabel(),results:out,ev};
   S.week++;S.balHist.push(u.cash);
   if(S.board.conf<=4&&!S.sacked){S.sacked=true;news(`The board has lost confidence in ${S.manager}.`,'bad')}
@@ -738,7 +1048,7 @@ function completeBuild(b){
   if(b.kind==='seat'){st.seated=true;st.cap=Math.round(st.cap*.75/100)*100}
   if(b.kind==='roof')st.roof=true;
   if(b.kind==='boxes')st.boxes+=8;
-  news(`Finished: ${b.label}. ${u.ground} now holds ${int(stadiumCap(u))}.`,'good');
+  moodAdj(3);news(`Finished: ${b.label}. ${u.ground} now holds ${int(stadiumCap(u))}.`,'good');
 }
 
 /* ---------- sponsors ---------- */
@@ -757,7 +1067,7 @@ function endSeason(){
   tables.forEach((t,d)=>t.forEach((r,i)=>{const amt=(13-(i+1))*PRIZE[d];C(r.id).cash+=amt;if(r.id===S.user){rev.prize=amt;S.ledger.prize+=amt}}));
   const cupAmt=cid=>cid===S.cup.winner?1500000:cid===S.cup.runnerUp?600000:0;
   for(const c of S.clubs){const a=cupAmt(c.id);if(a){c.cash+=a;if(c.id===S.user){rev.cupPrize=a;S.ledger.prize+=a}}}
-  if(S.cup.winner===S.user)S.titles.cup++;
+  if(S.cup.winner===S.user){S.titles.cup++;moodAdj(12)}
   if(tables[udiv][0].id===S.user&&udiv===0)S.titles.league++;
   // top scorers of user's division
   rev.scorers=Object.values(S.players).filter(p=>p.club>=0&&C(p.club).div===udiv&&p.gs>0).sort((a,b)=>b.gs-a.gs).slice(0,5).map(p=>({n:pname(p),club:p.club,g:p.gs}));
@@ -819,6 +1129,7 @@ function endSeason(){
   // sponsor
   if(S.sponsor){S.sponsor.years--;if(S.sponsor.years<=0){news(`The ${S.sponsor.name} deal has ended. Pick a new shirt sponsor in Finances.`,'offer');S.sponsor=null}}
   if(!S.sponsor)S.sponsorOffers=genSponsors(u);
+  if(uPromoted)moodAdj(15);if(uRelegated)moodAdj(-15);S.com.sold=0;S.com.lost=0;S.com.warned=false;if(S.com.boards.length<12)S.com.boardOffers=genBoardOffers(u);
   rev.ledger=S.ledger;S.ledger=blankLedger();
   S.season++;S.year++;S.week=0;S.offers=[];newFixtures();newCup();S.balHist.push(u.cash);
   if(S.balHist.length>200)S.balHist=S.balHist.slice(-200);
@@ -832,7 +1143,7 @@ function cupExit(){const cu=S.cup;for(const r of cu.log)for(const t of r.ties)if
 function save(){if(!S||S.user<0)return;try{localStorage.setItem(SAVE_KEY,JSON.stringify(S))}catch(e){}}
 function load(){try{const s=localStorage.getItem(SAVE_KEY);if(s){const o=JSON.parse(s);if(o&&o.v===1&&o.user>=0)return o}}catch(e){}return null}
 function exportCode(){return btoa(unescape(encodeURIComponent(JSON.stringify(S))))}
-function importCode(code){try{const o=JSON.parse(decodeURIComponent(escape(atob(code.trim()))));if(!o||o.v!==1||!o.clubs)throw 0;S=o;UI.view='home';save();closeModal();render();toast('Save loaded')}catch(e){toast('That save code could not be read. Paste the whole code.')}}
+function importCode(code){try{const o=JSON.parse(decodeURIComponent(escape(atob(code.trim()))));if(!o||o.v!==1||!o.clubs)throw 0;S=o;migrate();UI.view='home';save();closeModal();render();toast('Save loaded')}catch(e){toast('That save code could not be read. Paste the whole code.')}}
 
 /* ---------- audio ---------- */
 const AU={ctx:null,amb:null};
@@ -861,9 +1172,9 @@ function kits(h,a){const H={fill:C(h).c1,trim:C(h).c2};let A={fill:C(a).c1,trim:
 /* ---------- UI helpers ---------- */
 function toast(t){const el=$('#toast');el.textContent=t;el.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(()=>el.hidden=true,2600)}
 function openModal(html){const m=$('#modal');m.innerHTML=`<div class="box" role="dialog" aria-modal="true">${html}</div>`;m.hidden=false}
-function closeModal(){const m=$('#modal');m.hidden=true;m.innerHTML=''}
+function closeModal(){const m=$('#modal');m.hidden=true;m.innerHTML='';UI.neg=null}
 function go(v){UI.view=v;render();window.scrollTo(0,0)}
-const TABS=[['home','Office'],['squad','Squad'],['tactics','Tactics'],['training','Training'],['transfers','Transfers'],['stadium','Stadium'],['finance','Finances'],['league','League'],['cup','Cup'],['club','Club & save']];
+const TABS=[['home','Office'],['squad','Squad'],['tactics','Tactics'],['training','Training'],['transfers','Transfers'],['stadium','Stadium'],['commercial','Commercial'],['finance','Finances'],['league','League'],['cup','Cup'],['club','Club & save']];
 
 function renderTop(){
   const t=$('#top');if(!S||S.user<0||UI.view==='live'){t.hidden=true;return}
@@ -874,7 +1185,7 @@ function renderTop(){
     <div class="clubline">${badge(u,38)}<div style="min-width:0"><b>${esc(u.name)}</b><small>${DIVS[u.div]} · ${ord(pos)} · ${esc(S.manager)}</small></div></div>
     <div class="kpis">
       <div class="kpi"><label>Balance</label><b class="${u.cash<0?'bad':''}">${money(u.cash)}</b></div>
-      <div class="kpi"><label>Season ${S.year}/${String(S.year+1).slice(2)}</label><b>Week ${Math.min(S.week+1,CAL.length)}/${CAL.length}</b></div>
+      <div class="kpi"><label>Season ${S.year}/${String(S.year+1).slice(2)}</label><b>${fmtDate(weekDate())} · wk ${Math.min(S.week+1,CAL.length)}</b></div>
       <div class="kpi"><label>Board</label><b class="${conf<30?'bad':conf<50?'warn':'good'}">${conf}%</b></div>
     </div>
     <button class="btn go" data-act="continue" ${S.sacked?'disabled':''}>Continue ▸</button>
@@ -885,9 +1196,10 @@ function render(){
   renderTop();const m=$('#main');
   if(!S||S.user<0){m.innerHTML=viewNew();return}
   if(S.sacked&&UI.view!=='season'&&UI.view!=='club'){m.innerHTML=viewSacked();return}
-  const f={home:viewHome,squad:viewSquad,tactics:viewTactics,training:viewTraining,transfers:viewTransfers,stadium:viewStadium,finance:viewFinance,league:viewLeague,cup:viewCup,club:viewClub,pre:viewPre,live:viewLive,week:viewWeek,season:viewSeason}[UI.view]||viewHome;
+  const f={home:viewHome,squad:viewSquad,tactics:viewTactics,training:viewTraining,transfers:viewTransfers,stadium:viewStadium,commercial:viewCommercial,finance:viewFinance,league:viewLeague,cup:viewCup,club:viewClub,pre:viewPre,live:viewLive,week:viewWeek,season:viewSeason}[UI.view]||viewHome;
   m.innerHTML=f();
-  if(UI.view==='stadium')drawStadium($('#stad'),UC());
+  if(UI.view==='stadium')(UI.stadView==='plan'?drawStadium:drawIso)($('#stad'),UC(),{fill:S.lastTakings?S.lastTakings.att/S.lastTakings.cap:.5,ratio:.56});
+  if(UI.view==='home')drawIso($('#iso'),UC(),{fill:S.lastTakings?S.lastTakings.att/S.lastTakings.cap:.55});
   if(UI.view==='live')mountLive();
 }
 
@@ -925,7 +1237,9 @@ function viewHome(){
   if(!S.sponsor)alerts.unshift(`<span class="chip amber">No shirt sponsor</span> <button class="btn sm" data-go="finance">Choose one</button>`);
   if(u.squad.length<16)alerts.unshift(`<span class="chip bad">Only ${u.squad.length} players</span> Sign more players before your squad runs out.`);
   const conf=Math.round(S.board.conf);
-  return `<div class="grid g-main">
+  const opp=f?C(f.h===S.user?f.a:f.h):null;
+  return `<div class="panel hero-ground" style="margin-bottom:16px"><canvas id="iso" aria-label="${esc(u.ground)} under the floodlights"></canvas><div class="ov"><div><div class="label">${fmtDate(weekDate(),true)}</div><h2>${esc(u.ground)}</h2><div class="dim">${int(stadiumCap(u))} capacity · supporters ${moodText().toLowerCase()}</div></div>${opp?`<div style="text-align:right"><div class="label">${f.cup?'Crown Cup':'Next match'}</div><b style="font-family:var(--f-display);font-size:22px;text-transform:uppercase">${f.h===S.user?'v':'at'} ${esc(opp.name)}</b></div>`:''}</div></div>
+  <div class="grid g-main">
    <div class="stack" style="gap:16px">
     <div class="panel">
       <div class="panel-h"><h2>${f?'Next match':'This week'}</h2><span class="label">${weekLabel()}</span></div>
@@ -934,7 +1248,7 @@ function viewHome(){
     </div>
     <div class="panel">
       <div class="panel-h"><h2>Inbox</h2><span class="label">${S.offers.length} open offer${S.offers.length===1?'':'s'}</span></div>
-      <div class="news">${S.news.slice(0,14).map(n=>`<div class="it k-${n.k}"><div class="w">${n.w}</div><div class="t">${esc(n.t)}${n.offer&&S.offers.find(o=>o.id===n.offer)?` <span class="row" style="margin-top:6px"><button class="btn sm pri" data-act="accept" data-v="${n.offer}">Accept</button><button class="btn sm" data-act="reject" data-v="${n.offer}">Turn down</button></span>`:''}</div></div>`).join('')||'<p class="dim">Nothing yet.</p>'}</div>
+      <div class="news">${S.news.slice(0,14).map(n=>`<div class="it k-${n.k}"><div class="w">${n.w}</div><div class="t">${esc(n.t)}${n.offer&&S.offers.find(o=>o.id===n.offer)?` <span class="row" style="margin-top:6px"><button class="btn sm pri" data-act="accept" data-v="${n.offer}">Accept</button>${S.offers.find(o=>o.id===n.offer).hag?'':`<button class="btn sm" data-act="haggle" data-v="${n.offer}">Ask for more</button>`}<button class="btn sm" data-act="reject" data-v="${n.offer}">Turn down</button></span>`:''}</div></div>`).join('')||'<p class="dim">Nothing yet.</p>'}</div>
     </div>
    </div>
    <div class="stack" style="gap:16px">
@@ -943,6 +1257,12 @@ function viewHome(){
       <div class="row" style="align-items:baseline"><span class="big ${conf<30?'bad':conf<50?'warn':'good'}">${conf}%</span><span class="dim">Target: ${expText(u)}</span></div>
       <div class="meter" style="margin-top:8px"><i style="width:${conf}%;background:${conf<30?'var(--bad)':conf<50?'var(--warn)':'var(--good)'}"></i></div>
       <p class="dim" style="margin:10px 0 0;font-size:12.5px">${conf<25?'The directors are meeting without you. Results are needed now.':conf<50?'The board is uneasy. A run of wins would help.':'The board is happy with the direction of the club.'}</p>
+    </div>
+    ${S.paper?`<div>${paperHTML(S.paper,true)}</div>`:''}
+    <div class="panel">
+      <div class="panel-h"><h2>Supporters</h2><span class="label">${moodText()}</span></div>
+      <div class="meter"><i style="width:${S.mood}%;background:${S.mood<30?'var(--bad)':S.mood<50?'var(--warn)':'var(--good)'}"></i></div>
+      ${S.paper&&S.paper.fan?`<p style="margin:10px 0 0;font-style:italic">“${esc(S.paper.fan.t)}”</p><p class="faint" style="margin:2px 0 0;font-size:12px">${esc(S.paper.fan.who)}</p>`:''}
     </div>
     <div class="panel">
       <div class="panel-h"><h2>${DIVS[u.div]}</h2><button class="btn sm ghost" data-go="league">Full table</button></div>
@@ -990,16 +1310,13 @@ function playerModal(id){
   if(own){
     const dem=Math.round(wageFor(p)*1.1*(p.morale<40?1.25:1)/50)*50;
     act=`<div class="stack"><div class="row"><button class="btn" data-act="list" data-v="${id}">${p.listed?'Take off transfer list':'Put on transfer list'}</button><button class="btn bad" data-act="release" data-v="${id}">Release…</button></div>
-      <div class="panel" style="padding:12px;background:var(--bg-2)"><div class="label" style="margin-bottom:6px">New contract</div><div class="row"><span class="dim">Asks for ${money(dem)}/wk (now ${money(p.wage)})</span><div class="seg">${[1,2,3,4].map(y=>`<button data-act="renew" data-v="${id}" data-y="${y}" data-w="${dem}">${y} yr</button>`).join('')}</div></div></div>
+      <div class="panel" style="padding:12px;background:var(--bg-2)"><div class="row"><span style="flex:1;min-width:0"><span class="label">Contract</span><br><span class="dim">${p.contract} season${p.contract===1?'':'s'} left at ${money(p.wage)}/wk</span></span><button class="btn" data-act="renewtalk" data-v="${id}">Talk to the agent</button></div></div>
       ${offers.map(of=>`<div class="row"><span class="chip amber">Offer</span> ${esc(C(of.from).name)} bid ${money(of.amount)} <button class="btn sm pri" data-act="accept" data-v="${of.id}">Accept</button><button class="btn sm" data-act="reject" data-v="${of.id}">Turn down</button></div>`).join('')}
       <div id="relbox"></div></div>`;
   }else{
     const ask=askingPrice(p),dem=wageDemand(p,u);
-    act=`<form class="stack" data-form="bid" data-v="${id}"><div class="label">Make an offer</div>
-      <div class="row"><div class="field"><label class="label" for="bfee">Fee (€)</label><input id="bfee" class="inp" type="number" min="0" step="5000" value="${ask}" ${club?'':'disabled'}></div>
-      <div class="field"><label class="label" for="bwage">Wage per week (€)</label><input id="bwage" class="inp" type="number" min="0" step="50" value="${dem}"></div>
-      <div class="field"><label class="label" for="byrs">Years</label><select id="byrs" class="inp">${[1,2,3,4,5].map(y=>`<option ${y===3?'selected':''}>${y}</option>`).join('')}</select></div></div>
-      <div class="row"><button class="btn pri" type="submit">Submit offer</button><span class="dim" style="font-size:12px">Your balance ${money(u.cash)} · squad ${u.squad.length}/30</span></div><div id="bidmsg" class="dim"></div></form>`;
+    act=`<div class="row"><button class="btn pri" data-act="talk" data-v="${id}">${club?'Open transfer talks':'Talk to the agent'}</button><span class="dim" style="font-size:12.5px">${club?`${esc(club.name)} want about ${money(ask)}. You'll haggle with the chairman, then the agent.`:`Free agent. No fee, but the agent wants a signing-on fee.`}</span></div>`;
+
   }
   openModal(`<div class="row" style="align-items:flex-start;gap:14px"><div style="flex:1;min-width:0"><div class="row">${posTag(p.pos)}<span class="dim">${p.age} years · ${club?esc(club.name):'Free agent'}</span></div><h2 style="font-size:30px;margin-top:6px">${esc(p.fn)} ${esc(p.ln)}</h2></div><div style="text-align:right"><div class="big amber">${o}</div><div class="label">Overall</div></div><button class="btn ghost sm" data-act="close" aria-label="Close">✕</button></div>
    <div class="grid g2" style="margin-top:14px;gap:14px">
@@ -1094,7 +1411,7 @@ function viewTransfers(){
     <div class="panel"><div class="panel-h"><h2>Budget</h2></div>
      <div class="stack" style="gap:6px"><div class="row"><span class="dim" style="width:130px">Balance</span><b>${money(u.cash)}</b></div><div class="row"><span class="dim" style="width:130px">Overdraft limit</span><b>${money(overdraft(u))}</b></div><div class="row"><span class="dim" style="width:130px">Wage bill</span><b>${money(wageBill(u))}/wk</b></div><div class="row"><span class="dim" style="width:130px">Squad size</span><b>${u.squad.length} / 30</b></div></div></div>
     <div class="panel"><div class="panel-h"><h2>Offers received</h2></div>
-     <div class="stack" style="gap:8px">${S.offers.map(o=>{const p=P(o.pid);return `<div class="row" style="font-size:13px"><span style="flex:1;min-width:0"><b>${esc(pname(p))}</b> · ${esc(C(o.from).name)} offer <b class="amber">${money(o.amount)}</b> <span class="faint">(value ${money(value(p))})</span></span><button class="btn sm pri" data-act="accept" data-v="${o.id}">Accept</button><button class="btn sm" data-act="reject" data-v="${o.id}">No</button></div>`}).join('')||'<span class="dim">No bids on the table. Put players on the transfer list to attract offers.</span>'}</div></div>
+     <div class="stack" style="gap:8px">${S.offers.map(o=>{const p=P(o.pid);return `<div class="row" style="font-size:13px"><span style="flex:1;min-width:0"><b>${esc(pname(p))}</b> · ${esc(C(o.from).name)} offer <b class="amber">${money(o.amount)}</b> <span class="faint">(value ${money(value(p))})</span></span><button class="btn sm pri" data-act="accept" data-v="${o.id}">Accept</button>${o.hag?'':`<button class="btn sm" data-act="haggle" data-v="${o.id}">More</button>`}<button class="btn sm" data-act="reject" data-v="${o.id}">No</button></div>`}).join('')||'<span class="dim">No bids on the table. Put players on the transfer list to attract offers.</span>'}</div></div>
     <div class="panel"><div class="panel-h"><h2>Your transfer list</h2></div>
      <div class="stack" style="gap:6px">${mine.map(p=>`<div class="row"><span style="flex:1">${posTag(p.pos)} ${esc(pname(p))}</span>${ovrBadge(ovr(p))}<button class="btn sm" data-act="list" data-v="${p.id}">Remove</button></div>`).join('')||'<span class="dim">Nobody listed. Open a player in the Squad tab to list them.</span>'}</div></div>
    </div></div>`;
@@ -1106,9 +1423,9 @@ function viewStadium(){
   const est=Math.round(Math.min(cap,demand(u,opp,false)));const rev=est*u.price;
   return `<div class="grid g-main">
    <div class="stack" style="gap:16px">
-    <div class="panel"><div class="panel-h"><h2>${esc(u.ground)}</h2><span class="label">Capacity ${int(cap)}${S.builds.some(b=>b.stand!=null&&b.kind!=='boxes')?' during works':''}</span></div>
-     <div class="pitchwrap" style="background:#0b1612"><canvas id="stad" width="900" height="600" aria-label="Top-down view of the stadium"></canvas></div>
-     <div class="legend" style="margin-top:10px"><span><i style="background:${u.c1}"></i>Seats</span><span><i style="background:#8a9690"></i>Terrace</span><span><i style="background:rgba(210,225,235,.6)"></i>Roof</span><span><i style="background:#7fd0ff"></i>Executive boxes</span><span><i class="build-stripe" style="background-color:#3a3320"></i>Building work</span></div>
+    <div class="panel"><div class="panel-h"><h2>${esc(u.ground)}</h2><div class="row"><span class="label">Capacity ${int(cap)}${S.builds.some(b=>b.stand!=null&&b.kind!=='boxes')?' during works':''}</span><div class="seg"><button class="${UI.stadView!=='plan'?'on':''}" data-act="stadview" data-v="iso">Ground</button><button class="${UI.stadView==='plan'?'on':''}" data-act="stadview" data-v="plan">Site plan</button></div></div></div>
+     <div class="pitchwrap" style="background:#0b1612"><canvas id="stad" width="900" height="600" aria-label="${UI.stadView==='plan'?'Site plan of the stadium':'The stadium at night'}"></canvas></div>
+     <div class="legend" ${UI.stadView==='plan'?'':'hidden'} style="margin-top:10px"><span><i style="background:${u.c1}"></i>Seats</span><span><i style="background:#8a9690"></i>Terrace</span><span><i style="background:rgba(210,225,235,.6)"></i>Roof</span><span><i style="background:#7fd0ff"></i>Executive boxes</span><span><i class="build-stripe" style="background-color:#3a3320"></i>Building work</span></div>
     </div>
     <div class="grid g2">${u.stands.map((st,i)=>{const b=S.builds.find(x=>x.stand===i);return `<div class="panel ${b?'build-stripe':''}"><div class="panel-h"><h3 style="color:var(--chalk)">${STANDS[i]}</h3><span class="mono">${int(st.cap)}</span></div>
       <div class="row" style="margin-bottom:10px">${st.seated?'<span class="chip good">All-seater</span>':'<span class="chip">Terrace</span>'}${st.roof?'<span class="chip">Covered</span>':'<span class="chip warn">Open to the rain</span>'}${st.boxes?`<span class="chip amber">${st.boxes} boxes</span>`:''}</div>
@@ -1196,15 +1513,15 @@ function shade(h,a){const [r,g,b]=hexRgb(h);const f=v=>clamp(Math.round(a<0?v*(1
 
 /* ---------- finances ---------- */
 function viewFinance(){
-  const u=UC();const L=S.ledger;const inc=L.tickets+L.boxes+L.shop+L.food+L.tv+L.sponsor+L.bonus+L.prize+L.sales;const exp=L.wages+L.maint+L.build+L.purchases+L.interest;
+  const u=UC();const L=S.ledger;const inc=L.tickets+L.boxes+L.shop+L.food+L.prog+L.merch+L.ads+L.tv+L.sponsor+L.bonus+L.prize+L.sales;const exp=L.wages+L.maint+L.build+L.purchases+L.stock+L.interest;
   const lf=S.lastFin;
   const row=(n,v,cls='')=>`<tr><td>${n}</td><td class="n ${cls}">${money(v)}</td></tr>`;
   return `<div class="grid g-main">
    <div class="stack" style="gap:16px">
     <div class="panel"><div class="panel-h"><h2>Bank balance</h2><span class="big ${u.cash<0?'bad':'amber'}" style="font-size:30px">${money(u.cash)}</span></div>${balChart()}</div>
     <div class="grid g2">
-     <div class="panel"><div class="panel-h"><h3 style="color:var(--chalk)">Income this season</h3><b class="good">${money(inc)}</b></div><table class="tbl"><tbody>${row('Gate receipts',L.tickets)}${row('Executive boxes',L.boxes)}${row('Club shop',L.shop)}${row('Food & bars',L.food)}${row('TV money',L.tv)}${row('Sponsorship',L.sponsor)}${row('Win bonuses',L.bonus)}${row('Prize money',L.prize)}${row('Player sales',L.sales)}</tbody></table></div>
-     <div class="panel"><div class="panel-h"><h3 style="color:var(--chalk)">Spending this season</h3><b class="bad">${money(exp)}</b></div><table class="tbl"><tbody>${row('Player wages',L.wages)}${row('Stadium upkeep',L.maint)}${row('Construction',L.build)}${row('Transfer fees',L.purchases)}${row('Loan interest',L.interest)}</tbody></table>
+     <div class="panel"><div class="panel-h"><h3 style="color:var(--chalk)">Income this season</h3><b class="good">${money(inc)}</b></div><table class="tbl"><tbody>${row('Gate receipts',L.tickets)}${row('Executive boxes',L.boxes)}${row('Souvenirs',L.shop)}${row('Programmes',L.prog)}${row('Replica shirts',L.merch)}${row('Advertising boards',L.ads)}${row('Food & bars',L.food)}${row('TV money',L.tv)}${row('Sponsorship',L.sponsor)}${row('Win bonuses',L.bonus)}${row('Prize money',L.prize)}${row('Player sales',L.sales)}</tbody></table></div>
+     <div class="panel"><div class="panel-h"><h3 style="color:var(--chalk)">Spending this season</h3><b class="bad">${money(exp)}</b></div><table class="tbl"><tbody>${row('Player wages',L.wages)}${row('Stadium upkeep',L.maint)}${row('Construction',L.build)}${row('Transfer fees',L.purchases)}${row('Shirt stock',L.stock)}${row('Loan interest',L.interest)}</tbody></table>
      ${lf?`<div class="label" style="margin-top:14px">Last week</div><div class="dim" style="font-size:12.5px;margin-top:4px">${lf.att?`Crowd ${int(lf.att)} · gate ${money(lf.tickets)} · `:''}TV ${money(lf.tv)} · sponsor ${money(lf.sponsor)} · wages −${money(lf.wages)} · upkeep −${money(lf.maint)}</div>`:''}</div>
     </div>
    </div>
@@ -1326,7 +1643,7 @@ function viewPre(){
 function startLive(){
   const f=userFixture();if(!f)return;
   const m=new Match(f.h,f.a,f.cup,f.h===S.user?0:1);
-  UI.live={m,f,speed:1,paused:false,acc:0,raf:0,viz:null,subOut:null,subIn:null,showSubs:false,goalFlash:0,lastT:0};
+  UI.live={m,f,speed:'hl',paused:false,acc:0,raf:0,viz:null,subOut:null,subIn:null,showSubs:false,goalFlash:0,lastT:0};
   UI.view='live';render();if(UI.sound){auInit();ambient(true);whistle(1)}
 }
 function viewLive(){
@@ -1348,7 +1665,7 @@ function viewLive(){
 function liveControls(){
   const L=UI.live;const m=L.m;const sd=m.s[m.us];const el=$('#ctl');if(!el)return;
   if(m.done){el.innerHTML=`<span class="dim">Full-time.</span><span class="spacer"></span><button class="btn go" data-act="livedone">Continue ▸</button>`;return}
-  el.innerHTML=`<div class="seg" role="group" aria-label="Speed">${[['pause','❚❚'],[1,'1×'],[2,'2×'],[4,'4×']].map(([k,n])=>`<button class="${(k==='pause'&&L.paused)||(!L.paused&&L.speed===k)?'on':''}" data-act="speed" data-v="${k}" aria-label="${k==='pause'?'Pause':'Speed '+n}">${n}</button>`).join('')}</div>
+  el.innerHTML=`<div class="seg" role="group" aria-label="Speed">${[['pause','❚❚'],['hl','Highlights'],[1,'1×'],[2,'2×'],[4,'4×']].map(([k,n])=>`<button class="${(k==='pause'&&L.paused)||(!L.paused&&L.speed===k)?'on':''}" data-act="speed" data-v="${k}" aria-label="${k==='pause'?'Pause':'Speed '+n}">${n}</button>`).join('')}</div>
    <select class="inp" id="lment" data-act="lment" aria-label="Mentality">${MENT.map((n,i)=>`<option value="${i}" ${sd.ment===i?'selected':''}>${n}</option>`).join('')}</select>
    <button class="btn" data-act="showsubs">Substitutions (${5-sd.subs} left)</button>
    <span class="spacer"></span><button class="btn ghost" data-act="skip">Skip to full-time</button>
@@ -1368,7 +1685,7 @@ function liveScore(){
   const st=m.st;const tot=Math.max(1,st.pos[0]+st.pos[1]);const ph=Math.round(st.pos[0]/tot*100);
   const line=(n,x,y,suf='')=>{const s=Math.max(1,x+y);return `<div class="stat2" style="margin-bottom:2px"><b class="mono" style="text-align:right">${x}${suf}</b><div class="b"><i style="width:${x/s*100}%;background:${kitCol(0)}"></i><i style="width:${y/s*100}%;background:${kitCol(1)}"></i></div><b class="mono">${y}${suf}</b></div><div class="label" style="text-align:center;margin-bottom:6px">${n}</div>`};
   $('#stats').innerHTML=line('Possession',ph,100-ph,'%')+line('Shots',st.sh[0],st.sh[1])+line('On target',st.ot[0],st.ot[1])+line('Corners',st.cor[0],st.cor[1])+line('Yellow cards',st.yc[0],st.yc[1]);
-  $('#attn').textContent='Crowd '+int(m.att);
+  $('#attn').textContent='Crowd '+int(m.att)+(m.c[0]===S.user?' · gate '+money(m.att*h.price):'');
 }
 function kitCol(i){const L=UI.live;const k=kits(L.m.c[0],L.m.c[1]);return k[i].fill}
 function liveComm(evs){
@@ -1381,7 +1698,7 @@ function mountLive(){
   const el=$('#comm');el.innerHTML='';liveComm(L.m.log);
   cancelAnimationFrame(L.raf);L.lastT=performance.now();
   const loop=t=>{if(UI.view!=='live'||UI.live!==L)return;const dt=Math.min(.1,(t-L.lastT)/1000);L.lastT=t;
-    if(!L.paused&&!L.m.done&&!L.showSubs){L.acc+=dt*L.speed;const per=.62;while(L.acc>=per&&!L.m.done){L.acc-=per;const evs=L.m.step();L.viz.minute(evs,per/L.speed);liveComm(evs);liveScore();onEvents(evs);if(L.m.done){liveControls();whistle(3);ambient(false)}}}
+    if(!L.paused&&!L.m.done&&!L.showSubs){const hl=L.speed==='hl';L.acc+=dt*(hl?1:L.speed);const per=hl?.035:.62;while(L.acc>=per&&!L.m.done){L.acc-=per;const evs=L.m.step();const key=evs.some(e=>e.shot||e.k==='card-r'||e.k==='card-y'||e.k==='key'||e.k==='sub');L.viz.minute(evs,hl?(key?.9:per):per/L.speed);liveComm(evs);liveScore();onEvents(evs);if(hl&&key)L.acc=-(evs.some(e=>e.k==='goal')?2.1:.95);if(L.m.done){liveControls();whistle(3);ambient(false)}}}
     L.viz.frame(dt);L.raf=requestAnimationFrame(loop)};
   L.raf=requestAnimationFrame(loop);
 }
@@ -1395,7 +1712,7 @@ class Viz{
     this.resize();window.addEventListener('resize',this._rs=()=>this.resize());
     this.ball={x:.5,y:.5,fx:.5,fy:.5,tx:.5,ty:.5,t:0,d:1,q:[]};
     this.pl=[0,1].map(si=>m.s[si].on.map(o=>{const p=this.slotPos(si,o.slot);return {id:o.id,x:p.x,y:p.y}}));
-    this.flashT=0;this.flashSide=0;this.crowd=null;this.mkCrowd();this.t=0;
+    this.boards=boardNames(m.c[0]);this.flashT=0;this.flashSide=0;this.crowd=null;this.mkCrowd();this.t=0;
   }
   resize(){const W=this.cv.parentElement.clientWidth||800;const H=Math.round(W*.66);const dpr=Math.min(2,window.devicePixelRatio||1);this.cv.width=W*dpr;this.cv.height=H*dpr;this.cv.style.height=H+'px';this.W=W;this.H=H;this.dpr=dpr;this.mx=W*.055;this.my=H*.085;this.crowd=null;this.mkCrowd&&this.mkCrowd()}
   mkCrowd(){
@@ -1443,6 +1760,9 @@ class Viz{
     const g=this.cv.getContext('2d');const {W,H,mx,my,dpr}=this;g.setTransform(dpr,0,0,dpr,0,0);
     if(this.crowd)g.drawImage(this.crowd,0,0,W,H);
     const pw=W-2*mx,ph=H-2*my;const X=x=>mx+x*pw,Y=y=>my+y*ph;
+    {const bh=Math.max(8,my*.42),segs=W<500?4:6;g.textAlign='center';g.textBaseline='middle';g.font=`${Math.round(bh*.68)}px Anton, Impact, sans-serif`;
+     for(const [yy,off] of [[my-bh-3,0],[H-my+3,3]])for(let i=0;i<segs;i++){const x0=mx+i*pw/segs;g.fillStyle='#07100d';g.fillRect(x0+1,yy,pw/segs-2,bh);g.fillStyle=(i+off)%2?'#ffb340':'#eef1e4';g.fillText(this.boards[(i+off)%this.boards.length].toUpperCase(),x0+pw/segs/2,yy+bh/2+1,pw/segs-8)}
+     g.textBaseline='alphabetic'}
     for(let i=0;i<12;i++){g.fillStyle=i%2?'#2a7a48':'#2e844e';g.fillRect(mx+i*pw/12,my,pw/12+.5,ph)}
     const vg=g.createRadialGradient(W/2,H/2,ph*.2,W/2,H/2,pw*.75);vg.addColorStop(0,'rgba(0,0,0,0)');vg.addColorStop(1,'rgba(0,0,0,.28)');g.fillStyle=vg;g.fillRect(mx,my,pw,ph);
     g.strokeStyle='rgba(255,255,255,.85)';g.lineWidth=Math.max(1.2,W/600);
@@ -1459,7 +1779,8 @@ class Viz{
     const r=Math.max(4,W*.0105);
     for(let si=0;si<2;si++){const kt=this.kit[si];for(const p of this.pl[si]){const o=this.m.s[si].on.find(x=>x.id===p.id);if(!o)continue;const x=X(p.x),y=Y(p.y);
       g.fillStyle='rgba(0,0,0,.35)';g.beginPath();g.ellipse(x+1.5,y+2.5,r,r*.7,0,0,7);g.fill();
-      g.fillStyle=o.pos==='GK'?(si?'#7ee0a8':'#e8d24a'):kt.fill;g.beginPath();g.arc(x,y,r,0,7);g.fill();g.lineWidth=Math.max(1.5,r*.32);g.strokeStyle=o.pos==='GK'?'#1a1a1a':kt.trim;g.stroke()}}
+      g.fillStyle=o.pos==='GK'?(si?'#7ee0a8':'#e8d24a'):kt.fill;g.beginPath();g.arc(x,y,r,0,7);g.fill();g.lineWidth=Math.max(1.5,r*.32);g.strokeStyle=o.pos==='GK'?'#1a1a1a':kt.trim;g.stroke();
+      if(r>=5.5){g.fillStyle=o.pos==='GK'?'#1a1a1a':kt.trim;g.font=`700 ${Math.round(r*1.05)}px Archivo, sans-serif`;g.textAlign='center';g.textBaseline='middle';g.fillText(String(o.slot+1),x,y+.5);g.textBaseline='alphabetic'}}}
     // ball
     const b=this.ball;const bx=X(b.x),by=Y(b.y);g.fillStyle='rgba(0,0,0,.4)';g.beginPath();g.ellipse(bx+2,by+3,r*.55,r*.38,0,0,7);g.fill();g.fillStyle='#fff';g.beginPath();g.arc(bx,by,r*.55,0,7);g.fill();g.strokeStyle='#222';g.lineWidth=1;g.stroke();
     // goal flash
@@ -1479,14 +1800,15 @@ function viewWeek(){
     head=`<div class="panel" style="margin-bottom:16px"><div class="row"><span class="chip ${won?'good':lost?'bad':''}">${won?'Win':lost?'Defeat':'Draw'}</span><span class="label">${esc(w.label)}</span></div>
      <div class="fixture" style="margin-top:10px"><div class="tm">${badge(C(mine.h),56)}<b>${esc(C(mine.h).name)}</b></div><div class="big amber mono" style="font-size:44px">${mine.hg}–${mine.ag}</div><div class="tm">${badge(C(mine.a),56)}<b>${esc(C(mine.a).name)}</b></div></div>
      <p class="dim" style="text-align:center;margin:10px 0 0">${sc?'Your scorers: '+esc(sc)+' · ':''}Crowd ${int(mine.att)}${mine.motm&&P(mine.motm)?' · Player of the match: '+esc(pname(P(mine.motm))):''}</p></div>`}
-  return `${head}<div class="grid g3">${groups.map(g=>`<div class="panel"><div class="panel-h"><h2>${g.n}</h2></div><table class="tbl"><tbody>${g.r.map(line).join('')||'<tr><td class="dim">No matches.</td></tr>'}</tbody></table></div>`).join('')}</div>
+  const tk=mine&&mine.h===S.user&&S.lastTakings?`<div class="panel" style="margin-bottom:16px"><div class="panel-h"><h2>Matchday takings</h2><span class="label">${esc(C(mine.h).ground)}</span></div>${takingsHTML(S.lastTakings)}</div>`:'';
+  return `${head}${tk}${S.paper?`<div style="margin:8px 0 24px">${paperHTML(S.paper)}</div>`:''}<div class="grid g3">${groups.map(g=>`<div class="panel"><div class="panel-h"><h2>${g.n}</h2></div><table class="tbl"><tbody>${g.r.map(line).join('')||'<tr><td class="dim">No matches.</td></tr>'}</tbody></table></div>`).join('')}</div>
   <div class="row" style="margin-top:16px;justify-content:flex-end"><button class="btn" data-go="league">Tables</button><button class="btn go" data-go="${S.review?'season':'home'}">${S.review?'Season review ▸':'Back to the office ▸'}</button></div>`;
 }
 function viewSeason(){
   const r=S.review;if(!r){UI.view='home';return viewHome()}
   const u=UC();
   const verdict=r.promoted?`Promoted to the ${DIVS[r.div-1]}!`:r.relegated?`Relegated to the ${DIVS[r.div+1]}.`:r.champ[r.div]===S.user?`Champions of the ${DIVS[r.div]}!`:`${ord(r.pos)} in the ${DIVS[r.div]}.`;
-  const L=r.ledger;const inc=L.tickets+L.boxes+L.shop+L.food+L.tv+L.sponsor+L.bonus+L.prize+L.sales,exp=L.wages+L.maint+L.build+L.purchases+L.interest;
+  const L=Object.assign(blankLedger(),r.ledger);const inc=L.tickets+L.boxes+L.shop+L.food+L.prog+L.merch+L.ads+L.tv+L.sponsor+L.bonus+L.prize+L.sales,exp=L.wages+L.maint+L.build+L.purchases+L.stock+L.interest;
   return `<section class="hero" style="padding-top:20px"><div class="label">Season ${r.year}/${String(r.year+1).slice(2)} review</div><h1 style="font-size:clamp(40px,8vw,80px)">${esc(verdict)}</h1></section>
   <div class="grid g3">
    <div class="panel"><div class="panel-h"><h2>Champions</h2></div><div class="stack" style="gap:8px">${r.champ.map((id,d)=>`<div class="row"><span class="dim" style="width:130px">${DIVS[d]}</span>${clubCell(id,20)}</div>`).join('')}<div class="row"><span class="dim" style="width:130px">Crown Cup</span>${r.cup!=null?clubCell(r.cup,20):'—'}</div></div></div>
@@ -1560,7 +1882,7 @@ document.addEventListener('click',e=>{
     case 'takejob':{const c=C(+v);const old=UC();S.user=c.id;S.sacked=false;S.board.conf=55;S.offers=[];S.builds=[];S.loan=0;S.sponsor=null;S.sponsorOffers=genSponsors(c);S.balHist=[c.cash];c.cash=Math.max(c.cash,250000);news(`${S.manager} is the new boss of ${c.name}, after leaving ${old.name}.`,'good');UI.view='home';save();render();break}
     case 'golive':startLive();break;
     case 'instant':{const f=userFixture();const m=new Match(f.h,f.a,f.cup,f.h===S.user?0:1);m.runAll();finishWeek(m);UI.view='week';render();window.scrollTo(0,0);break}
-    case 'speed':{const L=UI.live;if(v==='pause')L.paused=!L.paused;else{L.paused=false;L.speed=+v}liveControls();break}
+    case 'speed':{const L=UI.live;if(v==='pause')L.paused=!L.paused;else{L.paused=false;L.speed=v==='hl'?'hl':+v}liveControls();break}
     case 'showsubs':{const L=UI.live;L.showSubs=!L.showSubs;L.subIn=L.subOut=null;liveSubs();break}
     case 'subout':UI.live.subOut=+v;liveSubs();break;
     case 'subin':UI.live.subIn=+v;liveSubs();break;
@@ -1569,6 +1891,19 @@ document.addEventListener('click',e=>{
     case 'sndtoggle':UI.sound=!UI.sound;if(UI.sound){auInit();try{AU.ctx.resume()}catch(err){}if(!UI.live.m.done)ambient(true)}else ambient(false);liveControls();break;
     case 'livedone':{const L=UI.live;cancelAnimationFrame(L.raf);if(L.viz)window.removeEventListener('resize',L.viz._rs);ambient(false);UI.live=null;finishWeek(L.m);UI.view='week';render();window.scrollTo(0,0);break}
     case 'install':doInstall();break;
+    case 'talk':closeModal();startTalks(+v,'buy');break;
+    case 'renewtalk':closeModal();startTalks(+v,'renew');break;
+    case 'negacc':{const N=UI.neg;if(N){negFee(N.counter);negModal()}break}
+    case 'haggle':{const o=S.offers.find(x=>x.id===+v);if(!o||o.hag)break;o.hag=true;const p=P(o.pid);
+      if(R()<.55){o.amount=Math.round(Math.min(value(p)*1.7,o.amount*(1.08+R()*.12))/5000)*5000;o.exp=S.week+2;news(`${C(o.from).name} raise their bid for ${pname(p)} to ${money(o.amount)}.`,'offer',{offer:o.id});toast(`They raised it to ${money(o.amount)}`)}
+      else{S.offers=S.offers.filter(x=>x!==o);news(`${C(o.from).name} walk away from the deal for ${pname(p)}.`,'bad');toast('They walked away')}
+      closeModal();save();render();break}
+    case 'paper':openModal(`<div class="row" style="justify-content:flex-end;margin-bottom:8px"><button class="btn ghost sm" data-act="close" aria-label="Close">✕</button></div>${paperHTML(S.paper)}`);break;
+    case 'stadview':UI.stadView=v;render();break;
+    case 'prog':S.com.prog=+v;save();render();break;
+    case 'cater':S.com.cater=+v;save();render();break;
+    case 'order':{const q=+v;const cost=q*(q>=2000?14:17);if(cost>u.cash+overdraft(u)){toast('Not enough money for that order.');break}u.cash-=cost;S.ledger.stock+=cost;S.com.stock+=q;S.com.warned=false;news(`Ordered ${int(q)} replica shirts for ${money(cost)}.`);save();render();toast(`${int(q)} shirts on their way`);break}
+    case 'adsell':{const cm=S.com;const o=cm.boardOffers.find(x=>x.id===+v);if(!o||cm.boards.length>=12)break;cm.boards.push({name:o.name,weekly:o.weekly,left:o.weeks});cm.boardOffers=cm.boardOffers.filter(x=>x!==o);news(`${o.name} take an advertising board: ${money(o.weekly)} a week for ${o.weeks} weeks.`,'good');save();render();break}
     case 'newseason':S.review=null;UI.view='home';save();render();window.scrollTo(0,0);break;
   }
 });
@@ -1582,22 +1917,26 @@ document.addEventListener('change',e=>{
     case 'msort':UI.mkt.sort=el.value;render();break;
     case 'lment':{const L=UI.live;L.m.s[L.m.us].ment=+el.value;u.tac.ment=+el.value;break}
     case 'price':u.price=+el.value;save();render();break;
+    case 'shirtp':S.com.shirt=+el.value;save();break;
   }
 });
 document.addEventListener('input',e=>{
-  const el=e.target;if(el.id!=='price'||!S)return;const u=UC();const p=+el.value;const cap=stadiumCap(u);const est=Math.round(Math.min(cap,demand(u,null,false,p)));
+  const el=e.target;if(el.id==='shirtp'&&S){$('#shirtv').textContent='€'+el.value;return}if(el.id!=='price'||!S)return;const u=UC();const p=+el.value;const cap=stadiumCap(u);const est=Math.round(Math.min(cap,demand(u,null,false,p)));
   $('#p-price').textContent='€'+p;$('#p-att').textContent=int(est);$('#p-rev').textContent=money(est*p);$('#p-full').textContent=est>=cap?'sold out':Math.round(est/cap*100)+'% full';
 });
 document.addEventListener('submit',e=>{
-  const f=e.target;if(f.dataset.form!=='bid')return;e.preventDefault();
+  const f=e.target;
+  if(f.dataset.form==='negfee'){e.preventDefault();negFee(Math.max(0,+$('#nfee').value||0));negModal();return}
+  if(f.dataset.form==='negterms'){e.preventDefault();negTerms(Math.max(0,+$('#nw').value||0),Math.max(0,+$('#ns').value||0),+$('#ny').value);if(UI.neg)negModal();return}
+  if(f.dataset.form!=='bid')return;e.preventDefault();
   const pid=+f.dataset.v;const fee=+($('#bfee').value||0),wage=+($('#bwage').value||0),yrs=+$('#byrs').value;
   const r=tryBid(pid,P(pid).club>=0?fee:0,wage,yrs);const msg=$('#bidmsg');msg.className=r.ok?'good':'warn';msg.textContent=r.msg;
   if(r.counter)$('#bfee').value=r.counter;if(r.wage)$('#bwage').value=r.wage;
   if(r.ok){render();setTimeout(closeModal,900)}
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#modal').hidden)closeModal()});
-$('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
-window.addEventListener('resize',()=>{if(UI.view==='stadium'&&S)drawStadium($('#stad'),UC())});
+$('#modal').addEventListener('click',e=>{if(e.target.id==='modal'&&!UI.neg)closeModal()});
+window.addEventListener('resize',()=>{if(!S||S.user<0)return;if(UI.view==='stadium'||UI.view==='home')render()});
 
 /* ---------- installable app ---------- */
 const APP={prompt:null,installed:false};
@@ -1620,8 +1959,9 @@ if(canSW()){window.addEventListener('load',()=>{navigator.serviceWorker.register
 
 /* ---------- boot ---------- */
 function start(data){
-  if(data&&data.S&&data.S.v===1){S=data.S;UI.view=data.view&&!['live','pre'].includes(data.view)?data.view:'home'}
+  if(data&&data.S&&data.S.v===1){S=data.S;migrate();UI.view=data.view&&!['live','pre'].includes(data.view)?data.view:'home'}
   else{const s=load();if(s){S=s;UI.view=S.review?'season':'home'}}
+  migrate();
   render();
 }
 try{window.claude?.hot?.snapshot?.(()=>({S:S&&S.user>=0?S:null,view:UI.view}))}catch(e){}
